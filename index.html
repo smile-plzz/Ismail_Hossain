@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Md. Ismail Hossain - Technology Professional Portfolio">
+    <meta name="keywords" content="CV, resume, web developer, Ismail Hossain, portfolio, computer science">
+    <meta name="author" content="Md. Ismail Hossain">
+    <title>Md. Ismail Hossain | CV</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            scroll-behavior: smooth;
+        }
+        .section { 
+            padding: 5rem 2rem; 
+            transition: all 0.5s ease;
+        }
+        .fade-in { 
+            opacity: 0; 
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible { 
+            opacity: 1; 
+            transform: translateY(0);
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-semibold flex items-center">
+                <i class="fas fa-user-tie mr-2 text-blue-600"></i> Md. Ismail Hossain
+            </h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link hover:text-blue-600">About</a>
+                <a href="#skills" class="nav-link hover:text-blue-600">Skills</a>
+                <a href="#education" class="nav-link hover:text-blue-600">Education</a>
+                <a href="#projects" class="nav-link hover:text-blue-600">Projects</a>
+                <a href="#experience" class="nav-link hover:text-blue-600">Experience</a>
+                <a href="#contact" class="nav-link hover:text-blue-600">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full px-6 py-2" id="mobile-menu">
+            <div class="flex flex-col space-y-3 pb-4">
+                <a href="#about" class="nav-link hover:text-blue-600">About</a>
+                <a href="#skills" class="nav-link hover:text-blue-600">Skills</a>
+                <a href="#education" class="nav-link hover:text-blue-600">Education</a>
+                <a href="#projects" class="nav-link hover:text-blue-600">Projects</a>
+                <a href="#experience" class="nav-link hover:text-blue-600">Experience</a>
+                <a href="#contact" class="nav-link hover:text-blue-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="pt-24 section bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+        <div class="container mx-auto text-center">
+            <div class="max-w-3xl mx-auto">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocIfs7HKKDQbErYShrnxcTdDFOvbiUn1oX2gyXeU5yRnqEKxOsR1Yg=s288-c-no" alt="Profile" class="rounded-full mx-auto mb-6 border-4 border-white shadow-lg fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 fade-in">Md. Ismail Hossain</h2>
+                <p class="text-xl md:text-2xl mb-4 fade-in">
+                    <i class="fas fa-graduation-cap mr-2"></i>Technology Professional | Master's in IT
+                </p>
+                <p class="text-lg mb-6 fade-in">
+                    Tech-savvy professional with a B.S. in Computer Science & Engineering, pursuing an M.S. in IT. Skilled in data communication, web tech, and info systems, I aim to boost innovation and growth using programming, database, and version control expertise.
+                    
+                </p>
+                <div class="flex justify-center space-x-4 fade-in">
+                    <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center">
+                        <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/smile-plzz" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                    <a href="https://www.facebook.com/optimisticyetpessimist/" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center">
+                        <i class="fab fa-facebook mr-2"></i> Facebook
+                    </a>
+                </div>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-left fade-in">
+                    <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-blue-200"></i>
+                            <p>Darussalam Tower, Darussalam, Dhaka</p>
+                        </div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-blue-200"></i>
+                            <p>+88-01866304933</p>
+                        </div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-blue-200"></i>
+                            <p>ismailhossain013@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Objective -->
+    <section class="section bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-blue-50 p-6 rounded-xl shadow-sm fade-in">
+                <h3 class="text-2xl font-semibold mb-4 flex items-center text-blue-700">
+                    <i class="fas fa-bullseye mr-3"></i>Career Objective
+                </h3>
+                <p class="text-gray-700">
+                    Passionate and adaptable technology professional, armed with a Bachelor's degree in Computer Science & Engineering. Currently pursuing Masters on Information Technology. Dedicated to leveraging expertise in data communication, web technologies, and information systems. My goal is to contribute to a dynamic and innovative team, utilizing programming languages alongside proficiency in database management and version control tools. My continuous pursuit of expanding skills, staying updated on emerging technologies, aims to make a meaningful impact in technology, fostering both business growth and user satisfaction.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
+                <i class="fas fa-tools mr-3 text-blue-600"></i>Skills
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Programming Languages -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold">Programming Languages</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>JAVA</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>Python (Basic)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>C++</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>C</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Operating Systems -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-desktop text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold">Operating Systems</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>Windows</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>Linux (Ubuntu)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>MacOS</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Database -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-database text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold">Database</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>MySQL</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Version Control -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code-branch text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold">Version Control</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>GitHub</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Software Expertise -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-laptop-code text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold">Software Expertise</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>Microsoft Office</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>Adobe Premier Pro</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>Adobe After Effects (Basic)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>Adobe Photoshop (Basic)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>Adobe Lightroom</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>Adobe Illustrator (Basic)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <span>Audacity</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Language Proficiency -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-language text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold">Language Proficiency</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead>
+                                <tr>
+                                    <th class="px-4 py-2 text-left">Language</th>
+                                    <th class="px-4 py-2 text-left">Reading</th>
+                                    <th class="px-4 py-2 text-left">Writing</th>
+                                    <th class="px-4 py-2 text-left">Speaking</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2">Bengali</td>
+                                    <td class="px-4 py-2">
+                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                    </td>
+                                    <td class="px-4 py-2">
+                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                    </td>
+                                    <td class="px-4 py-2">
+                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2">English</td>
+                                    <td class="px-4 py-2">
+                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                    </td>
+                                    <td class="px-4 py-2">
+                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                    </td>
+                                    <td class="px-4 py-2">
+                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
+                <i class="fas fa-graduation-cap mr-3 text-blue-600"></i>Education
+            </h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Masters -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold flex items-center">
+                                <i class="fas fa-university mr-3 text-blue-600"></i>
+                                Masters in Information Technology
+                            </h3>
+                            <p class="text-gray-600 mt-1 ml-8">Jahangirnagar University</p>
+                            <p class="text-gray-600 mt-1 ml-8">Focus on</p>
+<ul class="list-disc ml-12">
+    <li>Cloud and Mobile Computing</li>
+    <li>Artificial Intelligence & Neural Network</li>
+    <li>IOT and Fog Computing</li>
+    <li>Computational Thinking and Data Science</li>
+    <li>Software Testing & Quality Assurance</li>
+    <li>Mobile Application Development</li>
+    <li>Wireless Network</li>
+    <li>Data Mining & Knowledge Discovery</li>
+    <li>Machine Learning</li>
+    <li>Human Computer Interaction</li>
+</ul>
+                        </div>
+                        <div class="mt-3 md:mt-0">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                                <i class="fas fa-star mr-1"></i> 3.69/4.00
+                            </span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                                <i class="far fa-calendar-alt mr-1"></i> 2025 (Expected)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BSc -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold flex items-center">
+                                <i class="fas fa-university mr-3 text-blue-600"></i>
+                                BSc in Computer Science & Engineering
+                            </h3>
+                            <p class="text-gray-600 mt-1 ml-8">North South University</p>
+                            <p class="text-gray-600 mt-1 ml-8">Focus on</p>
+<ul class="list-disc ml-12">
+    <li>Database Systems</li>
+    <li>Design and Analysis of Algorithms</li>
+    <li>Digital Logic Design</li>
+    <li>Operating Systems Design</li>
+    <li>Software Engineering</li>
+    <li>Computer Organization and Architecture</li>
+    <li>Microprocessor Interfacing and Embedded System</li>
+</ul>
+                        </div>
+                        <div class="mt-3 md:mt-0">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                                <i class="fas fa-star mr-1"></i> CGPA: 2.63/4.00 (79%-80% Marks)
+                            </span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                                <i class="far fa-calendar-alt mr-1"></i> 2023
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Higher Secondary -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold flex items-center">
+                                <i class="fas fa-school mr-3 text-blue-600"></i>
+                                Higher Secondary School Certificate (Science)
+                            </h3>
+                            <p class="text-gray-600 mt-1 ml-8">Government Bangla College</p>
+                        </div>
+                        <div class="mt-3 md:mt-0">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                                <i class="fas fa-star mr-1"></i> CGPA: 3.83/5.00
+                            </span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                                <i class="far fa-calendar-alt mr-1"></i> 2018
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold flex items-center">
+                                <i class="fas fa-school mr-3 text-blue-600"></i>
+                                Secondary School Certificate (Science)
+                            </h3>
+                            <p class="text-gray-600 mt-1 ml-8">Dhanmondi Govt Boyz High School</p>
+                        </div>
+                        <div class="mt-3 md:mt-0">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                                <i class="fas fa-star mr-1"></i> CGPA: 5.00/5.00
+                            </span>
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium ml-2">
+                                <i class="far fa-calendar-alt mr-1"></i> 2016
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
+                <i class="fas fa-project-diagram mr-3 text-blue-600"></i>Academic Projects
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Healthcare System -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-medkit text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold">Healthcare System with OCR</h3>
+                    </div>
+                    <p class="text-gray-600 mb-3">
+                        <span class="font-medium">Group Project (Senior Capstone)</span> | React JS, SQL, OpenCV, PyTesseract, TensorFlow
+                    </p>
+                    <p class="mb-4">
+                        A web-based platform offering seamless online doctor consultations, integrated with Optical Character Recognition (OCR) to digitize and organize medical documents. Med-Tech ensures accurate medical history tracking for improved diagnosis and personalized treatment.                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            React JS
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            SQL
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            OpenCV
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            PyTesseract
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            TensorFlow
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Online Shop -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shopping-cart text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold">Online Arts & Crafts Shop</h3>
+                    </div>
+                    <p class="text-gray-600 mb-3">
+                        <span class="font-medium">Individual Project (Junior Capstone)</span> | HTML, CSS, AJAX
+                    </p>
+                    <p class="mb-4">
+                        Designed a full-stack e-commerce platform with inventory tracking, sales analytics and payment processing system. Developed the e-commerce website using HTML, CSS ensuring better responsiveness with AJAX.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            HTML
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            CSS
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            AJAX
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Hotel Management -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-hotel text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold">Hotel Management System</h3>
+                    </div>
+                    <p class="text-gray-600 mb-3">
+                        <span class="font-medium">Group Project (Academic Course inclusive)</span> | Java, JavaFX
+                    </p>
+                    <p class="mb-4">
+                        Created a system to streamline hotel operations, including bookings and billing. Developed the application using Java, incorporating GUI development with JavaFX for an interactive user interface.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            Java
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            JavaFX
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            GUI Development
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Bank Database -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-piggy-bank text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold">Bank Database System</h3>
+                    </div>
+                    <p class="text-gray-600 mb-3">
+                        <span class="font-medium">Group Project (Academic Course inclusive)</span> | C Language
+                    </p>
+                    <p class="mb-4">
+                        Developed a database for managing client and employee information in a banking environment. Implemented the system using C language for database operations and management.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            C Language
+                        </span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                            Database Management
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research and Publications -->
+    <section class="section bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
+                <i class="fas fa-microscope mr-3 text-blue-600"></i>Research and Publications
+            </h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Med-Tech -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <h3 class="text-xl font-semibold mb-2">Med-Tech: Online doctor consultation with Optical Character Recognition (OCR)</h3>
+                    <p class="text-gray-600 mb-3">
+                        <span class="font-medium">Authors:</span> Md. Ismail Hossain, Sabab Ishraq, Md. Fazlay Rabbi Nabid
+                    </p>
+                    <p class="mb-3">
+                        <span class="font-medium">Supervisor:</span> Dr. Shohana Rahman Deeba (Associate Professor)
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        DEPARTMENT OF ELECTRICAL AND COMPUTER ENGINEERING, NORTH SOUTH UNIVERSITY
+                    </p>
+
+                </div>
+
+                <!-- Brain Tumor -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <h3 class="text-xl font-semibold mb-2">Brain Tumor Classification using Efficient-Net and Grad-Cam</h3>
+                    <p class="text-gray-600 mb-3">
+                        <span class="font-medium">Authors:</span> Md. Ismail Hossain, MD. Kawser Islam, Yeaser Shams
+                    </p>
+                    <p class="mb-3">
+                        <span class="font-medium">Supervisor:</span> Dr. Mohammad Monirujjaman Khan (Associate Professor)
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        DEPARTMENT OF ELECTRICAL AND COMPUTER ENGINEERING, NORTH SOUTH UNIVERSITY
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
+                <i class="fas fa-briefcase mr-3 text-blue-600"></i>Work Experience
+            </h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Guest Instructor -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold flex items-center">
+                                <i class="fas fa-chalkboard-teacher mr-3 text-blue-600"></i>
+                                Guest Instructor - Department of Web-Designing
+                            </h3>
+                            <p class="text-gray-600 mt-1 ml-8">Bangladesh KOREA Technical Training Center</p>
+                        </div>
+                        <div class="mt-3 md:mt-0">
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
+                                <i class="far fa-calendar-alt mr-1"></i> 2017 - 2018
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-4 ml-8">
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Instructed students on designing fully functional websites, encompassing both aesthetic and usability aspects.</li>
+                            <li>Provided training in front-end development and back-end database management, equipping students with comprehensive web development skills.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Consultant -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold flex items-center">
+                                <i class="fas fa-user-tie mr-3 text-blue-600"></i>
+                                Consultant
+                            </h3>
+                            <p class="text-gray-600 mt-1 ml-8">Dhaka IT</p>
+                        </div>
+                        <div class="mt-3 md:mt-0">
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
+                                <i class="far fa-calendar-alt mr-1"></i> 2018 - 2019
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-4 ml-8">
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Oversaw software design and development processes to ensure high-quality outputs.</li>
+                            <li>Advised clients on the maintenance and optimization of software systems, enhancing overall performance and user experience.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Entrepreneurial Venture: -->
+    <section id="experience" class="section bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
+                <i class="fas fa-briefcase mr-3 text-blue-600"></i>Entrepreneurial Venture
+            </h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!--  NO MORE FREE MUSIC -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold flex items-center">
+                                <i class="fas fa-music mr-3 text-blue-600"></i>
+                                 NO MORE FREE MUSIC (Co-Founder)
+                            </h3>
+                            <p class="text-gray-600 mt-1 ml-8">Music Culture Initiative</p>
+                        </div>
+                        <div class="mt-3 md:mt-0">
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
+                                <i class="far fa-calendar-alt mr-1"></i> 2021 - 2022
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-4 ml-8">
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Launched an initiative dedicated to fostering a respectful and robust music culture, aiming to elevate the value of music.</li>
+                            <li>Debut show: "NMFM Unplugged 1."</li>
+                            <li>Managed projects including the music video premiere for "Ojanay" by Velvet Wings and the release of "Othocho" by Fantasy Realm.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 15-Miles -->
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-semibold flex items-center">
+                                <i class="fas fa-video mr-3 text-blue-600"></i>
+                                15-Miles (Founder)
+                            </h3>
+                            <p class="text-gray-600 mt-1 ml-8">Video Production Firm</p>
+                        </div>
+                        <div class="mt-3 md:mt-0">
+                            <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
+                                <i class="far fa-calendar-alt mr-1"></i> 2021 - 2023
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-4 ml-8">
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Established a video production firm specializing in documentaries, promotional content, music videos, and lyric videos, renowned for exceptional aerial shots and drone footage.</li>
+                            <li>Completed projects including live music video productions, documentary films, and aerial surveys.</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Extra-Curricular Activities -->
+    <section class="section bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
+                <i class="fas fa-running mr-3 text-blue-600"></i>Extra-Curricular Activities
+            </h2>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Training Sessions -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-chalkboard mr-3 text-blue-600"></i>
+                        <h3 class="text-lg font-semibold">Facilitated Training Sessions</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        Conducted a three-day training program on "Management of E-Learning" at a government educational institution, enhancing educators' proficiency in digital teaching methodologies.
+                    </p>
+                </div>
+
+                <!-- Documentary Production -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-film mr-3 text-blue-600"></i>
+                        <h3 class="text-lg font-semibold">Documentary and Video Production</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        Produced a documentary titled "Institute of Marine Technology, Chadpur," highlighting the institution's contributions to marine education and technology. And live musical performance video for a renowned Bangladeshi band called Aftermath.
+                    </p>
+                </div>
+
+                <!-- Aerial Drone Survey -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-drone mr-3 text-blue-600"></i>
+                        <h3 class="text-lg font-semibold">Aerial Drone Survey</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        Executed an aerial drone survey for a reputable civil firm, supporting various government projects and promoting the integration of advanced technology in civil engineering practices.
+                    </p>
+                </div>
+
+                <!-- Network Infrastructure -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-network-wired mr-3 text-blue-600"></i>
+                        <h3 class="text-lg font-semibold">Internet Network Infrastructure Project</h3>
+                    </div>
+                    <p class="text-gray-700">
+                        Designed and implemented a comprehensive internet network infrastructure for a computer laboratory at Dhaka Technical Teachers Training Institute (DTTTI), optimizing connectivity, resource sharing, and operational efficiency for educational purposes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
+                <i class="fas fa-certificate mr-3 text-blue-600"></i>Certifications and Training
+            </h2>
+            <div class="max-w-4xl mx-auto space-y-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold flex items-center">
+                                <i class="fas fa-shield-alt mr-3 text-blue-600"></i>
+                                Introduction to Cybersecurity
+                            </h3>
+                            <p class="text-gray-600 ml-8">Networking Academy | Dec 19, 2024 | 6 Hours</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 ml-8">
+                        <p class="text-gray-700">
+                            Gained foundational knowledge of cybersecurity concepts, threat analysis, and digital security essentials.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold flex items-center">
+                                <i class="fas fa-laptop-code mr-3 text-blue-600"></i>
+                                Computer Operation Level-3
+                            </h3>
+                            <p class="text-gray-600 ml-8">National Skills Development Authority (NSDA) | Feb 24, 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-blue-600 text-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold mb-8 fade-in">
+                <i class="fas fa-envelope mr-3"></i>Contact Me
+            </h2>
+            <div class="max-w-md mx-auto">
+                <div class="mb-6 fade-in">
+                    <div class="flex items-center justify-center mb-2">
+                        <i class="fas fa-envelope mr-3"></i>
+                        <a href="mailto:ismailhossain013@gmail.com" class="hover:underline">ismailhossain013@gmail.com</a>
+                    </div>
+                    <div class="flex items-center justify-center mb-2">
+                        <i class="fas fa-phone-alt mr-3"></i>
+                        <span>+88-01866304933</span>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-map-marker-alt mr-3"></i>
+                        <span>Darussalam Tower, Darussalam, Dhaka</span>
+                    </div>
+                </div>
+                <div class="flex justify-center space-x-6 mb-8 fade-in">
+                    <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="text-white hover:text-blue-200 text-2xl">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/smile-plzz" target="_blank" class="text-white hover:text-blue-200 text-2xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <p class="text-xl fade-in">
+                    Let's connect to build something innovative!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-6 text-center">
+        <div class="container mx-auto">
+            <p class="fade-in">&copy; 2023 Md. Ismail Hossain. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    mobileMenu.classList.add('hidden');
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Fade-in animation
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(el => observer.observe(el));
+
+            // Add shadow to navbar on scroll
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 10) {
+                    nav.classList.add('shadow-lg');
+                } else {
+                    nav.classList.remove('shadow-lg');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
