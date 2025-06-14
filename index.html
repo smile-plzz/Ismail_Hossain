@@ -796,13 +796,6 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        .video-container:hover ~ .card-hover::before,
-        .card-hover:hover .video-container:hover ~ .card-hover::before {
-            opacity: 0;
-        }
-        .video-container:hover {
-            z-index: 20;
-        }
         .card-hover:has(.video-container:hover)::before {
             opacity: 1;
         }
@@ -824,23 +817,35 @@
     <script>
         let players = {};
         function onYouTubeIframeAPIReady() {
-            players['youtube-player-1'] = new YT.Player('youtube-player-1', {
-                events: { 'onReady': onPlayerReady }
-            });
-            players['youtube-player-2'] = new YT.Player('youtube-player-2', {
-                events: { 'onReady': onPlayerReady }
-            });
+            try {
+                players['youtube-player-1'] = new YT.Player('youtube-player-1', {
+                    events: { 'onReady': onPlayerReady }
+                });
+                players['youtube-player-2'] = new YT.Player('youtube-player-2', {
+                    events: { 'onReady': onPlayerReady }
+                });
+            } catch (e) {
+                console.error('YouTube API initialization failed:', e);
+            }
         }
         function onPlayerReady(event) {
             const iframeId = event.target.getIframe().id;
             const iframe = document.getElementById(iframeId);
             iframe.addEventListener('mouseenter', () => {
-                players[iframeId].playVideo();
-                players[iframeId].unMute();
+                try {
+                    players[iframeId].playVideo();
+                    players[iframeId].unMute();
+                } catch (e) {
+                    console.error(`Error playing video ${iframeId}:`, e);
+                }
             });
             iframe.addEventListener('mouseleave', () => {
-                players[iframeId].pauseVideo();
-                players[iframeId].mute();
+                try {
+                    players[iframeId].pauseVideo();
+                    players[iframeId].mute();
+                } catch (e) {
+                    console.error(`Error pausing video ${iframeId}:`, e);
+                }
             });
         }
     </script>
