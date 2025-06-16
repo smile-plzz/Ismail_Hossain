@@ -744,7 +744,8 @@
 
 
 
-<!--15 miles !--><div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in transition-transform duration-300 hover:scale-105 group">
+<!--15 miles !-->
+<div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in transition-transform duration-300 hover:scale-105 group">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between">
         <div>
             <h3 class="text-xl font-semibold flex items-center">
@@ -770,92 +771,166 @@
             </a>
         </div>
     </div>
-    <div class="mt-6 video-section hidden group-hover:block max-w-4xl mx-auto">
+    <div class="mt-6 video-section max-w-4xl mx-auto">
+        <!-- Hero Video -->
+        <div class="hero-video mb-6">
+            <div class="relative rounded-lg overflow-hidden">
+                <iframe class="w-full h-80" src="https://www.youtube.com/embed/-Do0eJRvRZA?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <span class="absolute top-2 left-2 bg-blue-600 text-white px-2 py-1 rounded text-sm font-medium">Featured</span>
+            </div>
+            <p class="text-gray-700 mt-2 text-center">Documentary: Signature Work</p>
+        </div>
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap gap-2 mb-4">
+            <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded text-sm font-medium" data-category="all">All</button>
+            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded text-sm font-medium" data-category="documentary">Documentaries</button>
+            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded text-sm font-medium" data-category="music">Music Videos</button>
+            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded text-sm font-medium" data-category="aerial">Aerial Shots</button>
+        </div>
+        <!-- Video Carousel -->
         <div class="relative">
-            <div class="video-carousel grid grid-cols-3 gap-4 pb-4">
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/emZoF0r4_aE?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video-carousel flex overflow-x-auto gap-4 pb-4 scroll-smooth">
+                <!-- Video Thumbnails with Categories -->
+                <div class="video-container flex-shrink-0 w-64" data-category="documentary">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('emZoF0r4_aE', 'Documentary: Coastal Aerials')">
+                        <img src="https://img.youtube.com/vi/emZoF0r4_aE/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Documentary: Coastal Aerials</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/ztm412kovcE?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="music">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('ztm412kovcE', 'Music Video: Live Performance')">
+                        <img src="https://img.youtube.com/vi/ztm412kovcE/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Music Video: Live Performance</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/zCWmwOvZsME?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="aerial">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('zCWmwOvZsME', 'Aerial Shots: Cityscape')">
+                        <img src="https://img.youtube.com/vi/zCWmwOvZsME/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Aerial Shots: Cityscape</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/2b7pnUNBKUk?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="documentary">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('2b7pnUNBKUk', 'Documentary: Wildlife Exploration')">
+                        <img src="https://img.youtube.com/vi/2b7pnUNBKUk/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Documentary: Wildlife Exploration</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/SsRKK9sX44E?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="music">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('SsRKK9sX44E', 'Music Video: Lyric Video')">
+                        <img src="https://img.youtube.com/vi/SsRKK9sX44E/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Music Video: Lyric Video</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/7wZCpOZHN9U?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="aerial">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('7wZCpOZHN9U', 'Aerial Shots: Mountain Range')">
+                        <img src="https://img.youtube.com/vi/7wZCpOZHN9U/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Aerial Shots: Mountain Range</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/d9pYOkbD5LY?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="documentary">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('d9pYOkbD5LY', 'Documentary: Cultural Heritage')">
+                        <img src="https://img.youtube.com/vi/d9pYOkbD5LY/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Documentary: Cultural Heritage</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/muq234HFGhg?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="music">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('muq234HFGhg', 'Music Video: Concert Highlight')">
+                        <img src="https://img.youtube.com/vi/muq234HFGhg/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Music Video: Concert Highlight</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/wOBGl1jBrj4?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="aerial">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('wOBGl1jBrj4', 'Aerial Shots: Coastal Drone')">
+                        <img src="https://img.youtube.com/vi/wOBGl1jBrj4/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Aerial Shots: Coastal Drone</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/sNHWR5WrXWs?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="documentary">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('sNHWR5WrXWs', 'Documentary: Urban Life')">
+                        <img src="https://img.youtube.com/vi/sNHWR5WrXWs/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Documentary: Urban Life</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/rCqvzA48n1A?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="music">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('rCqvzA48n1A', 'Music Video: Studio Session')">
+                        <img src="https://img.youtube.com/vi/rCqvzA48n1A/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Music Video: Studio Session</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/9VKEH79AwyY?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="aerial">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('9VKEH79AwyY', 'Aerial Shots: Forest Canopy')">
+                        <img src="https://img.youtube.com/vi/9VKEH79AwyY/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Aerial Shots: Forest Canopy</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/iYb2zYPgSEc?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="documentary">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('iYb2zYPgSEc', 'Documentary: Historical Sites')">
+                        <img src="https://img.youtube.com/vi/iYb2zYPgSEc/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Documentary: Historical Sites</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/OHNttaL_XsY?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="music">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('OHNttaL_XsY', 'Music Video: Acoustic Performance')">
+                        <img src="https://img.youtube.com/vi/OHNttaL_XsY/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Music Video: Acoustic Performance</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/JI-_NriqYZY?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="aerial">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('JI-_NriqYZY', 'Aerial Shots: River Valley')">
+                        <img src="https://img.youtube.com/vi/JI-_NriqYZY/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Aerial Shots: River Valley</p>
+                    </div>
                 </div>
-                <div class="video-container rounded-lg overflow-hidden flex-shrink-0">
-                    <iframe class="video-iframe" width="100%" height="150" src="https://www.youtube.com/embed/EX70bY-Nw2Y?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-container flex-shrink-0 w-64" data-category="documentary">
+                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" onclick="openModal('EX70bY-Nw2Y', 'Documentary: Community Stories')">
+                        <img src="https://img.youtube.com/vi/EX70bY-Nw2Y/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <p class="text-gray-700 text-sm mt-2">Documentary: Community Stories</p>
+                    </div>
                 </div>
             </div>
-            <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors">
+            <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors hidden group-hover:block">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors">
+            <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors hidden group-hover:block">
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
+        <!-- Modal -->
+        <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
+            <div class="bg-white p-4 rounded-lg max-w-3xl w-full">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modalTitle" class="text-lg font-semibold"></h3>
+                    <button onclick="closeModal()" class="text-gray-600 hover:text-gray-800 text-xl">×</button>
+                </div>
+                <iframe id="modalIframe" width="100%" height="400" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
     <style>
-        .video-section.hidden {
-            display: none;
-        }
-        .card-hover:hover .video-section {
+        .video-section {
             display: block;
         }
-        .video-iframe {
-            border: 4px solid #e5e7eb;
-            padding: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            aspect-ratio: 16 / 9;
+        .hero-video iframe {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
         .video-carousel {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
         }
         .video-container {
-            background-color: #fff;
+            scroll-snap-align: start;
             transition: transform 0.3s ease;
         }
-        .video-container:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 10;
+        .thumbnail {
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
         }
         .carousel-prev, .carousel-next {
             display: none;
@@ -864,39 +939,61 @@
         .video-section:hover .carousel-next {
             display: block;
         }
+        #videoModal {
+            transition: opacity 0.3s ease;
+        }
+        #videoModal.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
         @media (max-width: 768px) {
-            .video-carousel {
-                grid-template-columns: 1fr;
+            .hero-video iframe {
+                height: 200px;
             }
-            .video-container:hover {
-                transform: scale(1.05);
+            .video-carousel {
+                gap: 1rem;
+            }
+            .video-container {
+                width: 70vw;
+            }
+            .thumbnail:hover {
+                transform: scale(1.03);
             }
         }
     </style>
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        let players = {};
-        function onYouTubeIframeAPIReady() {
-            document.querySelectorAll('.video-iframe').forEach((iframe, index) => {
-                const playerId = `youtube-player-${index + 1}`;
-                iframe.id = playerId;
-                players[playerId] = new YT.Player(playerId, {
-                    events: { 'onReady': onPlayerReady }
+        function openModal(videoId, title) {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('modalIframe');
+            const modalTitle = document.getElementById('modalTitle');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
+            modalTitle.textContent = title;
+            modal.classList.remove('hidden');
+        }
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('modalIframe');
+            iframe.src = '';
+            modal.classList.add('hidden');
+        }
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.replace('bg-blue-600', 'bg-gray-200');
+                    b.classList.replace('text-white', 'text-gray-800');
+                });
+                btn.classList.replace('bg-gray-200', 'bg-blue-600');
+                btn.classList.replace('text-gray-800', 'text-white');
+                const category = btn.dataset.category;
+                document.querySelectorAll('.video-container').forEach(video => {
+                    if (category === 'all' || video.dataset.category === category) {
+                        video.style.display = 'block';
+                    } else {
+                        video.style.display = 'none';
+                    }
                 });
             });
-        }
-        function onPlayerReady(event) {
-            const iframeId = event.target.getIframe().id;
-            const iframe = document.getElementById(iframeId);
-            iframe.addEventListener('mouseenter', () => {
-                players[iframeId].playVideo();
-                players[iframeId].unMute();
-            });
-            iframe.addEventListener('mouseleave', () => {
-                players[iframeId].pauseVideo();
-                players[iframeId].mute();
-            });
-        }
+        });
         document.querySelector('.carousel-prev').addEventListener('click', () => {
             const carousel = document.querySelector('.video-carousel');
             carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
