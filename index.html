@@ -57,6 +57,24 @@
         .nav-link:hover::after {
             width: 100%;
         }
+    /* Reset default margins and ensure full-width (FIX!!)*/
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Reduce padding for mobile (FIX!!) */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .section {
+        padding: 3rem 0.5rem;
+    }
+}
+        
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
