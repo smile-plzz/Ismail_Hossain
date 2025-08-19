@@ -1,0 +1,17 @@
+{
+  "name": "Md. Ismail Hossain | CV",
+  "short_name": "Ismail CV",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e40af",
+  "theme_color": "#1e40af",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
+
