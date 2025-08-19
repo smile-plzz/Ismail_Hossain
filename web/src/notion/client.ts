@@ -25,3 +25,10 @@ export async function getProjectsFromNotion(databaseId: string): Promise<NotionP
   });
 }
 
+// Generic helpers for simple databases
+export async function querySimpleList(databaseId: string) {
+  if (!databaseId) return [];
+  const res = await notion.databases.query({ database_id: databaseId });
+  return res.results;
+}
+

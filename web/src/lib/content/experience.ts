@@ -1,5 +1,4 @@
-import { sanityFetch } from '@/sanity/client';
-import { experienceQuery } from '@/sanity/queries';
+import { querySimpleList } from '@/notion/client';
 
 export type Experience = {
   id: string;
@@ -12,16 +11,22 @@ export type Experience = {
 };
 
 export async function getExperience(): Promise<Experience[]> {
-  const data = await sanityFetch<any[]>(experienceQuery);
-  return (data || []).map(x => ({
-    id: x._id,
-    role: x.role,
-    company: x.company,
-    start: x.start,
-    end: x.end,
-    bullets: x.bullets || [],
-    links: x.links || [],
-  }));
+  const db = process.env.NOTION_EXPERIENCE_DATABASE_ID || '';
+  const rows = await querySimpleList(db);
+  return rows.map((page: any) => {
+    const p = page.properties || {};
+    const bulletsText = p.Bullets?.rich_text?.[0]?.plain_text || '';
+    const links = (p.Links?.url ? [p.Links.url] : []).filter(Boolean);
+    return {
+      id: page.id,
+      role: p.Role?.title?.[0]?.plain_text || 'Role',
+      company: p.Company?.rich_text?.[0]?.plain_text || '',
+      start: p.Start?.rich_text?.[0]?.plain_text,
+      end: p.End?.rich_text?.[0]?.plain_text,
+      bullets: bulletsText ? bulletsText.split('\n').filter(Boolean) : [],
+      links,
+    };
+  });
 }
 
 

@@ -1,5 +1,4 @@
-import { sanityFetch } from '@/sanity/client';
-import { aboutQuery } from '@/sanity/queries';
+import { notion, querySimpleList } from '@/notion/client';
 
 export type About = {
   headline?: string;
@@ -11,15 +10,17 @@ export type About = {
 };
 
 export async function getAbout(): Promise<About | null> {
-  const data = await sanityFetch<any>(aboutQuery);
-  if (!data) return null;
+  const db = process.env.NOTION_ABOUT_DATABASE_ID || '';
+  const rows = await querySimpleList(db);
+  const page: any = rows[0];
+  if (!page) return null;
+  const props = page.properties || {};
   return {
-    headline: data.headline,
-    body: data.body,
-    avatarUrl: data.avatar?.asset?.url,
-    location: data.location,
-    email: data.email,
-    phone: data.phone,
+    headline: props.Headline?.rich_text?.[0]?.plain_text,
+    avatarUrl: props.Avatar?.files?.[0]?.file?.url || props.Avatar?.files?.[0]?.external?.url,
+    location: props.Location?.rich_text?.[0]?.plain_text,
+    email: props.Email?.email,
+    phone: props.Phone?.phone_number,
   };
 }
 

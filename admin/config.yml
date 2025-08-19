@@ -1,0 +1,122 @@
+backend:
+  name: github
+  repo: smile-plzz/Ismail_Hossain
+  branch: main
+  base_url: https://api.netlify.com # placeholder for OAuth proxy if needed
+  auth_endpoint: /auth # if using Netlify/Decap OAuth
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "site"
+    label: "Site Settings"
+    files:
+      - file: "content/site.json"
+        label: "Site Settings"
+        name: "site"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+
+  - name: "about"
+    label: "About"
+    files:
+      - file: "content/about.json"
+        label: "About"
+        name: "about"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Avatar", name: "avatarUrl", widget: "image", required: false }
+
+  - name: "skills"
+    label: "Skills"
+    files:
+      - file: "content/skills.json"
+        label: "Skill Groups"
+        name: "skills"
+        fields:
+          - label: "Groups"
+            name: "groups"
+            widget: "list"
+            fields:
+              - { label: "Category", name: "category", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+
+  - name: "education"
+    label: "Education"
+    files:
+      - file: "content/education.json"
+        label: "Education"
+        name: "education"
+        fields:
+          - label: "Entries"
+            name: "entries"
+            widget: "list"
+            fields:
+              - { label: "Degree", name: "degree", widget: "string" }
+              - { label: "Institution", name: "institution", widget: "string" }
+              - { label: "Details", name: "details", widget: "list", field: { label: Detail, name: detail, widget: string } }
+              - { label: "Start Year", name: "startYear", widget: "string" }
+              - { label: "End Year", name: "endYear", widget: "string" }
+              - { label: "GPA", name: "gpa", widget: "string", required: false }
+
+  - name: "experience"
+    label: "Experience"
+    files:
+      - file: "content/experience.json"
+        label: "Experience"
+        name: "experience"
+        fields:
+          - label: "Entries"
+            name: "entries"
+            widget: "list"
+            fields:
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Company", name: "company", widget: "string" }
+              - { label: "Start", name: "start", widget: "string" }
+              - { label: "End", name: "end", widget: "string", required: false }
+              - { label: "Bullets", name: "bullets", widget: "list", field: { label: Bullet, name: bullet, widget: string } }
+              - { label: "Links", name: "links", widget: "list", field: { label: URL, name: url, widget: string } }
+
+  - name: "ventures"
+    label: "Ventures"
+    files:
+      - file: "content/ventures.json"
+        label: "Ventures"
+        name: "ventures"
+        fields:
+          - label: "Entries"
+            name: "entries"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Start", name: "start", widget: "string" }
+              - { label: "End", name: "end", widget: "string", required: false }
+              - { label: "Bullets", name: "bullets", widget: "list", field: { label: Bullet, name: bullet, widget: string } }
+              - { label: "Links", name: "links", widget: "list", field: { label: URL, name: url, widget: string } }
+              - { label: "Media", name: "media", widget: "list", field: { label: URL, name: url, widget: string } }
+
+  - name: "certifications"
+    label: "Certifications"
+    files:
+      - file: "content/certifications.json"
+        label: "Certifications"
+        name: "certifications"
+        fields:
+          - label: "Entries"
+            name: "entries"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Issuer", name: "issuer", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "URL", name: "url", widget: "string", required: false }
+

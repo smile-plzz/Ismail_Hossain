@@ -1,5 +1,4 @@
-import { sanityFetch } from '@/sanity/client';
-import { venturesQuery } from '@/sanity/queries';
+import { querySimpleList } from '@/notion/client';
 
 export type Venture = {
   id: string;
@@ -13,17 +12,24 @@ export type Venture = {
 };
 
 export async function getVentures(): Promise<Venture[]> {
-  const data = await sanityFetch<any[]>(venturesQuery);
-  return (data || []).map(v => ({
-    id: v._id,
-    name: v.name,
-    role: v.role,
-    start: v.start,
-    end: v.end,
-    bullets: v.bullets || [],
-    links: v.links || [],
-    media: v.media || [],
-  }));
+  const db = process.env.NOTION_VENTURES_DATABASE_ID || '';
+  const rows = await querySimpleList(db);
+  return rows.map((page: any) => {
+    const p = page.properties || {};
+    const bulletsText = p.Bullets?.rich_text?.[0]?.plain_text || '';
+    const links = (p.Links?.url ? [p.Links.url] : []).filter(Boolean);
+    const media = (p.Media?.url ? [p.Media.url] : []).filter(Boolean);
+    return {
+      id: page.id,
+      name: p.Name?.title?.[0]?.plain_text || 'Venture',
+      role: p.Role?.rich_text?.[0]?.plain_text,
+      start: p.Start?.rich_text?.[0]?.plain_text,
+      end: p.End?.rich_text?.[0]?.plain_text,
+      bullets: bulletsText ? bulletsText.split('\n').filter(Boolean) : [],
+      links,
+      media,
+    };
+  });
 }
 
 

@@ -1,0 +1,8 @@
+{
+  "groups": [
+    { "category": "Programming Languages", "items": ["JAVA", "Python (Basic)", "C++", "C"] },
+    { "category": "Operating Systems", "items": ["Windows", "Ubuntu", "Zorin", "Fedora", "Chrome OS", "Arch Linux", "macOS"] },
+    { "category": "Version Control", "items": ["GitHub"] }
+  ]
+}
+
