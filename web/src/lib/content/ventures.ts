@@ -1,4 +1,4 @@
-import sanityClient from '@/sanity/client';
+import { sanityFetch } from '@/sanity/client';
 import { venturesQuery } from '@/sanity/queries';
 
 export type Venture = {
@@ -13,7 +13,7 @@ export type Venture = {
 };
 
 export async function getVentures(): Promise<Venture[]> {
-  const data = await sanityClient.fetch<any[]>(venturesQuery);
+  const data = await sanityFetch<any[]>(venturesQuery);
   return (data || []).map(v => ({
     id: v._id,
     name: v.name,

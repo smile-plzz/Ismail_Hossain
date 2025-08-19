@@ -1,4 +1,4 @@
-import sanityClient from '@/sanity/client';
+import { sanityFetch } from '@/sanity/client';
 import { experienceQuery } from '@/sanity/queries';
 
 export type Experience = {
@@ -12,7 +12,7 @@ export type Experience = {
 };
 
 export async function getExperience(): Promise<Experience[]> {
-  const data = await sanityClient.fetch<any[]>(experienceQuery);
+  const data = await sanityFetch<any[]>(experienceQuery);
   return (data || []).map(x => ({
     id: x._id,
     role: x.role,

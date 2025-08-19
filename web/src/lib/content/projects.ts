@@ -1,4 +1,4 @@
-import sanityClient from '@/sanity/client';
+import { sanityFetch } from '@/sanity/client';
 import { projectsQuery } from '@/sanity/queries';
 import { getProjectsFromNotion } from '@/notion/client';
 
@@ -19,7 +19,7 @@ export async function getProjects(): Promise<Project[]> {
     const projects = await getProjectsFromNotion(db);
     return projects.map(p => ({ id: p.id, title: p.title, description: p.description, tags: p.tags, demoUrl: p.demoUrl, repoUrl: p.repoUrl }));
   }
-  const data = await sanityClient.fetch<any[]>(projectsQuery);
+  const data = await sanityFetch<any[]>(projectsQuery);
   return (data || []).map((p) => ({
     id: p._id,
     title: p.title,

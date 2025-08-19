@@ -1,4 +1,4 @@
-import sanityClient from '@/sanity/client';
+import { sanityFetch } from '@/sanity/client';
 import { educationQuery } from '@/sanity/queries';
 
 export type Education = {
@@ -12,7 +12,7 @@ export type Education = {
 };
 
 export async function getEducation(): Promise<Education[]> {
-  const data = await sanityClient.fetch<any[]>(educationQuery);
+  const data = await sanityFetch<any[]>(educationQuery);
   return (data || []).map(e => ({
     id: e._id,
     degree: e.degree,

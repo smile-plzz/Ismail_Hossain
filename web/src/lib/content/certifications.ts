@@ -1,4 +1,4 @@
-import sanityClient from '@/sanity/client';
+import { sanityFetch } from '@/sanity/client';
 import { certificationsQuery } from '@/sanity/queries';
 
 export type Certification = {
@@ -10,7 +10,7 @@ export type Certification = {
 };
 
 export async function getCertifications(): Promise<Certification[]> {
-  const data = await sanityClient.fetch<any[]>(certificationsQuery);
+  const data = await sanityFetch<any[]>(certificationsQuery);
   return (data || []).map(c => ({ id: c._id, title: c.title, issuer: c.issuer, date: c.date, url: c.url }));
 }
 

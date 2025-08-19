@@ -1,4 +1,4 @@
-import sanityClient from '@/sanity/client';
+import { sanityFetch } from '@/sanity/client';
 import { aboutQuery } from '@/sanity/queries';
 
 export type About = {
@@ -11,7 +11,7 @@ export type About = {
 };
 
 export async function getAbout(): Promise<About | null> {
-  const data = await sanityClient.fetch<any>(aboutQuery);
+  const data = await sanityFetch<any>(aboutQuery);
   if (!data) return null;
   return {
     headline: data.headline,
