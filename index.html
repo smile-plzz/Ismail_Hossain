@@ -7,6 +7,14 @@
     <meta name="description" content="Md. Ismail Hossain - Technology Professional Portfolio">
     <meta name="keywords" content="CV, resume, web developer, Ismail Hossain, portfolio, computer science">
     <meta name="author" content="Md. Ismail Hossain">
+    <meta property="og:title" content="Md. Ismail Hossain | CV">
+    <meta property="og:description" content="Technology Professional Portfolio of Md. Ismail Hossain">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/a/ACg8ocIfs7HKKDQbErYShrnxcTdDFOvbiUn1oX2gyXeU5yRnqEKxOsR1Yg=s288-c-no">
+    <meta property="og:url" content="https://smile-plzz.github.io/Ismail_Hossain/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Md. Ismail Hossain | CV">
+    <meta name="twitter:description" content="Technology Professional Portfolio of Md. Ismail Hossain">
+    <meta name="twitter:image" content="https://lh3.googleusercontent.com/a/ACg8ocIfs7HKKDQbErYShrnxcTdDFOvbiUn1oX2gyXeU5yRnqEKxOsR1Yg=s288-c-no">
     <title>Md. Ismail Hossain | CV</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,79 +22,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-
-
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            scroll-behavior: smooth;
-        }
-        .section { 
-            padding: 5rem 2rem; 
-            transition: all 0.5s ease;
-        }
-        .fade-in { 
-            opacity: 0; 
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in.visible { 
-            opacity: 1; 
-            transform: translateY(0);
-        }
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #3b82f6;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-    /* Reset default margins and ensure full-width (FIX!!)*/
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-/* Reduce padding for mobile (FIX!!) */
-@media (max-width: 640px) {
-    .container {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-    }
-    .section {
-        padding: 3rem 0.5rem;
-    }
-}
-        
-    </style>
-</head>
+    <link rel="stylesheet" href="assets/css/style.css">
+    </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-xl font-semibold flex items-center">
-                <i class="fas fa-user-tie mr-2 text-blue-600"></i> Md. Ismail Hossain
+                <i aria-hidden="true" class="fas fa-user-tie mr-2 text-blue-600"></i> Md. Ismail Hossain
             </h1>
             <div class="hidden md:flex space-x-8">
-                  <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="nav-link hover:text-blue-600" target="_blank"> Download Resume</a>
-                 <a href="https://smile-plzz.github.io/yet-another-ai-generated-portfolio/" class="nav-link hover:text-blue-600" target="_blank"> Change Theme</a>
+                  <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="nav-link hover:text-blue-600" target="_blank" rel="noopener noreferrer"> Download Resume</a>
+                 <a href="https://smile-plzz.github.io/yet-another-ai-generated-portfolio/" class="nav-link hover:text-blue-600" target="_blank" rel="noopener noreferrer"> Change Theme</a>
                 <a href="#about" class="nav-link hover:text-blue-600">About</a>
                 <a href="#skills" class="nav-link hover:text-blue-600">Skills</a>
                 <a href="#education" class="nav-link hover:text-blue-600">Education</a>
@@ -94,14 +41,13 @@ html, body {
                 <a href="#experience" class="nav-link hover:text-blue-600">Experience</a>
                 <a href="#contact" class="nav-link hover:text-blue-600">Contact</a>
             </div>
-            <button class="md:hidden focus:outline-none" id="menu-toggle">
-                <i class="fas fa-bars text-xl"></i>
+            <button class="md:hidden focus:outline-none" id="menu-toggle" aria-label="Toggle navigation"><i class="fas fa-bars text-xl" aria-hidden="true"></i>
             </button>
         </div>
         <!-- Mobile Menu -->
         <div class="md:hidden hidden bg-white w-full px-6 py-2" id="mobile-menu">
             <div class="flex flex-col space-y-3 pb-4">
-                  <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="nav-link hover:text-blue-600" target="_blank"> Download Resume</a>
+                  <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="nav-link hover:text-blue-600" target="_blank" rel="noopener noreferrer"> Download Resume</a>
                 <a href="#about" class="nav-link hover:text-blue-600">About</a>
                 <a href="#skills" class="nav-link hover:text-blue-600">Skills</a>
                 <a href="#education" class="nav-link hover:text-blue-600">Education</a>
@@ -119,45 +65,45 @@ html, body {
                 <img src="https://lh3.googleusercontent.com/a/ACg8ocIfs7HKKDQbErYShrnxcTdDFOvbiUn1oX2gyXeU5yRnqEKxOsR1Yg=s288-c-no" alt="Profile" class="rounded-full mx-auto mb-6 border-4 border-white shadow-lg fade-in">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 fade-in">Md. Ismail Hossain</h2>
                 <p class="text-xl md:text-2xl mb-4 fade-in">
-                    <i class="fas fa-graduation-cap mr-2"></i>Technology Professional | Master's in IT
+                    <i aria-hidden="true" class="fas fa-graduation-cap mr-2"></i>Technology Professional | Master's in IT
                 </p>
                 <p class="text-lg mb-6 fade-in">
                     Tech-savvy professional with a B.S. in Computer Science & Engineering, pursuing an M.S. in IT. Skilled in data communication, web tech, and info systems, I aim to boost innovation and growth using programming, database, and version control expertise.
                     
                 </p>
                 <div class="flex justify-center space-x-4 fade-in">
-                    <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center">
-                        <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                    <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center" rel="noopener noreferrer">
+                        <i aria-hidden="true" class="fab fa-linkedin mr-2"></i> LinkedIn
                     </a>
-                    <a href="https://github.com/smile-plzz" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center">
-                        <i class="fab fa-github mr-2"></i> GitHub
+                    <a href="https://github.com/smile-plzz" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center" rel="noopener noreferrer">
+                        <i aria-hidden="true" class="fab fa-github mr-2"></i> GitHub
                     </a>
-                    <a href="https://www.facebook.com/optimisticyetpessimist/" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center">
-                        <i class="fab fa-facebook mr-2"></i> Facebook
+                    <a href="https://www.facebook.com/optimisticyetpessimist/" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center" rel="noopener noreferrer">
+                        <i aria-hidden="true" class="fab fa-facebook mr-2"></i> Facebook
                     </a>
-                    <a href="https://x.com/smile_plzzz_" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center">
-                        <i class="fab fa-x-twitter mr-2"></i> X 
+                    <a href="https://x.com/smile_plzzz_" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center" rel="noopener noreferrer">
+                        <i aria-hidden="true" class="fab fa-x-twitter mr-2"></i> X 
                     </a>
-                    <a href="https://www.youtube.com/@ismailhossain1019" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center">
-                        <i class="fab fa-youtube mr-2"></i> YouTube
+                    <a href="https://www.youtube.com/@ismailhossain1019" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center" rel="noopener noreferrer">
+                        <i aria-hidden="true" class="fab fa-youtube mr-2"></i> YouTube
                     </a>
                 </div>
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-left fade-in">
                     <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm">
                         <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-3 text-blue-200"></i>
+                            <i aria-hidden="true" class="fas fa-map-marker-alt mr-3 text-blue-200"></i>
                             <p> Dhaka, Bangladesh </p>
                         </div>
                     </div>
                     <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm">
                         <div class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3 text-blue-200"></i>
+                            <i aria-hidden="true" class="fas fa-phone-alt mr-3 text-blue-200"></i>
                             <p>+88-01866304933</p>
                         </div>
                     </div>
                     <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm border border-blue-200 border-opacity-30">
     <div class="flex items-center">
-        <i class="fas fa-envelope mr-3 text-blue-200"></i>
+        <i aria-hidden="true" class="fas fa-envelope mr-3 text-blue-200"></i>
         <p class="text-white">ismailhossain013@gmail.com</p>
     </div>
 </div>
@@ -172,7 +118,7 @@ html, body {
         <div class="container mx-auto max-w-4xl">
             <div class="bg-blue-50 p-6 rounded-xl shadow-sm fade-in">
                 <h3 class="text-2xl font-semibold mb-4 flex items-center text-blue-700">
-                    <i class="fas fa-bullseye mr-3"></i>Career Objective
+                    <i aria-hidden="true" class="fas fa-bullseye mr-3"></i>Career Objective
                 </h3>
                 <p class="text-gray-700">
                     Passionate and adaptable technology professional, armed with a Bachelor's degree in Computer Science & Engineering. Currently pursuing Masters on Information Technology. Dedicated to leveraging expertise in data communication, web technologies, and information systems. My goal is to contribute to a dynamic and innovative team, utilizing programming languages alongside proficiency in database management and version control tools. My continuous pursuit of expanding skills, staying updated on emerging technologies, aims to make a meaningful impact in technology, fostering both business growth and user satisfaction.
@@ -185,30 +131,30 @@ html, body {
     <section id="skills" class="section bg-gray-100">
         <div class="container mx-auto">
             <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
-                <i class="fas fa-tools mr-3 text-blue-600"></i>Skills
+                <i aria-hidden="true" class="fas fa-tools mr-3 text-blue-600"></i>Skills
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Programming Languages -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-code text-2xl mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-code text-2xl mr-3 text-blue-600"></i>
                         <h3 class="text-xl font-semibold">Programming Languages</h3>
                     </div>
                     <ul class="space-y-2">
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>JAVA</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>Python (Basic)</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>C++</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>C</span>
                         </li>
                     </ul>
@@ -217,20 +163,20 @@ html, body {
                 <!-- Operating Systems -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-desktop text-2xl mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-desktop text-2xl mr-3 text-blue-600"></i>
                         <h3 class="text-xl font-semibold">Operating Systems</h3>
                     </div>
                     <ul class="space-y-2">
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>Windows</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>Linux distro: Ubuntu, Zorin, Fedora, Chrome OS, Arch Linux </span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>MacOS</span>
                         </li>
                     </ul>
@@ -239,12 +185,12 @@ html, body {
                 <!-- Database -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-database text-2xl mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-database text-2xl mr-3 text-blue-600"></i>
                         <h3 class="text-xl font-semibold">Database</h3>
                     </div>
                     <ul class="space-y-2">
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>MySQL</span>
                         </li>
                     </ul>
@@ -253,12 +199,12 @@ html, body {
                 <!-- Version Control -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-code-branch text-2xl mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-code-branch text-2xl mr-3 text-blue-600"></i>
                         <h3 class="text-xl font-semibold">Version Control</h3>
                     </div>
                     <ul class="space-y-2">
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>GitHub</span>
                         </li>
                     </ul>
@@ -267,36 +213,36 @@ html, body {
                 <!-- Software Expertise -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-laptop-code text-2xl mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-laptop-code text-2xl mr-3 text-blue-600"></i>
                         <h3 class="text-xl font-semibold">Software Expertise</h3>
                     </div>
                     <ul class="space-y-2">
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>Microsoft Office</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>Adobe Premier Pro</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>Adobe After Effects (Basic)</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>Adobe Photoshop (Basic)</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>Adobe Lightroom</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>Adobe Illustrator (Basic)</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-circle text-xs mr-2 text-blue-400"></i>
+                            <i aria-hidden="true" class="fas fa-circle text-xs mr-2 text-blue-400"></i>
                             <span>Audacity</span>
                         </li>
                     </ul>
@@ -305,7 +251,7 @@ html, body {
                 <!-- Language Proficiency -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-language text-2xl mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-language text-2xl mr-3 text-blue-600"></i>
                         <h3 class="text-xl font-semibold">Language Proficiency</h3>
                     </div>
                     <div class="overflow-x-auto">
@@ -322,25 +268,25 @@ html, body {
                                 <tr>
                                     <td class="px-4 py-2">Bengali</td>
                                     <td class="px-4 py-2">
-                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                        <i aria-hidden="true" class="fas fa-check text-green-500"></i> Full Professional
                                     </td>
                                     <td class="px-4 py-2">
-                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                        <i aria-hidden="true" class="fas fa-check text-green-500"></i> Full Professional
                                     </td>
                                     <td class="px-4 py-2">
-                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                        <i aria-hidden="true" class="fas fa-check text-green-500"></i> Full Professional
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2">English</td>
                                     <td class="px-4 py-2">
-                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                        <i aria-hidden="true" class="fas fa-check text-green-500"></i> Full Professional
                                     </td>
                                     <td class="px-4 py-2">
-                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                        <i aria-hidden="true" class="fas fa-check text-green-500"></i> Full Professional
                                     </td>
                                     <td class="px-4 py-2">
-                                        <i class="fas fa-check text-green-500"></i> Full Professional
+                                        <i aria-hidden="true" class="fas fa-check text-green-500"></i> Full Professional
                                     </td>
                                 </tr>
                             </tbody>
@@ -356,7 +302,7 @@ html, body {
     <section id="education" class="section bg-white">
         <div class="container mx-auto">
             <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
-                <i class="fas fa-graduation-cap mr-3 text-blue-600"></i>Education
+                <i aria-hidden="true" class="fas fa-graduation-cap mr-3 text-blue-600"></i>Education
             </h2>
             <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Masters -->
@@ -364,7 +310,7 @@ html, body {
                     <div class="flex flex-col md:items-center md:justify-between">
                         <div>
                             <h3 class="text-xl font-semibold flex items-center">
-                                <i class="fas fa-university mr-3 text-blue-600"></i>
+                                <i aria-hidden="true" class="fas fa-university mr-3 text-blue-600"></i>
                                 Masters in Information Technology
                             </h3>
                             <p class="text-gray-600 mt-1 ml-8">Jahangirnagar University</p>
@@ -384,10 +330,10 @@ html, body {
                         </div>
                         <div class="mt-3">
                             <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="fas fa-star mr-1"></i> 3.69/4.00
+                                <i aria-hidden="true" class="fas fa-star mr-1"></i> 3.69/4.00
                             </span>
                             <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium ml-2">
-                                <i class="far fa-calendar-alt mr-1"></i> 2025 (Expected)
+                                <i aria-hidden="true" class="far fa-calendar-alt mr-1"></i> 2025 (Expected)
                             </span>
                         </div>
                     </div>
@@ -398,7 +344,7 @@ html, body {
                     <div class="flex flex-col md:items-center md:justify-between">
                         <div>
                             <h3 class="text-xl font-semibold flex items-center">
-                                <i class="fas fa-university mr-3 text-blue-600"></i>
+                                <i aria-hidden="true" class="fas fa-university mr-3 text-blue-600"></i>
                                 BSc in Computer Science & Engineering
                             </h3>
                             <p class="text-gray-600 mt-1 ml-8">North South University</p>
@@ -415,10 +361,10 @@ html, body {
                         </div>
                         <div class="mt-3">
                             <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="fas fa-star mr-1"></i> CGPA: 2.63/4.00 (79%-80% Marks)
+                                <i aria-hidden="true" class="fas fa-star mr-1"></i> CGPA: 2.63/4.00 (79%-80% Marks)
                             </span>
                             <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium ml-2">
-                                <i class="far fa-calendar-alt mr-1"></i> 2023
+                                <i aria-hidden="true" class="far fa-calendar-alt mr-1"></i> 2023
                             </span>
                         </div>
                     </div>
@@ -429,17 +375,17 @@ html, body {
                     <div class="flex flex-col md:items-center md:justify-between">
                         <div>
                             <h3 class="text-xl font-semibold flex items-center">
-                                <i class="fas fa-school mr-3 text-blue-600"></i>
+                                <i aria-hidden="true" class="fas fa-school mr-3 text-blue-600"></i>
                                 Higher Secondary School Certificate (Science)
                             </h3>
                             <p class="text-gray-600 mt-1 ml-8">Government Bangla College</p>
                         </div>
                         <div class="mt-3">
                             <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="fas fa-star mr-1"></i> GPA: 3.83/5.00
+                                <i aria-hidden="true" class="fas fa-star mr-1"></i> GPA: 3.83/5.00
                             </span>
                             <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium ml-2">
-                                <i class="far fa-calendar-alt mr-1"></i> 2018
+                                <i aria-hidden="true" class="far fa-calendar-alt mr-1"></i> 2018
                             </span>
                         </div>
                     </div>
@@ -450,17 +396,17 @@ html, body {
                     <div class="flex flex-col md:items-center md:justify-between">
                         <div>
                             <h3 class="text-xl font-semibold flex items-center">
-                                <i class="fas fa-school mr-3 text-blue-600"></i>
+                                <i aria-hidden="true" class="fas fa-school mr-3 text-blue-600"></i>
                                 Secondary School Certificate (Science)
                             </h3>
                             <p class="text-gray-600 mt-1 ml-8">Dhanmondi Govt Boyz High School</p>
                         </div>
                         <div class="mt-3">
                             <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="fas fa-star mr-1"></i> GPA: 5.00/5.00
+                                <i aria-hidden="true" class="fas fa-star mr-1"></i> GPA: 5.00/5.00
                             </span>
                             <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium ml-2">
-                                <i class="far fa-calendar-alt mr-1"></i> 2016
+                                <i aria-hidden="true" class="far fa-calendar-alt mr-1"></i> 2016
                             </span>
                         </div>
                     </div>
@@ -473,13 +419,13 @@ html, body {
     <section id="projects" class="section bg-gray-100">
         <div class="container mx-auto">
             <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
-                <i class="fas fa-project-diagram mr-3 text-blue-600"></i>Academic Projects
+                <i aria-hidden="true" class="fas fa-project-diagram mr-3 text-blue-600"></i>Academic Projects
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Healthcare System -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-medkit text-2xl mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-medkit text-2xl mr-3 text-blue-600"></i>
                         <h3 class="text-xl font-semibold">Healthcare System with OCR</h3>
                     </div>
                     <p class="text-gray-600 mb-3">
@@ -509,7 +455,7 @@ html, body {
                 <!-- Online Shop -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-shopping-cart text-2xl mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-shopping-cart text-2xl mr-3 text-blue-600"></i>
                         <h3 class="text-xl font-semibold">Online Arts & Crafts Shop</h3>
                     </div>
                     <p class="text-gray-600 mb-3">
@@ -534,7 +480,7 @@ html, body {
                 <!-- Hotel Management -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-hotel text-2xl mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-hotel text-2xl mr-3 text-blue-600"></i>
                         <h3 class="text-xl font-semibold">Hotel Management System</h3>
                     </div>
                     <p class="text-gray-600 mb-3">
@@ -559,7 +505,7 @@ html, body {
                 <!-- Bank Database -->
                 <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-piggy-bank text-2xl mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-piggy-bank text-2xl mr-3 text-blue-600"></i>
                         <h3 class="text-xl font-semibold">Bank Database System</h3>
                     </div>
                     <p class="text-gray-600 mb-3">
@@ -585,7 +531,7 @@ html, body {
     <section class="section bg-white">
         <div class="container mx-auto">
             <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
-                <i class="fas fa-microscope mr-3 text-blue-600"></i>Research and Publications
+                <i aria-hidden="true" class="fas fa-microscope mr-3 text-blue-600"></i>Research and Publications
             </h2>
             <div class="max-w-4xl mx-auto space-y-6">
                 <!-- Med-Tech -->
@@ -624,7 +570,7 @@ html, body {
     <section id="experience" class="section bg-gray-100">
         <div class="container mx-auto">
             <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
-                <i class="fas fa-briefcase mr-3 text-blue-600"></i>Work Experience
+                <i aria-hidden="true" class="fas fa-briefcase mr-3 text-blue-600"></i>Work Experience
             </h2>
             <div class="max-w-4xl mx-auto space-y-6">
                 <!-- Software Developer (Intern)-->
@@ -632,14 +578,14 @@ html, body {
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                         <div>
                             <h3 class="text-xl font-semibold flex items-center">
-                                <i class="fas fa-chalkboard-teacher mr-3 text-blue-600"></i>
+                                <i aria-hidden="true" class="fas fa-chalkboard-teacher mr-3 text-blue-600"></i>
                                Customer Support Engineer (Intern)
                             </h3>
                             <p class="text-gray-600 mt-1 ml-8">DevsNest</p>
                         </div>
                         <div class="mt-3 md:mt-0">
                             <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="far fa-calendar-alt mr-1"></i> April, 2025 - Present
+                                <i aria-hidden="true" class="far fa-calendar-alt mr-1"></i> April, 2025 - Present
                             </span>
                         </div>
                     </div>
@@ -650,17 +596,17 @@ html, body {
                         </ul>
                     </div>
                   <div class="mt-4 ml-8 flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4">
-    <a href="https://www.linkedin.com/company/devsnest-llc/" target="_blank" class="bg-blue-600 text-white px-3 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition flex items-center justify-center sm:px-4 sm:py-2">
-        <i class="fab fa-linkedin mr-1.5"></i>DevsNest LinkedIn
+    <a href="https://www.linkedin.com/company/devsnest-llc/" target="_blank" class="bg-blue-600 text-white px-3 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition flex items-center justify-center sm:px-4 sm:py-2" rel="noopener noreferrer">
+        <i aria-hidden="true" class="fab fa-linkedin mr-1.5"></i>DevsNest LinkedIn
     </a>
-    <a href="https://www.facebook.com/devsnestllc/" target="_blank" class="bg-blue-800 text-white px-3 py-1.5 rounded-full text-sm font-medium hover:bg-blue-900 transition flex items-center justify-center sm:px-4 sm:py-2">
-        <i class="fab fa-facebook mr-1.5"></i>DevsNest Facebook
+    <a href="https://www.facebook.com/devsnestllc/" target="_blank" class="bg-blue-800 text-white px-3 py-1.5 rounded-full text-sm font-medium hover:bg-blue-900 transition flex items-center justify-center sm:px-4 sm:py-2" rel="noopener noreferrer">
+        <i aria-hidden="true" class="fab fa-facebook mr-1.5"></i>DevsNest Facebook
     </a>
-    <a href="https://devsnest.net/" target="_blank" class="bg-gray-100 text-gray-800 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition flex items-center justify-center sm:px-4 sm:py-2">
-        <i class="fas fa-globe mr-1.5"></i>DevsNest Website
+    <a href="https://devsnest.net/" target="_blank" class="bg-gray-100 text-gray-800 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition flex items-center justify-center sm:px-4 sm:py-2" rel="noopener noreferrer">
+        <i aria-hidden="true" class="fas fa-globe mr-1.5"></i>DevsNest Website
     </a>
-    <a href="https://dynamaticapp.com/" target="_blank" class="bg-gray-100 text-gray-800 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition flex items-center justify-center sm:px-4 sm:py-2">
-        <i class="fas fa-rocket mr-1.5"></i>Dynamatic
+    <a href="https://dynamaticapp.com/" target="_blank" class="bg-gray-100 text-gray-800 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition flex items-center justify-center sm:px-4 sm:py-2" rel="noopener noreferrer">
+        <i aria-hidden="true" class="fas fa-rocket mr-1.5"></i>Dynamatic
     </a>
 </div>
                 </div>
@@ -670,14 +616,14 @@ html, body {
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                         <div>
                             <h3 class="text-xl font-semibold flex items-center">
-                                <i class="fas fa-user-tie mr-3 text-blue-600"></i>
+                                <i aria-hidden="true" class="fas fa-user-tie mr-3 text-blue-600"></i>
                                 Consultant
                             </h3>
                             <p class="text-gray-600 mt-1 ml-8">Dhaka IT</p>
                         </div>
                         <div class="mt-3 md:mt-0">
                             <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="far fa-calendar-alt mr-1"></i> 2018 - 2019
+                                <i aria-hidden="true" class="far fa-calendar-alt mr-1"></i> 2018 - 2019
                             </span>
                         </div>
                     </div>
@@ -694,14 +640,14 @@ html, body {
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                         <div>
                             <h3 class="text-xl font-semibold flex items-center">
-                                <i class="fas fa-chalkboard-teacher mr-3 text-blue-600"></i>
+                                <i aria-hidden="true" class="fas fa-chalkboard-teacher mr-3 text-blue-600"></i>
                                 Guest Instructor - Department of Web-Designing
                             </h3>
                             <p class="text-gray-600 mt-1 ml-8">Bangladesh KOREA Technical Training Center</p>
                         </div>
                         <div class="mt-3 md:mt-0">
                             <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="far fa-calendar-alt mr-1"></i> 2017 - 2018
+                                <i aria-hidden="true" class="far fa-calendar-alt mr-1"></i> 2017 - 2018
                             </span>
                         </div>
                     </div>
@@ -721,7 +667,7 @@ html, body {
     <section id="experience" class="section bg-gray-100">
         <div class="container mx-auto">
             <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
-                <i class="fas fa-briefcase mr-3 text-blue-600"></i>Entrepreneurial Venture
+                <i aria-hidden="true" class="fas fa-briefcase mr-3 text-blue-600"></i>Entrepreneurial Venture
             </h2>
             <div class="max-w-4xl mx-auto space-y-6">
                 <!--  NO MORE FREE MUSIC -->
@@ -748,13 +694,13 @@ html, body {
         </ul>
     </div>
     <div class="mt-4 ml-8 flex space-x-4">
-        <a href="https://www.youtube.com/@nomorefreemusic769" target="_blank" class="flex items-center bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition duration-300" aria-label="Visit YouTube Channel">
+        <a href="https://www.youtube.com/@nomorefreemusic769" target="_blank" class="flex items-center bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-red-700 transition duration-300" aria-label="Visit YouTube Channel" rel="noopener noreferrer">
             <i class="fab fa-youtube mr-2" aria-hidden="true"></i> YouTube Channel
         </a>
-        <a href="https://www.linkedin.com/company/nomorefreemusic" target="_blank" class="text-gray-600 hover:text-blue-600 transition duration-300" aria-label="Visit LinkedIn">
+        <a href="https://www.linkedin.com/company/nomorefreemusic" target="_blank" class="text-gray-600 hover:text-blue-600 transition duration-300" aria-label="Visit LinkedIn" rel="noopener noreferrer">
             <i class="fab fa-linkedin text-2xl" aria-hidden="true"></i>
         </a>
-        <a href="https://www.facebook.com/NoMoreFreeMusic/about/?_rdr" target="_blank" class="text-gray-600 hover:text-blue-600 transition duration-300" aria-label="Visit Facebook">
+        <a href="https://www.facebook.com/NoMoreFreeMusic/about/?_rdr" target="_blank" class="text-gray-600 hover:text-blue-600 transition duration-300" aria-label="Visit Facebook" rel="noopener noreferrer">
             <i class="fab fa-facebook text-2xl" aria-hidden="true"></i>
         </a>
     </div>
@@ -762,7 +708,7 @@ html, body {
         <!-- Hero Video -->
         <div class="hero-video mb-6">
             <div class="relative rounded-lg overflow-hidden">
-                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/ZOoEIAQi_70?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/ZOoEIAQi_70?autoplay=0&mute=1&enablejsapi=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                 <span class="absolute top-2 left-2 bg-blue-600 text-white px-2 py-1 rounded text-sm font-medium">Featured</span>
             </div>
             <p class="text-gray-700 mt-2 text-center">Music Video: Signature Work</p>
@@ -778,22 +724,22 @@ html, body {
             <div class="video-carousel flex overflow-x-auto gap-4 pb-4 scroll-smooth">
                 <div class="video-container flex-shrink-0 w-64" data-category="music">
                     <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" data-video-id="hNCHZ_7bI2Q" data-title="Music Video: Performance" role="button" aria-label="Play Music Video: Performance">
-                        <img src="https://img.youtube.com/vi/hNCHZ_7bI2Q/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <img src="https://img.youtube.com/vi/hNCHZ_7bI2Q/hqdefault.jpg" alt="Video Thumbnail" class="w-full" loading="lazy">
                     </div>
                 </div>
                 <div class="video-container flex-shrink-0 w-64" data-category="event">
                     <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" data-video-id="3SPRwvR0i_o" data-title="Event Highlight: NMFM Unplugged" role="button" aria-label="Play Event Highlight: NMFM Unplugged">
-                        <img src="https://img.youtube.com/vi/3SPRwvR0i_o/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <img src="https://img.youtube.com/vi/3SPRwvR0i_o/hqdefault.jpg" alt="Video Thumbnail" class="w-full" loading="lazy">
                     </div>
                 </div>
                 <div class="video-container flex-shrink-0 w-64" data-category="music">
                     <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" data-video-id="be25ub6dnsQ" data-title="Music Video: Studio Recording" role="button" aria-label="Play Music Video: Studio Recording">
-                        <img src="https://img.youtube.com/vi/be25ub6dnsQ/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <img src="https://img.youtube.com/vi/be25ub6dnsQ/hqdefault.jpg" alt="Video Thumbnail" class="w-full" loading="lazy">
                     </div>
                 </div>
                 <div class="video-container flex-shrink-0 w-64" data-category="event">
                     <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" data-video-id="HytEmVoZoao" data-title="Event Highlight: Live Show" role="button" aria-label="Play Event Highlight: Live Show">
-                        <img src="https://img.youtube.com/vi/HytEmVoZoao/hqdefault.jpg" alt="Video Thumbnail" class="w-full">
+                        <img src="https://img.youtube.com/vi/HytEmVoZoao/hqdefault.jpg" alt="Video Thumbnail" class="w-full" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -811,132 +757,11 @@ html, body {
                     <h3 id="nmfm-modal-title" class="text-lg font-semibold"></h3>
                     <button class="text-gray-600 hover:text-gray-800 text-xl" aria-label="Close modal">×</button>
                 </div>
-                <iframe id="nmfm-modal-iframe" width="100%" height="400" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Video player"></iframe>
+                <iframe id="nmfm-modal-iframe" width="100%" height="400" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Video player" loading="lazy"></iframe>
             </div>
         </div>
     </div>
-    <style>
-        #nmfm-section .video-section {
-            display: block;
-        }
-        #nmfm-section .hero-video iframe {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        #nmfm-section .video-carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 1.5rem;
-            padding-bottom: 1rem;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        #nmfm-section .video-carousel::-webkit-scrollbar {
-            display: none;
-        }
-        #nmfm-section .video-container {
-            scroll-snap-align: start;
-            transition: transform 0.3s ease;
-        }
-        #nmfm-section .thumbnail {
-            background-color: #fff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        #nmfm-section .thumbnail:hover {
-            transform: scale(1.05);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        }
-        #nmfm-section .carousel-prev, #nmfm-section .carousel-next {
-            display: none;
-        }
-        #nmfm-section .video-section:hover .carousel-prev,
-        #nmfm-section .video-section:hover .carousel-next {
-            display: block;
-        }
-        #nmfm-section #nmfm-video-modal {
-            transition: opacity 0.3s ease;
-        }
-        #nmfm-section #nmfm-video-modal.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        @media (max-width: 768px) {
-            #nmfm-section .hero-video iframe {
-                max-height: 200px;
-            }
-            #nmfm-section .video-carousel {
-                gap: 1rem;
-            }
-            #nmfm-section .video-container {
-                width: 60vw;
-                max-width: 250px;
-            }
-            #nmfm-section .thumbnail:hover {
-                transform: scale(1.03);
-            }
-        }
-    </style>
-    <script>
-        (function() {
-            const section = document.getElementById('nmfm-section');
-            if (!section) return;
-
-            const modal = section.querySelector('#nmfm-video-modal');
-            const iframe = section.querySelector('#nmfm-modal-iframe');
-            const modalTitle = section.querySelector('#nmfm-modal-title');
-            const closeButton = section.querySelector('#nmfm-video-modal button[aria-label="Close modal"]');
-
-            function openModal(videoId, title) {
-                iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1`;
-                modalTitle.textContent = title;
-                modal.classList.remove('hidden');
-                modal.focus();
-            }
-
-            function closeModal() {
-                iframe.src = '';
-                modal.classList.add('hidden');
-            }
-
-            section.querySelectorAll('.thumbnail').forEach(thumbnail => {
-                thumbnail.addEventListener('click', () => {
-                    const videoId = thumbnail.dataset.videoId;
-                    const title = thumbnail.dataset.title;
-                    openModal(videoId, title);
-                });
-            });
-
-            closeButton.addEventListener('click', closeModal);
-
-            modal.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeModal();
-            });
-
-            section.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    section.querySelectorAll('.filter-btn').forEach(b => {
-                        b.classList.replace('bg-blue-600', 'bg-gray-200');
-                        b.classList.replace('text-white', 'text-gray-800');
-                    });
-                    btn.classList.replace('bg-gray-200', 'bg-blue-600');
-                    btn.classList.replace('text-gray-800', 'text-white');
-                    const category = btn.dataset.category;
-                    section.querySelectorAll('.video-container').forEach(video => {
-                        video.style.display = (category === 'all' || video.dataset.category === category) ? 'block' : 'none';
-                    });
-                });
-            });
-
-            const carousel = section.querySelector('.video-carousel');
-            section.querySelector('.carousel-prev').addEventListener('click', () => {
-                carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
-            });
-            section.querySelector('.carousel-next').addEventListener('click', () => {
-                carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
-            });
-        })();
-    </script>
-</div>
+        </div>
 
 <!--15 miles !-->
 <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in transition-transform duration-300 hover:scale-105 group">
@@ -960,7 +785,7 @@ html, body {
             <li>Completed projects including live music video productions, documentary films, and aerial surveys.</li>
         </ul>
         <div class="mt-4">
-            <a href="https://www.facebook.com/15milestogo/" target="_blank" class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors flex items-center w-fit" aria-label="Visit 15-Miles Facebook page">
+            <a href="https://www.facebook.com/15milestogo/" target="_blank" class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors flex items-center w-fit" aria-label="Visit 15-Miles Facebook page" rel="noopener noreferrer">
                 <i class="fab fa-facebook-f mr-1" aria-hidden="true"></i> Facebook
             </a>
         </div>
@@ -1080,196 +905,11 @@ html, body {
                     <h3 id="modalTitle" class="text-lg font-semibold"></h3>
                     <button onclick="closeModal()" class="text-gray-600 hover:text-gray-800 text-xl font-semibold rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200 transition-colors focus:outline-none" aria-label="Close video modal">×</button>
                 </div>
-                <iframe id="modalIframe" class="w-full h-64 sm:h-80 md:h-96" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Video player"></iframe>
+                <iframe id="modalIframe" class="w-full h-64 sm:h-80 md:h-96" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Video player" loading="lazy"></iframe>
             </div>
         </div>
     </div>
-    <style>
-        .video-section {
-            display: block;
-        }
-        .hero-video iframe {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        .video-carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 1.5rem;
-            padding-bottom: 1rem;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-            -webkit-overflow-scrolling: touch; /* Smooth touch scrolling */
-        }
-        .video-carousel::-webkit-scrollbar {
-            display: none;
-        }
-        .video-container {
-            scroll-snap-align: start;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        .video-container.hidden {
-            display: none;
-        }
-        .thumbnail {
-            background-color: #fff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        .thumbnail:hover, .thumbnail:focus {
-            transform: scale(1.05);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-            outline: none;
-        }
-        .carousel-prev, .carousel-next {
-            transition: opacity 0.3s ease;
-        }
-        .video-section:hover .carousel-prev,
-        .video-section:hover .carousel-next,
-        .carousel-prev:focus,
-        .carousel-next:focus {
-            opacity: 1;
-        }
-        #videoModal {
-            transition: opacity 0.3s ease;
-        }
-        #videoModal.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        @media (max-width: 768px) {
-            .hero-video iframe {
-                height: 200px;
-            }
-            .video-carousel {
-                gap: 1rem;
-            }
-            .video-container {
-                width: 70vw;
-            }
-            .thumbnail:hover, .thumbnail:focus {
-                transform: scale(1.03);
-            }
-        }
-    </style>
-    <script>
-        // Ensure script runs after DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            // Cache DOM elements
-            const videoModal = document.getElementById('videoModal');
-            const modalIframe = document.getElementById('modalIframe');
-            const modalTitle = document.getElementById('modalTitle');
-            const videoCarousel = document.querySelector('.video-carousel');
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const videoContainers = document.querySelectorAll('.video-container');
-            const prevButton = document.querySelector('.carousel-prev');
-            const nextButton = document.querySelector('.carousel-next');
-
-            // Modal functions
-            function openModal(videoId, title) {
-                if (!videoModal || !modalIframe || !modalTitle) {
-                    console.error('Modal elements not found');
-                    return;
-                }
-                try {
-                    modalIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
-                    modalTitle.textContent = title;
-                    videoModal.classList.remove('hidden');
-                    modalIframe.focus();
-                    // Trap focus in modal
-                    trapFocus(videoModal);
-                } catch (error) {
-                    console.error('Error opening modal:', error);
-                }
-            }
-
-            function closeModal() {
-                if (!videoModal || !modalIframe) {
-                    console.error('Modal elements not found');
-                    return;
-                }
-                modalIframe.src = '';
-                videoModal.classList.add('hidden');
-                // Return focus to last focused element
-                if (lastFocusedElement) lastFocusedElement.focus();
-            }
-
-            // Focus trapping for accessibility
-            let lastFocusedElement = null;
-            function trapFocus(modal) {
-                lastFocusedElement = document.activeElement;
-                const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-                const first = focusableElements[0];
-                const last = focusableElements[focusableElements.length - 1];
-
-                modal.addEventListener('keydown', (e) => {
-                    if (e.key === 'Tab') {
-                        if (e.shiftKey && document.activeElement === first) {
-                            e.preventDefault();
-                            last.focus();
-                        } else if (!e.shiftKey && document.activeElement === last) {
-                            e.preventDefault();
-                            first.focus();
-                        }
-                    }
-                });
-            }
-
-            // Filter videos
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterButtons.forEach(b => {
-                        b.classList.replace('bg-blue-600', 'bg-gray-200');
-                        b.classList.replace('text-white', 'text-gray-800');
-                    });
-                    btn.classList.replace('bg-gray-200', 'bg-blue-600');
-                    btn.classList.replace('text-gray-800', 'text-white');
-                    const category = btn.dataset.category;
-                    videoContainers.forEach(video => {
-                        video.classList.toggle('hidden', !(category === 'all' || video.dataset.category === category));
-                    });
-                    videoCarousel.scrollTo({ left: 0, behavior: 'smooth' });
-                });
-            });
-
-            // Carousel navigation
-            prevButton.addEventListener('click', () => {
-                const firstVisible = Array.from(videoContainers).find(v => v.getBoundingClientRect().left >= -1 && !v.classList.contains('hidden'));
-                if (firstVisible) {
-                    const prev = firstVisible.previousElementSibling;
-                    if (prev && !prev.classList.contains('hidden')) {
-                        prev.scrollIntoView({ behavior: 'smooth', inline: 'start' });
-                    } else {
-                        videoCarousel.scrollBy({ left: -videoContainers[0].offsetWidth - 16, behavior: 'smooth' });
-                    }
-                }
-            });
-
-            nextButton.addEventListener('click', () => {
-                const firstVisible = Array.from(videoContainers).find(v => v.getBoundingClientRect().left >= -1 && !v.classList.contains('hidden'));
-                if (firstVisible) {
-                    const next = firstVisible.nextElementSibling;
-                    if (next && !next.classList.contains('hidden')) {
-                        next.scrollIntoView({ behavior: 'smooth', inline: 'start' });
-                    } else {
-                        videoCarousel.scrollBy({ left: videoContainers[0].offsetWidth + 16, behavior: 'smooth' });
-                    }
-                }
-            });
-
-            // Close modal on Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !videoModal.classList.contains('hidden')) {
-                    closeModal();
-                }
-            });
-
-            // Close modal when clicking outside
-            videoModal.addEventListener('click', (e) => {
-                if (e.target === videoModal) closeModal();
-            });
-        });
-    </script>
-</div>
+        </div>
 <!--end of 15 miles !-->                
             </div>
         </div>
@@ -1279,20 +919,20 @@ html, body {
   <section class="section bg-white">
     <div class="container mx-auto">
         <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
-            <i class="fas fa-running mr-3 text-blue-600"></i>Extra-Curricular Activities
+            <i aria-hidden="true" class="fas fa-running mr-3 text-blue-600"></i>Extra-Curricular Activities
         </h2>
         <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Training Sessions -->
             <div>
                 <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-3">
-                        <i class="fas fa-chalkboard mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-chalkboard mr-3 text-blue-600"></i>
                         <h3 class="text-lg font-semibold">Facilitated Training Sessions</h3>
                     </div>
                     <p class="text-gray-700">
                         Conducted a three-day training program on "Management of E-Learning" at a government educational institution, enhancing educators' proficiency in digital teaching methodologies.
                     </p>
-                    <a href="https://drive.google.com/file/d/1P6q826ApUesOYAlUoxmQ4nlk0gh48crB/view?usp=sharing" class="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200" target="_blank">View Documentation</a>
+                    <a href="https://drive.google.com/file/d/1P6q826ApUesOYAlUoxmQ4nlk0gh48crB/view?usp=sharing" class="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200" target="_blank" rel="noopener noreferrer">View Documentation</a>
                 </div>
             </div>
 
@@ -1300,15 +940,15 @@ html, body {
             <div>
                 <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-3">
-                        <i class="fas fa-film mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-film mr-3 text-blue-600"></i>
                         <h3 class="text-lg font-semibold">Documentary and Video Production</h3>
                     </div>
                     <p class="text-gray-700">
                         Produced a documentary titled "Institute of Marine Technology, Chadpur," highlighting the institution's contributions to marine education and technology. And live musical performance video for a renowned Bangladeshi band called Aftermath.
                     </p>
                     <div class="mt-4 flex flex-col space-y-3">
-                        <a href="https://youtu.be/-Do0eJRvRZA?si=Bqn5U1ANjmn_5dAB" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200" target="_blank">Documentary: Institute Of Marine Technology (IMT), Chandpur</a>
-                        <a href="https://youtu.be/zCWmwOvZsME?si=K_gMRReMKKj6zBA9" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200" target="_blank">Pabna Polytechnic Institute</a>
+                        <a href="https://youtu.be/-Do0eJRvRZA?si=Bqn5U1ANjmn_5dAB" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Documentary: Institute Of Marine Technology (IMT), Chandpur</a>
+                        <a href="https://youtu.be/zCWmwOvZsME?si=K_gMRReMKKj6zBA9" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200" target="_blank" rel="noopener noreferrer">Pabna Polytechnic Institute</a>
                     </div>
                 </div>
             </div>
@@ -1316,7 +956,7 @@ html, body {
             <!-- Aerial Drone Survey -->
             <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
                 <div class="flex items-center mb-3">
-                    <i class="fas fa-drone mr-3 text-blue-600"></i>
+                    <i aria-hidden="true" class="fas fa-drone mr-3 text-blue-600"></i>
                     <h3 class="text-lg font-semibold">Aerial Drone Survey</h3>
                 </div>
                 <p class="text-gray-700">
@@ -1328,13 +968,13 @@ html, body {
             <div>
                 <div class="bg-gray-50 p-6 rounded-xl shadow-sm card-hover fade-in">
                     <div class="flex items-center mb-3">
-                        <i class="fas fa-network-wired mr-3 text-blue-600"></i>
+                        <i aria-hidden="true" class="fas fa-network-wired mr-3 text-blue-600"></i>
                         <h3 class="text-lg font-semibold">Internet Network Infrastructure Project</h3>
                     </div>
                     <p class="text-gray-700">
                         Designed and implemented a comprehensive internet network infrastructure for a computer laboratory at Dhaka Technical Teachers Training Institute (DTTTI), optimizing connectivity, resource sharing, and operational efficiency for educational purposes.
                     </p>
-                    <a href="https://drive.google.com/file/d/1ZdytCkYh4Mr8OCLNv8LBRq2j9rpgwyC9/view?usp=sharing" class="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200" target="_blank">View Documentation</a>
+                    <a href="https://drive.google.com/file/d/1ZdytCkYh4Mr8OCLNv8LBRq2j9rpgwyC9/view?usp=sharing" class="mt-4 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200" target="_blank" rel="noopener noreferrer">View Documentation</a>
                 </div>
             </div>
         </div>
@@ -1345,13 +985,13 @@ html, body {
 <section class="section bg-gray-100">
     <div class="container mx-auto">
         <h2 class="text-3xl font-semibold mb-8 text-center fade-in">
-            <i class="fas fa-certificate mr-3 text-blue-600"></i>Certifications and Training
+            <i aria-hidden="true" class="fas fa-certificate mr-3 text-blue-600"></i>Certifications and Training
         </h2>
         <div class="bg-white p-6 rounded-xl shadow-sm card-hover fade-in">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between">
         <div>
             <h3 class="text-lg font-semibold flex items-center">
-                <i class="fas fa-language mr-3 text-blue-600"></i>
+                <i aria-hidden="true" class="fas fa-language mr-3 text-blue-600"></i>
                 English (Upper-Intermediate – B2 Level)
             </h3>
             <p class="text-gray-600 ml-8">British Council Bangladesh – Senior Young Learners Program | May, 2016</p>
@@ -1362,8 +1002,8 @@ html, body {
             Completed a structured English course focused on reading, writing, listening, and speaking skills. Certified by the British Council Teaching Centre.
         </p>
         <!-- Add this line if you have a certificate link -->
-        <!-- <a href="YOUR_CERTIFICATE_LINK" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition mt-3 inline-block">
-            <i class="fas fa-certificate mr-2"></i>View Certificate
+        <!-- <a href="YOUR_CERTIFICATE_LINK" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition mt-3 inline-block" rel="noopener noreferrer">
+            <i aria-hidden="true" class="fas fa-certificate mr-2"></i>View Certificate
         </a> -->
     </div>
 </div>
@@ -1372,7 +1012,7 @@ html, body {
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                     <div>
                         <h3 class="text-lg font-semibold flex items-center">
-                            <i class="fas fa-shield-alt mr-3 text-blue-600"></i>
+                            <i aria-hidden="true" class="fas fa-shield-alt mr-3 text-blue-600"></i>
                             Introduction to Cybersecurity
                         </h3>
                         <p class="text-gray-600 ml-8">Networking Academy | Dec 19, 2024 | 6 Hours</p>
@@ -1382,8 +1022,8 @@ html, body {
                     <p class="text-gray-700">
                         Gained foundational knowledge of cybersecurity concepts, threat analysis, and digital security essentials.
                     </p>
-                    <a href="https://www.credly.com/badges/943974f9-9838-4978-837b-37c3d1113021/public_url" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition mt-3 inline-block">
-                        <i class="fas fa-certificate mr-2"></i>View Certificate
+                    <a href="https://www.credly.com/badges/943974f9-9838-4978-837b-37c3d1113021/public_url" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition mt-3 inline-block" rel="noopener noreferrer">
+                        <i aria-hidden="true" class="fas fa-certificate mr-2"></i>View Certificate
                     </a>
                 </div>
             </div>
@@ -1392,15 +1032,15 @@ html, body {
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                     <div>
                         <h3 class="text-lg font-semibold flex items-center">
-                            <i class="fas fa-laptop-code mr-3 text-blue-600"></i>
+                            <i aria-hidden="true" class="fas fa-laptop-code mr-3 text-blue-600"></i>
                             Computer Operation Level-3
                         </h3>
                         <p class="text-gray-600 ml-8">National Skills Development Authority (NSDA) | Feb 24, 2025</p>
                     </div>
                 </div>
                 <div class="mt-3 ml-8">
-                    <a href="https://www.skillsportal.gov.bd/#/rpl/certificate-view?rplCandidateId=AGyeV7SZi8IDV9obk%2FZsbQ%3D%3D" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition mt-3 inline-block">
-                        <i class="fas fa-certificate mr-2"></i>View Certificate
+                    <a href="https://www.skillsportal.gov.bd/#/rpl/certificate-view?rplCandidateId=AGyeV7SZi8IDV9obk%2FZsbQ%3D%3D" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition mt-3 inline-block" rel="noopener noreferrer">
+                        <i aria-hidden="true" class="fas fa-certificate mr-2"></i>View Certificate
                     </a>
                 </div>
             </div>
@@ -1412,7 +1052,7 @@ html, body {
 <section id="contact-form" class="py-12 bg-gray-50">
   <div class="container mx-auto max-w-2xl px-4">
     <h2 class="text-3xl font-semibold mb-8 text-center text-gray-800">
-      <i class="fas fa-envelope mr-2 text-blue-600"></i>Get In Touch
+      <i aria-hidden="true" class="fas fa-envelope mr-2 text-blue-600"></i>Get In Touch
     </h2>
     
     <form 
@@ -1423,7 +1063,7 @@ html, body {
       <!-- Name Field -->
       <div class="mb-6">
         <label for="name" class="block text-gray-700 font-medium mb-2">
-          <i class="fas fa-user mr-2 text-blue-600"></i>Your Name
+          <i aria-hidden="true" class="fas fa-user mr-2 text-blue-600"></i>Your Name
         </label>
         <input 
           type="text" 
@@ -1438,7 +1078,7 @@ html, body {
       <!-- Email Field -->
       <div class="mb-6">
         <label for="email" class="block text-gray-700 font-medium mb-2">
-          <i class="fas fa-at mr-2 text-blue-600"></i>Your Email
+          <i aria-hidden="true" class="fas fa-at mr-2 text-blue-600"></i>Your Email
         </label>
         <input 
           type="email" 
@@ -1453,7 +1093,7 @@ html, body {
       <!-- Message Field -->
       <div class="mb-6">
         <label for="message" class="block text-gray-700 font-medium mb-2">
-          <i class="fas fa-comment-dots mr-2 text-blue-600"></i>Your Message
+          <i aria-hidden="true" class="fas fa-comment-dots mr-2 text-blue-600"></i>Your Message
         </label>
         <textarea 
           id="message" 
@@ -1471,7 +1111,7 @@ html, body {
           type="submit"
           class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200 w-full md:w-auto"
         >
-          <i class="fas fa-paper-plane mr-2"></i>Send Message
+          <i aria-hidden="true" class="fas fa-paper-plane mr-2"></i>Send Message
         </button>
       </div>
 
@@ -1482,77 +1122,34 @@ html, body {
 </section>
 
 <!-- Form Submission Handler -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('#contact-form form');
-    const formStatus = document.getElementById('form-status');
-    
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn.innerHTML;
-      
-      // Show loading state
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
-      submitBtn.disabled = true;
-      
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        
-        if (response.ok) {
-          // Success message
-          formStatus.classList.remove('hidden', 'bg-red-100', 'text-red-700');
-          formStatus.classList.add('bg-green-100', 'text-green-700');
-          formStatus.innerHTML = 'Message sent successfully! I\'ll get back to you soon.';
-          form.reset();
-        } else {
-          throw new Error('Form submission failed');
-        }
-      } catch (error) {
-        // Error message
-        formStatus.classList.remove('hidden', 'bg-green-100', 'text-green-700');
-        formStatus.classList.add('bg-red-100', 'text-red-700');
-        formStatus.innerHTML = 'Oops! Something went wrong. Please try again later.';
-      } finally {
-        // Reset button state
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
-      }
-    });
-  });
-</script>
 
 <!-- Contact Section -->
 <section id="contact" class="section bg-blue-600 text-white">
     <div class="container mx-auto text-center">
         <h2 class="text-3xl font-semibold mb-8 fade-in">
-            <i class="fas fa-envelope mr-3"></i>Contact Me
+            <i aria-hidden="true" class="fas fa-envelope mr-3"></i>Contact Me
         </h2>
         <div class="max-w-md mx-auto">
             <div class="mb-6 fade-in">
                 <div class="flex items-center justify-center mb-2">
-                    <i class="fas fa-envelope mr-3"></i>
+                    <i aria-hidden="true" class="fas fa-envelope mr-3"></i>
                     <a href="mailto:ismailhossain013@gmail.com" class="hover:underline">ismailhossain013@gmail.com</a>
                 </div>
                 <div class="flex items-center justify-center mb-2">
-                    <i class="fas fa-phone-alt mr-3"></i>
+                    <i aria-hidden="true" class="fas fa-phone-alt mr-3"></i>
                     <span>+88-01866304933</span>
                 </div>
                 <div class="flex items-center justify-center">
-                    <i class="fas fa-map-marker-alt mr-3"></i>
+                    <i aria-hidden="true" class="fas fa-map-marker-alt mr-3"></i>
                     <span>Dhaka, Bangladesh</span>
                 </div>
             </div>
             <div class="flex justify-center space-x-6 mb-8 fade-in">
-                <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="text-white hover:text-blue-200 text-2xl">
-                    <i class="fab fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="text-white hover:text-blue-200 text-2xl" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i aria-hidden="true" class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/smile-plzz" target="_blank" class="text-white hover:text-blue-200 text-2xl">
-                    <i class="fab fa-github"></i>
+                <a href="https://github.com/smile-plzz" target="_blank" class="text-white hover:text-blue-200 text-2xl" rel="noopener noreferrer" aria-label="GitHub">
+                    <i aria-hidden="true" class="fab fa-github"></i>
                 </a>
             </div>
             <p class="text-xl fade-in">
@@ -1565,60 +1162,10 @@ html, body {
 <!-- Footer -->
 <footer class="bg-blue-800 text-white py-6 text-center">
     <div class="container mx-auto">
-        <p class="fade-in">&copy; 2025 Md. Ismail Hossain. All rights reserved.</p>
+        <p class="fade-in">&copy; <span id="year"></span> Md. Ismail Hossain. All rights reserved.</p>
     </div>
 </footer>
     <!-- JavaScript -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Mobile menu toggle
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // Smooth scroll for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    mobileMenu.classList.add('hidden');
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Fade-in animation
-            const fadeElements = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            fadeElements.forEach(el => observer.observe(el));
-
-            // Add shadow to navbar on scroll
-            window.addEventListener('scroll', () => {
-                const nav = document.querySelector('nav');
-                if (window.scrollY > 10) {
-                    nav.classList.add('shadow-lg');
-                } else {
-                    nav.classList.remove('shadow-lg');
-                }
-            });
-        });
-    </script>
-</body>
+    <script src="assets/js/main.js"></script>
+    </body>
 </html>
