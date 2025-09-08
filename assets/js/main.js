@@ -1,62 +1,61 @@
+(function() {
+    const section = document.getElementById('nmfm-section');
+    if (!section) return;
 
-        (function() {
-            const section = document.getElementById('nmfm-section');
-            if (!section) return;
+    const modal = section.querySelector('#nmfm-video-modal');
+    const iframe = section.querySelector('#nmfm-modal-iframe');
+    const modalTitle = section.querySelector('#nmfm-modal-title');
+    const closeButton = section.querySelector('#nmfm-video-modal button[aria-label="Close modal"]');
 
-            const modal = section.querySelector('#nmfm-video-modal');
-            const iframe = section.querySelector('#nmfm-modal-iframe');
-            const modalTitle = section.querySelector('#nmfm-modal-title');
-            const closeButton = section.querySelector('#nmfm-video-modal button[aria-label="Close modal"]');
+    function openModal(videoId, title) {
+        iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1`;
+        modalTitle.textContent = title;
+        modal.classList.remove('hidden');
+        modal.focus();
+    }
 
-            function openModal(videoId, title) {
-                iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1`;
-                modalTitle.textContent = title;
-                modal.classList.remove('hidden');
-                modal.focus();
-            }
+    function closeModal() {
+        iframe.src = '';
+        modal.classList.add('hidden');
+    }
 
-            function closeModal() {
-                iframe.src = '';
-                modal.classList.add('hidden');
-            }
+    section.querySelectorAll('.thumbnail').forEach(thumbnail => {
+        thumbnail.addEventListener('click', () => {
+            const videoId = thumbnail.dataset.videoId;
+            const title = thumbnail.dataset.title;
+            openModal(videoId, title);
+        });
+    });
 
-            section.querySelectorAll('.thumbnail').forEach(thumbnail => {
-                thumbnail.addEventListener('click', () => {
-                    const videoId = thumbnail.dataset.videoId;
-                    const title = thumbnail.dataset.title;
-                    openModal(videoId, title);
-                });
+    closeButton.addEventListener('click', closeModal);
+
+    modal.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    section.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            section.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.replace('bg-blue-600', 'bg-gray-200');
+                b.classList.replace('text-white', 'text-gray-800');
             });
-
-            closeButton.addEventListener('click', closeModal);
-
-            modal.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeModal();
+            btn.classList.replace('bg-gray-200', 'bg-blue-600');
+            btn.classList.replace('text-gray-800', 'text-white');
+            const category = btn.dataset.category;
+            section.querySelectorAll('.video-container').forEach(video => {
+                video.style.display = (category === 'all' || video.dataset.category === category) ? 'block' : 'none';
             });
+        });
+    });
 
-            section.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    section.querySelectorAll('.filter-btn').forEach(b => {
-                        b.classList.replace('bg-blue-600', 'bg-gray-200');
-                        b.classList.replace('text-white', 'text-gray-800');
-                    });
-                    btn.classList.replace('bg-gray-200', 'bg-blue-600');
-                    btn.classList.replace('text-gray-800', 'text-white');
-                    const category = btn.dataset.category;
-                    section.querySelectorAll('.video-container').forEach(video => {
-                        video.style.display = (category === 'all' || video.dataset.category === category) ? 'block' : 'none';
-                    });
-                });
-            });
-
-            const carousel = section.querySelector('.video-carousel');
-            section.querySelector('.carousel-prev').addEventListener('click', () => {
-                carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
-            });
-            section.querySelector('.carousel-next').addEventListener('click', () => {
-                carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
-            });
-        })();
+    const carousel = section.querySelector('.video-carousel');
+    section.querySelector('.carousel-prev').addEventListener('click', () => {
+        carousel.scrollBy({ left: -carousel.offsetWidth, behavior: 'smooth' });
+    });
+    section.querySelector('.carousel-next').addEventListener('click', () => {
+        carousel.scrollBy({ left: carousel.offsetWidth, behavior: 'smooth' });
+    });
+})();
     
 
         // Ensure script runs after DOM is loaded
