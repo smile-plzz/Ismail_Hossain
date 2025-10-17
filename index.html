@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Md. Ismail Hossain - Technology Professional Portfolio: Full-stack development, IT, and entrepreneurial experience.">
-    <meta name="keywords" content="CV, resume, web developer, Ismail Hossain, portfolio, computer science, Java, CRM, DevsNest, video production">
+    <meta name="keywords" content="CV, resume, web developer, Ismail Hossain, portfolio, computer science, Java, CRM, DevsNest, video production, live projects">
     <meta name="author" content="Md. Ismail Hossain">
     <title>Md. Ismail Hossain - Technology Professional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* General Styles */
         body { 
@@ -18,28 +18,39 @@
             scroll-behavior: smooth;
         }
         .section { 
-            padding: 5rem 2rem; 
+            padding: 5rem 1.5rem; /* Reduced horizontal padding for better mobile fit */
             transition: all 0.5s ease;
         }
-        /* Animation Styles */
-        .fade-in { 
-            opacity: 0; 
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in.visible { 
-            opacity: 1; 
-            transform: translateY(0);
-        }
-        /* Card Hover Effect */
+        
+        /* MODERN CARD EFFECT */
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Subtle border for visual depth */
+            border: 1px solid rgba(229, 231, 235, 0.8); /* gray-200 */
         }
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1), 0 0 0 4px rgba(59, 130, 246, 0.1); /* Subtle ring on hover */
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1), 0 0 0 4px rgba(59, 130, 246, 0.15); 
         }
-        /* Navigation Link Underline Effect */
+        
+        /* Section Title Underline */
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #3b82f6; /* blue-600 */
+            border-radius: 2px;
+        }
+
+        /* Nav Link Effect */
         .nav-link {
             position: relative;
         }
@@ -50,14 +61,25 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background-color: #3b82f6; /* Tailwind blue-600 */
+            background-color: #3b82f6; 
             transition: width 0.3s ease;
         }
-        .nav-link:hover::after {
+        .nav-link:hover::after, .nav-link.active::after {
             width: 100%;
         }
-        
-        /* Video Carousel Specific Styles (for better control and cleanup) */
+
+        /* Animation Styles */
+        .fade-in { 
+            opacity: 0; 
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible { 
+            opacity: 1; 
+            transform: translateY(0);
+        }
+
+        /* Video Carousel Specific Styles (Ensuring better responsiveness) */
         .video-carousel {
             scroll-snap-type: x mandatory;
             scrollbar-width: none;
@@ -66,68 +88,57 @@
         .video-carousel::-webkit-scrollbar {
             display: none;
         }
-        .video-container {
-            scroll-snap-align: start;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        .thumbnail {
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .thumbnail:hover, .thumbnail:focus-visible {
-            transform: scale(1.03); /* Slight scale for focus/hover */
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-            outline: none;
-        }
 
-        /* Mobile Adjustments (Kept your original fix) */
-        @media (max-width: 640px) {
-            .container {
-                padding-left: 0.5rem;
-                padding-right: 0.5rem;
-            }
+        @media (max-width: 768px) {
             .section {
-                padding: 3rem 0.5rem;
+                padding: 3rem 1rem;
             }
         }
         
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-    <nav class="fixed top-0 w-full bg-white shadow-md z-50 transition-shadow duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-semibold flex items-center">
-                <i class="fas fa-user-tie mr-2 text-blue-600"></i> Md. Ismail Hossain
-            </h1>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                  <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="nav-link text-gray-700 hover:text-blue-600" target="_blank" aria-label="Download Resume"> Download Resume</a>
-                 <a href="https://smile-plzz.github.io/yet-another-ai-generated-portfolio/" class="nav-link text-gray-700 hover:text-blue-600" target="_blank" aria-label="Change Theme"> Change Theme</a>
+
+    <nav class="sticky top-0 w-full bg-white shadow-lg z-50 transition-shadow duration-300">
+        <div class="container mx-auto max-w-7xl px-4 md:px-6 py-4 flex justify-between items-center">
+            <a href="#about" class="text-xl font-bold flex items-center text-gray-900">
+                <i class="fas fa-terminal mr-2 text-blue-600"></i> Ismail Hossain
+            </a>
+            <div class="hidden md:flex space-x-6 lg:space-x-8 text-sm font-medium">
                 <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">About</a>
                 <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600">Skills</a>
+                <a href="#projects-live" class="nav-link text-gray-700 hover:text-blue-600">Live Projects</a>
+                <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600">Academic Projects</a>
+                <a href="#experience" class="nav-link text-gray-700 hover:text-blue-600">Work</a>
+                <a href="#venture" class="nav-link text-gray-700 hover:text-blue-600">Entrepreneurial</a>
                 <a href="#education" class="nav-link text-gray-700 hover:text-blue-600">Education</a>
-                <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600">Projects</a>
-                <a href="#experience" class="nav-link text-gray-700 hover:text-blue-600">Experience</a>
                 <a href="#contact-form" class="nav-link text-gray-700 hover:text-blue-600">Contact</a>
+                <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="text-blue-600 border border-blue-600 px-3 py-1 rounded-full hover:bg-blue-600 hover:text-white transition-colors" target="_blank" aria-label="Download Resume">
+                    <i class="fas fa-download mr-1"></i> Resume
+                </a>
             </div>
-            <button class="md:hidden focus:outline-none" id="menu-toggle" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars text-xl"></i>
+            <button class="md:hidden focus:outline-none p-2" id="menu-toggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars text-xl text-gray-700"></i>
             </button>
         </div>
-        <div class="md:hidden hidden bg-white w-full px-6 py-2 shadow-inner" id="mobile-menu">
-            <div class="flex flex-col space-y-3 pb-4 font-medium">
-                  <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="nav-link hover:text-blue-600" target="_blank"> Download Resume</a>
-                <a href="#about" class="nav-link hover:text-blue-600">About</a>
-                <a href="#skills" class="nav-link hover:text-blue-600">Skills</a>
-                <a href="#education" class="nav-link hover:text-blue-600">Education</a>
-                <a href="#projects" class="nav-link hover:text-blue-600">Projects</a>
-                <a href="#experience" class="nav-link hover:text-blue-600">Experience</a>
-                <a href="#contact-form" class="nav-link hover:text-blue-600">Contact</a>
+        <div class="md:hidden hidden bg-white w-full px-4 py-2 shadow-inner" id="mobile-menu">
+            <div class="flex flex-col space-y-3 pb-4 font-medium text-base">
+                <a href="#about" class="nav-link hover:text-blue-600 py-1">About</a>
+                <a href="#skills" class="nav-link hover:text-blue-600 py-1">Skills</a>
+                <a href="#projects-live" class="nav-link hover:text-blue-600 py-1">Live Projects</a>
+                <a href="#projects" class="nav-link hover:text-blue-600 py-1">Academic Projects</a>
+                <a href="#experience" class="nav-link hover:text-blue-600 py-1">Work Experience</a>
+                <a href="#venture" class="nav-link hover:text-blue-600 py-1">Entrepreneurial</a>
+                <a href="#education" class="nav-link hover:text-blue-600 py-1">Education</a>
+                <a href="#contact-form" class="nav-link hover:text-blue-600 py-1">Contact</a>
+                <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="text-blue-600 border border-blue-600 mt-2 px-3 py-1 rounded-full text-center hover:bg-blue-600 hover:text-white transition-colors" target="_blank">
+                    <i class="fas fa-download mr-1"></i> Download Resume
+                </a>
             </div>
         </div>
     </nav>
-
     <section id="about" class="pt-24 section bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
-        <div class="container mx-auto text-center">
+        <div class="container mx-auto max-w-4xl text-center">
             <div class="max-w-3xl mx-auto">
                 <img 
                     src="YOUR_PROFILE_PICTURE_URL" 
@@ -138,56 +149,44 @@
                 >
                 <h2 class="text-4xl md:text-5xl font-extrabold mb-4 fade-in">Md. Ismail Hossain</h2>
                 <p class="text-xl md:text-2xl mb-4 font-light fade-in">
-                    <i class="fas fa-graduation-cap mr-2"></i>Technology Professional | Master's in IT
+                    <i class="fas fa-laptop-code mr-2"></i>Technology Professional | IT Master's Candidate
                 </p>
-                <p class="text-lg mb-6 max-w-2xl mx-auto fade-in">
+                <p class="text-lg mb-8 max-w-2xl mx-auto fade-in">
                     Tech-savvy professional with a B.S. in Computer Science & Engineering, pursuing an M.S. in IT. Skilled in data communication, web tech, and info systems, I aim to boost innovation and growth using programming, database, and version control expertise.
-                    
                 </p>
-                <div class="flex justify-center space-x-4 flex-wrap gap-y-3 fade-in">
-                    <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center shadow-md">
+                
+                <div class="flex justify-center space-x-4 flex-wrap gap-y-3 mb-10 fade-in">
+                    <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center shadow-md text-sm font-medium">
                         <i class="fab fa-linkedin mr-2"></i> LinkedIn
                     </a>
-                    <a href="https://github.com/smile-plzz" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center shadow-md">
+                    <a href="https://github.com/smile-plzz" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center shadow-md text-sm font-medium">
                         <i class="fab fa-github mr-2"></i> GitHub
                     </a>
-                    <a href="https://www.facebook.com/optimisticyetpessimist/" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center shadow-md">
-                        <i class="fab fa-facebook mr-2"></i> Facebook
-                    </a>
-                    <a href="https://x.com/smile_plzzz_" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center shadow-md">
+                    <a href="https://x.com/smile_plzzz_" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center shadow-md text-sm font-medium">
                         <i class="fab fa-x-twitter mr-2"></i> X 
                     </a>
-                    <a href="https://www.youtube.com/@ismailhossain1019" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center shadow-md">
-                        <i class="fab fa-youtube mr-2"></i> YouTube
-                    </a>
                 </div>
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-left fade-in">
-                    <div class="bg-white bg-opacity-15 p-4 rounded-lg backdrop-blur-sm shadow-inner">
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-3 text-blue-200"></i>
-                            <p class="font-medium"> Dhaka, Bangladesh </p>
-                        </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left fade-in">
+                    <div class="bg-white bg-opacity-15 p-4 rounded-lg backdrop-blur-sm shadow-inner flex items-center">
+                        <i class="fas fa-map-marker-alt mr-3 text-blue-200"></i>
+                        <p class="font-medium"> Dhaka, Bangladesh </p>
                     </div>
-                    <div class="bg-white bg-opacity-15 p-4 rounded-lg backdrop-blur-sm shadow-inner">
-                        <div class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3 text-blue-200"></i>
-                            <p class="font-medium">+88-01866304933</p>
-                        </div>
+                    <div class="bg-white bg-opacity-15 p-4 rounded-lg backdrop-blur-sm shadow-inner flex items-center">
+                        <i class="fas fa-phone-alt mr-3 text-blue-200"></i>
+                        <p class="font-medium">+88-01866304933</p>
                     </div>
-                    <div class="bg-white bg-opacity-15 p-4 rounded-lg backdrop-blur-sm shadow-inner border border-blue-200 border-opacity-30">
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-blue-200"></i>
-                            <p class="font-medium">ismailhossain013@gmail.com</p>
-                        </div>
+                    <div class="bg-white bg-opacity-15 p-4 rounded-lg backdrop-blur-sm shadow-inner border border-blue-200 border-opacity-30 flex items-center">
+                        <i class="fas fa-envelope mr-3 text-blue-200"></i>
+                        <p class="font-medium truncate">ismailhossain013@gmail.com</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <section class="section bg-white">
         <div class="container mx-auto max-w-4xl">
-            <div class="bg-blue-50 p-6 rounded-xl shadow-lg border-l-4 border-blue-600 fade-in">
+            <div class="bg-blue-50 p-6 rounded-xl shadow-xl border-l-4 border-blue-600 fade-in">
                 <h3 class="text-2xl font-bold mb-4 flex items-center text-blue-700">
                     <i class="fas fa-bullseye mr-3"></i>Career Objective
                 </h3>
@@ -197,140 +196,65 @@
             </div>
         </div>
     </section>
-
     <section id="skills" class="section bg-gray-100">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold mb-10 text-center fade-in">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
                 <i class="fas fa-tools mr-3 text-blue-600"></i>Skills & Expertise
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in">
                     <div class="flex items-center mb-4 border-b pb-2 border-blue-100">
                         <i class="fas fa-code text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Programming Languages</h3>
+                        <h3 class="text-xl font-semibold text-gray-800">Programming</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>JAVA (Proficient)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>C++ / C</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>Python (Basic)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>JavaScript (For CRM/Web Tasks)</span>
-                        </li>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> JAVA (Strong)</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> JavaScript (Web/CRM)</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> C++ / C</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Python (Basic)</li>
                     </ul>
                 </div>
 
                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in">
                     <div class="flex items-center mb-4 border-b pb-2 border-blue-100">
                         <i class="fas fa-globe text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Web Technologies</h3>
+                        <h3 class="text-xl font-semibold text-gray-800">Web & Frontend</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>HTML5 / CSS3</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>React JS (Familiar)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>Tailwind CSS</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>AJAX / RESTful APIs (Familiar)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>Shopify Liquid (Custom Theming)</span>
-                        </li>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> HTML5 / CSS3</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Tailwind CSS</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Shopify Liquid</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> React JS (Familiar)</li>
                     </ul>
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in">
                     <div class="flex items-center mb-4 border-b pb-2 border-blue-100">
-                        <i class="fas fa-database text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Data & DevOps Tools</h3>
+                        <i class="fas fa-server text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Data & Tools</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>MySQL / SQL</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>Git / GitHub</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>OpenCV, TensorFlow (Basic)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>Linux (Distro Expertise)</span>
-                        </li>
-                    </ul>
-                </div>
-
-
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in">
-                    <div class="flex items-center mb-4 border-b pb-2 border-blue-100">
-                        <i class="fas fa-laptop-code text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Creative & Office Tools</h3>
-                    </div>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>Microsoft Office Suite</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>Adobe Premier Pro / Audacity</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>Adobe After Effects (Basic)</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>Adobe Photoshop/Illustrator (Basic)</span>
-                        </li>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> MySQL / SQL</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Git / GitHub</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Linux/Windows/MacOS</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> CRM Strategy & Analysis</li>
                     </ul>
                 </div>
 
                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in">
                     <div class="flex items-center mb-4 border-b pb-2 border-blue-100">
-                        <i class="fas fa-desktop text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Operating Systems</h3>
+                        <i class="fas fa-video text-2xl mr-3 text-blue-600"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Creative & Office</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>Windows</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>MacOS</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-dot-circle text-xs mr-2 text-blue-500"></i>
-                            <span>Linux (Ubuntu, Zorin, Fedora, Arch)</span>
-                        </li>
+                    <ul class="space-y-2 text-gray-600 text-sm">
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Adobe Premier Pro / Audacity</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Drone/Aerial Footage</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Microsoft Office Suite</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Adobe Suite (Basic)</li>
                     </ul>
                 </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-3">
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in lg:col-span-4">
                     <div class="flex items-center mb-4 border-b pb-2 border-blue-100">
                         <i class="fas fa-language text-2xl mr-3 text-blue-600"></i>
                         <h3 class="text-xl font-semibold text-gray-800">Language Proficiency</h3>
@@ -339,36 +263,24 @@
                         <table class="min-w-full text-left text-gray-600">
                             <thead>
                                 <tr class="border-b">
-                                    <th class="px-4 py-2 font-semibold">Language</th>
-                                    <th class="px-4 py-2 font-semibold">Reading</th>
-                                    <th class="px-4 py-2 font-semibold">Writing</th>
-                                    <th class="px-4 py-2 font-semibold">Speaking</th>
+                                    <th class="px-4 py-2 font-bold text-gray-700">Language</th>
+                                    <th class="px-4 py-2 font-bold text-gray-700">Reading</th>
+                                    <th class="px-4 py-2 font-bold text-gray-700">Writing</th>
+                                    <th class="px-4 py-2 font-bold text-gray-700">Speaking</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td class="px-4 py-2">Bengali</td>
-                                    <td class="px-4 py-2">
-                                        <span class="text-green-600 font-medium">Full Professional</span>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <span class="text-green-600 font-medium">Full Professional</span>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <span class="text-green-600 font-medium">Full Professional</span>
-                                    </td>
+                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
+                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
+                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2">English</td>
-                                    <td class="px-4 py-2">
-                                        <span class="text-green-600 font-medium">Full Professional</span>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <span class="text-green-600 font-medium">Full Professional</span>
-                                    </td>
-                                    <td class="px-4 py-2">
-                                        <span class="text-green-600 font-medium">Full Professional</span>
-                                    </td>
+                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
+                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
+                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -377,255 +289,191 @@
             </div>
         </div>
     </section>
-
-    <section id="education" class="section bg-white">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold mb-10 text-center fade-in">
-                <i class="fas fa-graduation-cap mr-3 text-blue-600"></i>Education
+    <section id="projects-live" class="section bg-white">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
+                <i class="fas fa-rocket mr-3 text-blue-600"></i>Live Project Showcase
             </h2>
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in">
-                    <div class="flex flex-col h-full">
-                        <div class="mb-4 flex-grow">
-                            <h3 class="text-xl font-bold flex items-center text-blue-700">
-                                <i class="fas fa-university mr-3 text-blue-600"></i>
-                                Masters in Information Technology
-                            </h3>
-                            <p class="text-gray-600 mt-2 ml-7 font-medium">Jahangirnagar University</p>
-                            <p class="text-gray-600 mt-3 ml-7 font-semibold">Focus Areas:</p>
-                            <ul class="list-disc ml-12 text-gray-700 text-sm mt-1 space-y-1">
-                                <li>Cloud and Mobile Computing, Wireless Network</li>
-                                <li>Artificial Intelligence & Machine Learning</li>
-                                <li>IOT and Fog Computing</li>
-                                <li>Computational Thinking and Data Science</li>
-                                <li>Software Testing & Quality Assurance, Mobile App Dev</li>
-                                <li>Data Mining & Knowledge Discovery, Human Computer Interaction</li>
-                            </ul>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-12 fade-in">
+                <img src="https://github-readme-stats.vercel.app/api?username=smile-plzz&show_icons=true&theme=radical" alt="Ismail's GitHub stats" class="rounded-lg shadow-lg max-w-full h-auto">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=smile-plzz&layout=compact&theme=radical" alt="Top Langs" class="rounded-lg shadow-lg max-w-full h-auto">
+            </div>
+
+            <p class="text-center text-lg text-gray-700 mb-8 max-w-3xl mx-auto fade-in">
+                A curated collection of my interactive LIVE projects, demonstrating proficiency in web development, APIs, and responsive design.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
+                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                        <i class="fas fa-compass mr-2"></i> TechPath Finder
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        Discover your best career path in tech with an **interactive questionnaire**, **personalized recommendations**, and **beginner-friendly resources**.
+                    </p>
+                    <a href="https://techpath-finder.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                        <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
+                    </a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
+                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                        <i class="fas fa-newspaper mr-2"></i> News App
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        A **real-time news reader** with **auto-refreshing headlines**, **category filters**, and a **clean, distraction-free UI**.
+                    </p>
+                    <a href="https://news-iota-lilac.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                        <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
+                    </a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
+                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                        <i class="fas fa-map-marked-alt mr-2"></i> Real-Time Event Finder
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        Search worldwide events by **location and interest**. Uses **geolocation** + **real-time APIs** to keep you updated.
+                    </p>
+                    <a href="https://smile-plzz.github.io/real-time-event-finder/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                        <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
+                    </a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
+                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                        <i class="fas fa-clock mr-2"></i> BalanceFlow
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        A **dynamic productivity timer** built for **work-break cycles** — perfect for **remote workers, students, and gym-goers**.
+                    </p>
+                    <a href="https://smile-plzz.github.io/BalanceFLow/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                        <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
+                    </a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
+                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                        <i class="fas fa-satellite-dish mr-2"></i> Astronomy Dashboard
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        Explore **NASA’s Astronomy Picture of the Day** with explanations + extra space facts. A **cosmic experience** for enthusiasts.
+                    </p>
+                    <a href="https://smile-plzz.github.io/AstronomyDashboard/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                        <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
+                    </a>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
+                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                        <i class="fas fa-film mr-2"></i> Mood-Based Movie Recommender
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        Get **handpicked movie suggestions** based on your mood. Blends **genres + emotions** for a perfect recommendation.
+                    </p>
+                    <a href="https://smile-plzz.github.io/MovieRecommendationBasedOnMood/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                        <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
+                    </a>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600 md:col-span-2">
+                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                        <i class="fas fa-ticket-alt mr-2"></i> Now Showing & The Daily Doggo
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="text-gray-700 mb-2 font-medium">Now Showing:</p>
+                            <p class="text-gray-700 mb-3">
+                                Real-time **Now Playing movies** from TMDB API. Features **posters, ratings, release dates**, and **in-app streaming previews**.
+                            </p>
+                            <a href="https://now-showing-mu.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                                <i class="fas fa-external-link-alt mr-1"></i> Visit Now Showing
+                            </a>
                         </div>
-                        <div class="mt-4 flex flex-wrap gap-2 text-sm">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">
-                                <i class="fas fa-star mr-1"></i> 3.69/4.00 (Current)
-                            </span>
-                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">
-                                <i class="far fa-calendar-alt mr-1"></i> 2025 (Expected)
-                            </span>
+                        <div>
+                            <p class="text-gray-700 mb-2 font-medium">The Daily Doggo:</p>
+                            <p class="text-gray-700 mb-3">
+                                Fetch something delightful on every click. Features adorable critter images, cats, dogs, foxes, Pokémon art, random meals, plus text overlays, favorites, and sharing capabilities.
+                            </p>
+                            <a href="https://the-daily-doggo.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                                <i class="fas fa-external-link-alt mr-1"></i> Visit Daily Doggo
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in">
-                    <div class="flex flex-col h-full">
-                        <div class="mb-4 flex-grow">
-                            <h3 class="text-xl font-bold flex items-center text-blue-700">
-                                <i class="fas fa-university mr-3 text-blue-600"></i>
-                                BSc in Computer Science & Engineering
-                            </h3>
-                            <p class="text-gray-600 mt-2 ml-7 font-medium">North South University</p>
-                            <p class="text-gray-600 mt-3 ml-7 font-semibold">Key Coursework:</p>
-                            <ul class="list-disc ml-12 text-gray-700 text-sm mt-1 space-y-1">
-                                <li>Database Systems, Software Engineering</li>
-                                <li>Design and Analysis of Algorithms</li>
-                                <li>Digital Logic Design, Operating Systems Design</li>
-                                <li>Computer Organization and Architecture</li>
-                                <li>Microprocessor Interfacing and Embedded System</li>
-                            </ul>
-                        </div>
-                        <div class="mt-4 flex flex-wrap gap-2 text-sm">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">
-                                <i class="fas fa-star mr-1"></i> CGPA: 2.63/4.00
-                            </span>
-                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">
-                                <i class="far fa-calendar-alt mr-1"></i> 2023
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in">
-                    <div class="flex flex-col h-full">
-                        <div class="mb-4 flex-grow">
-                            <h3 class="text-xl font-bold flex items-center text-blue-700">
-                                <i class="fas fa-school mr-3 text-blue-600"></i>
-                                Higher Secondary School Certificate (Science)
-                            </h3>
-                            <p class="text-gray-600 mt-2 ml-7 font-medium">Government Bangla College</p>
-                        </div>
-                        <div class="mt-4 flex flex-wrap gap-2 text-sm">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">
-                                <i class="fas fa-star mr-1"></i> GPA: 3.83/5.00
-                            </span>
-                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">
-                                <i class="far fa-calendar-alt mr-1"></i> 2018
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in">
-                    <div class="flex flex-col h-full">
-                        <div class="mb-4 flex-grow">
-                            <h3 class="text-xl font-bold flex items-center text-blue-700">
-                                <i class="fas fa-school mr-3 text-blue-600"></i>
-                                Secondary School Certificate (Science)
-                            </h3>
-                            <p class="text-gray-600 mt-2 ml-7 font-medium">Dhanmondi Govt Boyz High School</p>
-                        </div>
-                        <div class="mt-4 flex flex-wrap gap-2 text-sm">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">
-                                <i class="fas fa-star mr-1"></i> GPA: 5.00/5.00
-                            </span>
-                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">
-                                <i class="far fa-calendar-alt mr-1"></i> 2016
-                            </span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
-
     <section id="projects" class="section bg-gray-100">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold mb-10 text-center fade-in">
-                <i class="fas fa-project-diagram mr-3 text-blue-600"></i>Academic Projects
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
+                <i class="fas fa-flask mr-3 text-blue-600"></i>Academic Projects
             </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-medkit text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Healthcare System with OCR</h3>
+                        <h3 class="text-xl font-bold text-gray-800">Healthcare System with OCR</h3>
                     </div>
                     <p class="text-gray-600 mb-3 text-sm font-medium">
-                        <span class="font-bold">Group Project (Senior Capstone)</span>
+                        <span class="font-bold">Senior Capstone</span> | React JS, SQL, OpenCV, PyTesseract, TensorFlow
                     </p>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
-                        A web-based platform offering seamless online doctor consultations, integrated with **Optical Character Recognition (OCR)** to digitize and organize medical documents. **Med-Tech** ensures accurate medical history tracking for improved diagnosis and personalized treatment.
+                    <p class="mb-4 text-gray-700 leading-relaxed text-sm">
+                        A web-based platform offering seamless online doctor consultations, integrated with **Optical Character Recognition (OCR)** to digitize and organize medical documents. Med-Tech ensures accurate medical history tracking for improved diagnosis and personalized treatment.
                     </p>
-                    <p class="font-semibold text-sm text-gray-800 mb-2">Technologies:</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">React JS</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">OpenCV</span>
-                        <span class="tech-tag">PyTesseract</span>
-                        <span class="tech-tag">TensorFlow</span>
-                    </div>
                 </div>
 
                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-shopping-cart text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Online Arts & Crafts Shop</h3>
+                        <h3 class="text-xl font-bold text-gray-800">Online Arts & Crafts Shop</h3>
                     </div>
                     <p class="text-gray-600 mb-3 text-sm font-medium">
-                        <span class="font-bold">Individual Project (Junior Capstone)</span>
+                        <span class="font-bold">Junior Capstone</span> | HTML, CSS, AJAX, JavaScript
                     </p>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    <p class="mb-4 text-gray-700 leading-relaxed text-sm">
                         Designed a full-stack e-commerce platform with inventory tracking, sales analytics and payment processing system. Developed the e-commerce website using HTML, CSS ensuring better responsiveness with **AJAX**.
                     </p>
-                    <p class="font-semibold text-sm text-gray-800 mb-2">Technologies:</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">AJAX</span>
-                        <span class="tech-tag">JavaScript</span>
-                    </div>
                 </div>
-
+                
                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-hotel text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Hotel Management System</h3>
+                        <h3 class="text-xl font-bold text-gray-800">Hotel Management System</h3>
                     </div>
                     <p class="text-gray-600 mb-3 text-sm font-medium">
-                        <span class="font-bold">Group Project (Academic Course)</span>
+                        <span class="font-bold">Academic Course</span> | Java, JavaFX, GUI Development
                     </p>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    <p class="mb-4 text-gray-700 leading-relaxed text-sm">
                         Created a system to streamline hotel operations, including bookings and billing. Developed the application using **Java**, incorporating GUI development with **JavaFX** for an interactive user interface.
                     </p>
-                    <p class="font-semibold text-sm text-gray-800 mb-2">Technologies:</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">JavaFX</span>
-                        <span class="tech-tag">GUI Development</span>
-                    </div>
                 </div>
 
                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-piggy-bank text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Bank Database System</h3>
+                        <h3 class="text-xl font-bold text-gray-800">Bank Database System</h3>
                     </div>
                     <p class="text-gray-600 mb-3 text-sm font-medium">
-                        <span class="font-bold">Group Project (Academic Course)</span>
+                        <span class="font-bold">Academic Course</span> | C Language, Database Management
                     </p>
-                    <p class="mb-4 text-gray-700 leading-relaxed">
+                    <p class="mb-4 text-gray-700 leading-relaxed text-sm">
                         Developed a database for managing client and employee information in a banking environment. Implemented the system using **C language** for robust database operations and management.
                     </p>
-                    <p class="font-semibold text-sm text-gray-800 mb-2">Technologies:</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">C Language</span>
-                        <span class="tech-tag">Database Management</span>
-                    </div>
-                </div>
-                
-                <style>
-                    .tech-tag {
-                        background-color: #dbeafe; /* blue-100 */
-                        color: #1e40af; /* blue-800 */
-                        padding: 0.25rem 0.75rem;
-                        border-radius: 9999px; /* full rounded */
-                        font-size: 0.75rem; /* xs */
-                        font-weight: 500; /* medium */
-                        line-height: 1;
-                    }
-                </style>
-            </div>
-        </div>
-    </section>
-
-    <section class="section bg-white">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold mb-10 text-center fade-in">
-                <i class="fas fa-microscope mr-3 text-blue-600"></i>Research and Publications
-            </h2>
-            <div class="max-w-4xl mx-auto space-y-6">
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Med-Tech: Online doctor consultation with Optical Character Recognition (OCR)</h3>
-                    <p class="text-gray-600 mb-3">
-                        <span class="font-semibold">Authors:</span> Md. Ismail Hossain, Sabab Ishraq, Md. Fazlay Rabbi Nabid
-                    </p>
-                    <p class="mb-3 text-gray-600">
-                        <span class="font-semibold">Supervisor:</span> Dr. Shohana Rahman Deeba (Associate Professor)
-                    </p>
-                    <p class="text-sm text-gray-500 italic">
-                        DEPARTMENT OF ELECTRICAL AND COMPUTER ENGINEERING, NORTH SOUTH UNIVERSITY
-                    </p>
-
-                </div>
-
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Brain Tumor Classification using Efficient-Net and Grad-Cam</h3>
-                    <p class="text-gray-600 mb-3">
-                        <span class="font-semibold">Authors:</span> Md. Ismail Hossain, MD. Kawser Islam, Yeaser Shams
-                    </p>
-                    <p class="mb-3 text-gray-600">
-                        <span class="font-semibold">Supervisor:</span> Dr. Mohammad Monirujjaman Khan (Associate Professor)
-                    </p>
-                    <p class="text-sm text-gray-500 italic">
-                        DEPARTMENT OF ELECTRICAL AND COMPUTER ENGINEERING, NORTH SOUTH UNIVERSITY
-                    </p>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="experience" class="section bg-gray-100">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold mb-10 text-center fade-in">
-                <i class="fas fa-briefcase mr-3 text-blue-600"></i>Work & Entrepreneurial Experience
+    <section id="experience" class="section bg-white">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
+                <i class="fas fa-briefcase mr-3 text-blue-600"></i>Work Experience
             </h2>
-            <div class="max-w-4xl mx-auto space-y-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+            <div class="space-y-8">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between">
                         <div>
                             <h3 class="text-xl font-bold flex items-center text-blue-700">
@@ -641,255 +489,15 @@
                         </div>
                     </div>
                     <div class="mt-4 ml-8">
-                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                            <li>Spearhead strategic **CRM** initiatives to drive personalized growth and maximize ROI for Shopify merchants using Dynamatic’s eCommerce personalization platform. </li>
-                             <li>Leverage Dynamatic’s customizable cart and upsell system to transform standard shopping carts into high-conversion sales engines, boosting AOV and conversion rates. </li>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                            <li>Spearhead strategic **CRM** initiatives to drive personalized growth and maximize ROI for Shopify merchants. </li>
                              <li>Act as a **technical-strategic consultant**, translating business needs into actionable technical requirements for custom **JavaScript/Liquid** implementations.</li>
-                             <li>Collaborate closely with development teams to ensure seamless integration and performance reliability across merchant storefronts. </li>
-                             <li>Apply **data-driven analysis** to interpret sales funnel metrics, optimize audience segmentation, and refine campaign targeting algorithms. </li>
-                             <li> Lead merchant onboarding and enablement, identifying potential conflicts early and ensuring smooth adoption of Dynamatic features from day one.</li>
+                             <li>Apply **data-driven analysis** to interpret sales funnel metrics, optimize audience segmentation, and refine campaign targeting. </li>
                         </ul>
-                    </div>
-                  <div class="mt-4 ml-8 flex flex-wrap gap-2">
-                    <a href="https://www.linkedin.com/company/devsnest-llc/" target="_blank" class="bg-blue-600 text-white px-3 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition flex items-center shadow-md">
-                        <i class="fab fa-linkedin mr-1.5"></i>DevsNest LinkedIn
-                    </a>
-                    <a href="https://devsnest.net/" target="_blank" class="bg-gray-700 text-white px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gray-800 transition flex items-center shadow-md">
-                        <i class="fas fa-globe mr-1.5"></i>DevsNest Website
-                    </a>
-                    <a href="https://dynamaticapp.com/" target="_blank" class="bg-indigo-600 text-white px-3 py-1.5 rounded-full text-sm font-medium hover:bg-indigo-700 transition flex items-center shadow-md">
-                        <i class="fas fa-rocket mr-1.5"></i>Dynamatic App
-                    </a>
-                </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in transition-transform duration-300 group border-l-4 border-blue-600" id="nmfm-section">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold flex items-center text-blue-700">
-                                <i class="fas fa-music mr-3 text-blue-600" aria-hidden="true"></i>
-                                NO MORE FREE MUSIC (Co-Founder)
-                            </h3>
-                            <p class="text-gray-600 mt-1 ml-8 text-lg font-medium">Music Culture Initiative</p>
-                        </div>
-                        <div class="mt-3 md:mt-0 flex-shrink-0">
-                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap">
-                                <i class="far fa-calendar-alt mr-1" aria-hidden="true"></i> 2021 - 2022
-                            </span>
-                        </div>
-                    </div>
-                    <div class="mt-4 ml-8">
-                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                            <li>Launched an initiative dedicated to fostering a respectful and robust music culture, aiming to elevate the value of music.</li>
-                            <li>Managed projects including the music video premiere for "Ojanay" by Velvet Wings and the release of "Othocho" by Fantasy Realm.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="mt-6 video-section max-w-4xl mx-auto" data-project="nmfm">
-                        <div class="hero-video mb-6 text-center">
-                            <div class="relative rounded-lg overflow-hidden aspect-video shadow-xl">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZOoEIAQi_70?autoplay=0&mute=1&enablejsapi=1" title="NMFM Featured Music Video: Signature Work" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                <span class="absolute top-2 left-2 bg-blue-600 text-white px-2 py-1 rounded text-sm font-medium">Featured</span>
-                            </div>
-                            <p class="text-gray-700 mt-3 text-sm font-medium">Music Video: Signature Work</p>
-                        </div>
-                        
-                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                            <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="all" aria-label="Show all videos">All</button>
-                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="music" aria-label="Show music videos">Music Videos</button>
-                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="event" aria-label="Show event highlights">Event Highlights</button>
-                        </div>
-                        
-                        <div class="relative">
-                            <div class="video-carousel flex overflow-x-auto gap-4 pb-4 scroll-smooth snap-x snap-mandatory" tabindex="0" aria-label="NMFM video carousel">
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="hNCHZ_7bI2Q" data-title="Music Video: Performance">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Music Video: Performance">
-                                        <img src="https://img.youtube.com/vi/hNCHZ_7bI2Q/hqdefault.jpg" alt="Music Video: Performance Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="event" data-video-id="3SPRwvR0i_o" data-title="Event Highlight: NMFM Unplugged">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Event Highlight: NMFM Unplugged">
-                                        <img src="https://img.youtube.com/vi/3SPRwvR0i_o/hqdefault.jpg" alt="Event Highlight: NMFM Unplugged Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="be25ub6dnsQ" data-title="Music Video: Studio Recording">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Music Video: Studio Recording">
-                                        <img src="https://img.youtube.com/vi/be25ub6dnsQ/hqdefault.jpg" alt="Music Video: Studio Recording Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="event" data-video-id="HytEmVoZoao" data-title="Event Highlight: Live Show">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Event Highlight: Live Show">
-                                        <img src="https://img.youtube.com/vi/HytEmVoZoao/hqdefault.jpg" alt="Event Highlight: Live Show Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Previous video">
-                                <i class="fas fa-chevron-left" aria-hidden="true"></i>
-                            </button>
-                            <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Next video">
-                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div id="nmfm-video-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50" role="dialog" aria-labelledby="nmfm-modal-title" aria-modal="true">
-                        <div class="bg-white p-4 rounded-lg max-w-3xl w-full mx-4 sm:mx-0">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 id="nmfm-modal-title" class="text-xl font-bold text-gray-800"></h3>
-                                <button class="close-modal-btn text-gray-600 hover:text-gray-800 text-2xl font-semibold rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200 transition-colors focus:outline-none" aria-label="Close video modal">×</button>
-                            </div>
-                            <iframe id="nmfm-modal-iframe" class="w-full h-64 sm:h-80 md:h-96 rounded-lg" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="NMFM Video player"></iframe>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in transition-transform duration-300 group border-l-4 border-blue-600">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold flex items-center text-blue-700">
-                                <i class="fas fa-video mr-3 text-blue-600" aria-hidden="true"></i>
-                                15-Miles (Founder)
-                            </h3>
-                            <p class="text-gray-600 mt-1 ml-8 text-lg font-medium">Video Production Firm</p>
-                        </div>
-                        <div class="mt-3 md:mt-0 flex-shrink-0">
-                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap">
-                                <i class="far fa-calendar-alt mr-1" aria-hidden="true"></i> 2021 - 2023
-                            </span>
-                        </div>
-                    </div>
-                    <div class="mt-4 ml-8">
-                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                            <li>Established a video production firm specializing in documentaries, promotional content, music videos, and lyric videos.</li>
-                            <li>Renowned for exceptional aerial shots and drone footage, supporting various government and private sector projects.</li>
-                        </ul>
-                        <div class="mt-4">
-                            <a href="https://www.facebook.com/15milestogo/" target="_blank" class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors flex items-center w-fit shadow-md" aria-label="Visit 15-Miles Facebook page">
-                                <i class="fab fa-facebook-f mr-1" aria-hidden="true"></i> Facebook Page
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-6 video-section max-w-4xl mx-auto" data-project="15miles">
-                        <div class="hero-video mb-6 text-center">
-                            <div class="relative rounded-lg overflow-hidden shadow-xl aspect-video">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/-Do0eJRvRZA?autoplay=0&mute=1&enablejsapi=1" title="15-Miles Featured Documentary: Signature Work" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                                <span class="absolute top-2 left-2 bg-blue-600 text-white px-2 py-1 rounded text-sm font-medium">Featured</span>
-                            </div>
-                            <p class="text-gray-700 mt-3 text-sm font-medium">Documentary: Signature Work</p>
-                        </div>
-                        
-                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                            <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="all" aria-label="Show all 15-Miles videos">All</button>
-                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="documentary" aria-label="Show documentary videos">Documentaries</button>
-                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="music" aria-label="Show music videos">Music Videos</button>
-                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="aerial" aria-label="Show aerial shot videos">Aerial Shots</button>
-                        </div>
-                        
-                        <div class="relative">
-                            <div class="video-carousel flex overflow-x-auto gap-4 pb-4 scroll-smooth snap-x snap-mandatory" tabindex="0" aria-label="15-Miles video carousel">
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="emZoF0r4_aE" data-title="Documentary: Coastal Aerials">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Coastal Aerials Documentary">
-                                        <img src="https://img.youtube.com/vi/emZoF0r4_aE/hqdefault.jpg" alt="Coastal Aerials Documentary Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="ztm412kovcE" data-title="Music Video: Live Performance">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Live Performance Music Video">
-                                        <img src="https://img.youtube.com/vi/ztm412kovcE/hqdefault.jpg" alt="Live Performance Music Video Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="zCWmwOvZsME" data-title="Aerial Shots: Cityscape">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Cityscape Aerial Shots">
-                                        <img src="https://img.youtube.com/vi/zCWmwOvZsME/hqdefault.jpg" alt="Cityscape Aerial Shots Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="2b7pnUNBKUk" data-title="Documentary: Wildlife Exploration">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Wildlife Exploration Documentary">
-                                        <img src="https://img.youtube.com/vi/2b7pnUNBKUk/hqdefault.jpg" alt="Wildlife Exploration Documentary Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="SsRKK9sX44E" data-title="Music Video: Lyric Video">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Lyric Video">
-                                        <img src="https://img.youtube.com/vi/SsRKK9sX44E/hqdefault.jpg" alt="Lyric Video Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="7wZCpOZHN9U" data-title="Aerial Shots: Mountain Range">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Mountain Range Aerial Shots">
-                                        <img src="https://img.youtube.com/vi/7wZCpOZHN9U/hqdefault.jpg" alt="Mountain Range Aerial Shots Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="d9pYOkbD5LY" data-title="Documentary: Cultural Heritage">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Cultural Heritage Documentary">
-                                        <img src="https://img.youtube.com/vi/d9pYOkbD5LY/hqdefault.jpg" alt="Cultural Heritage Documentary Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="muq234HFGhg" data-title="Music Video: Concert Highlight">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Concert Highlight Music Video">
-                                        <img src="https://img.youtube.com/vi/muq234HFGhg/hqdefault.jpg" alt="Concert Highlight Music Video Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="wOBGl1jBrj4" data-title="Aerial Shots: Coastal Drone">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Coastal Drone Aerial Shots">
-                                        <img src="https://img.youtube.com/vi/wOBGl1jBrj4/hqdefault.jpg" alt="Coastal Drone Aerial Shots Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="sNHWR5WrXWs" data-title="Documentary: Urban Life">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Urban Life Documentary">
-                                        <img src="https://img.youtube.com/vi/sNHWR5WrXWs/hqdefault.jpg" alt="Urban Life Documentary Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="rCqvzA48n1A" data-title="Music Video: Studio Session">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Studio Session Music Video">
-                                        <img src="https://img.youtube.com/vi/rCqvzA48n1A/hqdefault.jpg" alt="Studio Session Music Video Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="9VKEH79AwyY" data-title="Aerial Shots: Forest Canopy">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Forest Canopy Aerial Shots">
-                                        <img src="https://img.youtube.com/vi/9VKEH79AwyY/hqdefault.jpg" alt="Forest Canopy Aerial Shots Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="iYb2zYPgSEc" data-title="Documentary: Historical Sites">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Historical Sites Documentary">
-                                        <img src="https://img.youtube.com/vi/iYb2zYPgSEc/hqdefault.jpg" alt="Historical Sites Documentary Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="OHNttaL_XsY" data-title="Music Video: Acoustic Performance">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Acoustic Performance Music Video">
-                                        <img src="https://img.youtube.com/vi/OHNttaL_XsY/hqdefault.jpg" alt="Acoustic Performance Music Video Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="JI-_NriqYZY" data-title="Aerial Shots: River Valley">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play River Valley Aerial Shots">
-                                        <img src="https://img.youtube.com/vi/JI-_NriqYZY/hqdefault.jpg" alt="River Valley Aerial Shots Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="EX70bY-Nw2Y" data-title="Documentary: Community Stories">
-                                    <div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Community Stories Documentary">
-                                        <img src="https://img.youtube.com/vi/EX70bY-Nw2Y/hqdefault.jpg" alt="Community Stories Documentary Thumbnail" class="w-full" loading="lazy">
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none z-10" aria-label="Previous videos">
-                                <i class="fas fa-chevron-left" aria-hidden="true"></i>
-                            </button>
-                            <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none z-10" aria-label="Next videos">
-                                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-                        <div class="bg-white p-4 rounded-lg max-w-3xl w-full mx-4 sm:mx-0 max-h-[90vh] overflow-auto">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 id="modalTitle" class="text-xl font-bold text-gray-800"></h3>
-                                <button class="close-modal-btn text-gray-600 hover:text-gray-800 text-2xl font-semibold rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200 transition-colors focus:outline-none" aria-label="Close video modal">×</button>
-                            </div>
-                            <iframe id="modalIframe" class="w-full h-64 sm:h-80 md:h-96 rounded-lg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="15-Miles Video player"></iframe>
-                        </div>
                     </div>
                 </div>
 
-                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                 <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between">
                         <div>
                             <h3 class="text-xl font-bold flex items-center text-blue-700">
@@ -905,14 +513,14 @@
                         </div>
                     </div>
                     <div class="mt-4 ml-8">
-                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
                             <li>Oversaw software design and development processes to ensure high-quality outputs.</li>
                             <li>Advised clients on the maintenance and optimization of software systems, enhancing overall performance and user experience.</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between">
                         <div>
                             <h3 class="text-xl font-bold flex items-center text-blue-700">
@@ -928,542 +536,678 @@
                         </div>
                     </div>
                     <div class="mt-4 ml-8">
-                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                            <li>Instructed students on designing fully functional websites, encompassing both aesthetic and usability aspects.</li>
-                            <li>Provided training in front-end development and back-end database management, equipping students with comprehensive web development skills.</li>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                            <li>Instructed students on designing fully functional websites (front-end and back-end database management).</li>
+                            <li>Equipped students with comprehensive web development skills for vocational training.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="section bg-white">
-    <div class="container mx-auto">
-        <h2 class="text-3xl font-bold mb-10 text-center fade-in">
-            <i class="fas fa-running mr-3 text-blue-600"></i>Extra-Curricular Activities
-        </h2>
-        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in">
-                <div class="flex items-center mb-3">
-                    <i class="fas fa-chalkboard mr-3 text-blue-600 text-xl"></i>
-                    <h3 class="text-lg font-semibold text-gray-800">Facilitated Training Sessions</h3>
-                </div>
-                <p class="text-gray-700 leading-relaxed mb-4">
-                    Conducted a three-day training program on **"Management of E-Learning"** at a government educational institution, enhancing educators' proficiency in digital teaching methodologies.
-                </p>
-                <a href="https://drive.google.com/file/d/1P6q826ApUesOYAlUoxmQ4nlk0gh48crB/view?usp=sharing" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm font-medium shadow-md" target="_blank" aria-label="View Documentation for E-Learning Training">View Documentation</a>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in">
-                <div class="flex items-center mb-3">
-                    <i class="fas fa-film mr-3 text-blue-600 text-xl"></i>
-                    <h3 class="text-lg font-semibold text-gray-800">Documentary and Video Production</h3>
-                </div>
-                <p class="text-gray-700 leading-relaxed mb-4">
-                    Produced a documentary titled **"Institute of Marine Technology, Chadpur"** and a live musical performance video for the renowned Bangladeshi band **Aftermath**.
-                </p>
-                <div class="mt-4 flex flex-col space-y-3 text-sm font-medium">
-                    <a href="https://youtu.be/-Do0eJRvRZA?si=Bqn5U1ANjmn_5dAB" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md" target="_blank">Documentary: IMT, Chandpur</a>
-                    <a href="https://youtu.be/zCWmwOvZsME?si=K_gMRReMKKj6zBA9" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md" target="_blank">Pabna Polytechnic Institute (Video)</a>
-                </div>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in">
-                <div class="flex items-center mb-3">
-                    <i class="fas fa-drone mr-3 text-blue-600 text-xl"></i>
-                    <h3 class="text-lg font-semibold text-gray-800">Aerial Drone Survey</h3>
-                </div>
-                <p class="text-gray-700 leading-relaxed">
-                    Executed an aerial drone survey for a reputable civil firm, supporting various government projects and promoting the integration of advanced technology in civil engineering practices.
-                </p>
-            </div>
-
-            <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in">
-                <div class="flex items-center mb-3">
-                    <i class="fas fa-network-wired mr-3 text-blue-600 text-xl"></i>
-                    <h3 class="text-lg font-semibold text-gray-800">Internet Network Infrastructure Project</h3>
-                </div>
-                <p class="text-gray-700 leading-relaxed mb-4">
-                    Designed and implemented a comprehensive internet network infrastructure for a computer laboratory at **Dhaka Technical Teachers Training Institute (DTTTI)**, optimizing connectivity and resource sharing.
-                </p>
-                <a href="https://drive.google.com/file/d/1ZdytCkYh4Mr8OCLNv8LBRq2j9rpgwyC9/view?usp=sharing" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm font-medium shadow-md" target="_blank" aria-label="View Documentation for Network Infrastructure Project">View Documentation</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section bg-gray-100">
-    <div class="container mx-auto">
-        <h2 class="text-3xl font-bold mb-10 text-center fade-in">
-            <i class="fas fa-certificate mr-3 text-blue-600"></i>Certifications and Training
-        </h2>
-        <div class="max-w-4xl mx-auto space-y-4">
-             <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between">
-                    <div>
-                        <h3 class="text-lg font-bold flex items-center text-gray-800">
-                            <i class="fas fa-language mr-3 text-blue-600"></i>
-                            English (Upper-Intermediate – B2 Level)
-                        </h3>
-                        <p class="text-gray-600 ml-8 text-sm mt-1">British Council Bangladesh – Senior Young Learners Program | May, 2016</p>
+    <section id="venture" class="section bg-gray-100">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
+                <i class="fas fa-handshake mr-3 text-blue-600"></i>Entrepreneurial Ventures
+            </h2>
+            <div class="space-y-8">
+                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600 group" id="nmfm-section">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold flex items-center text-blue-700">
+                                <i class="fas fa-music mr-3" aria-hidden="true"></i>
+                                NO MORE FREE MUSIC (Co-Founder)
+                            </h3>
+                            <p class="text-gray-600 mt-1 ml-8 text-lg font-medium">Music Culture Initiative</p>
+                        </div>
+                        <div class="mt-3 md:mt-0 flex-shrink-0">
+                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap">
+                                <i class="far fa-calendar-alt mr-1" aria-hidden="true"></i> 2021 - 2022
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-4 ml-8">
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                            <li>Launched an initiative dedicated to fostering a respectful and robust music culture.</li>
+                            <li>Managed projects including the music video premiere for "Ojanay" by Velvet Wings and the release of "Othocho" by Fantasy Realm.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-6 video-section" data-project="nmfm">
+                        <div class="hero-video mb-6 text-center">
+                            <div class="relative rounded-lg overflow-hidden aspect-video shadow-xl">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZOoEIAQi_70?autoplay=0&mute=1&enablejsapi=1" title="NMFM Featured Music Video: Signature Work" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <p class="text-gray-700 mt-3 text-sm font-medium">Featured: Signature Work</p>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="all" aria-label="Show all videos">All</button>
+                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="music" aria-label="Show music videos">Music Videos</button>
+                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="event" aria-label="Show event highlights">Event Highlights</button>
+                        </div>
+                        
+                        <div class="relative">
+                            <div class="video-carousel flex overflow-x-auto gap-4 pb-4 scroll-smooth snap-x snap-mandatory" tabindex="0" aria-label="NMFM video carousel">
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="hNCHZ_7bI2Q" data-title="Music Video: Performance"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Music Video: Performance"><img src="https://img.youtube.com/vi/hNCHZ_7bI2Q/hqdefault.jpg" alt="Music Video: Performance Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="event" data-video-id="3SPRwvR0i_o" data-title="Event Highlight: NMFM Unplugged"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Event Highlight: NMFM Unplugged"><img src="https://img.youtube.com/vi/3SPRwvR0i_o/hqdefault.jpg" alt="Event Highlight: NMFM Unplugged Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="be25ub6dnsQ" data-title="Music Video: Studio Recording"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Music Video: Studio Recording"><img src="https://img.youtube.com/vi/be25ub6dnsQ/hqdefault.jpg" alt="Music Video: Studio Recording Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="event" data-video-id="HytEmVoZoao" data-title="Event Highlight: Live Show"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Event Highlight: Live Show"><img src="https://img.youtube.com/vi/HytEmVoZoao/hqdefault.jpg" alt="Event Highlight: Live Show Thumbnail" class="w-full" loading="lazy"></div></div>
+                            </div>
+                            <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Previous video"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                            <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Next video"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div id="nmfm-video-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50" role="dialog" aria-labelledby="nmfm-modal-title" aria-modal="true">
+                        <div class="bg-white p-4 rounded-lg max-w-3xl w-full mx-4 sm:mx-0">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 id="nmfm-modal-title" class="text-xl font-bold text-gray-800"></h3>
+                                <button class="close-modal-btn text-gray-600 hover:text-gray-800 text-2xl font-semibold rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200 transition-colors focus:outline-none" aria-label="Close video modal">×</button>
+                            </div>
+                            <iframe id="nmfm-modal-iframe" class="w-full h-64 sm:h-80 md:h-96 rounded-lg" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="NMFM Video player"></iframe>
+                        </div>
                     </div>
                 </div>
-                <p class="text-gray-700 mt-3 ml-8">
-                    Completed a structured English course focused on reading, writing, listening, and speaking skills. Certified by the British Council Teaching Centre.
-                </p>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600 group">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold flex items-center text-blue-700">
+                                <i class="fas fa-drone mr-3" aria-hidden="true"></i>
+                                15-Miles (Founder)
+                            </h3>
+                            <p class="text-gray-600 mt-1 ml-8 text-lg font-medium">Video Production Firm</p>
+                        </div>
+                        <div class="mt-3 md:mt-0 flex-shrink-0">
+                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap">
+                                <i class="far fa-calendar-alt mr-1" aria-hidden="true"></i> 2021 - 2023
+                            </span>
+                        </div>
+                    </div>
+                    <div class="mt-4 ml-8">
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                            <li>Established a video production firm specializing in documentaries, promotional content, and music videos.</li>
+                            <li>Renowned for exceptional aerial shots and drone footage, supporting various government and private sector projects.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-6 video-section" data-project="15miles">
+                        <div class="hero-video mb-6 text-center">
+                            <div class="relative rounded-lg overflow-hidden shadow-xl aspect-video">
+                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/-Do0eJRvRZA?autoplay=0&mute=1&enablejsapi=1" title="15-Miles Featured Documentary: Signature Work" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <p class="text-gray-700 mt-3 text-sm font-medium">Featured: Documentary Signature Work</p>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
+                            <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="all" aria-label="Show all 15-Miles videos">All</button>
+                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="documentary" aria-label="Show documentary videos">Documentaries</button>
+                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="music" aria-label="Show music videos">Music Videos</button>
+                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="aerial" aria-label="Show aerial shot videos">Aerial Shots</button>
+                        </div>
+                        
+                        <div class="relative">
+                            <div class="video-carousel flex overflow-x-auto gap-4 pb-4 scroll-smooth snap-x snap-mandatory" tabindex="0" aria-label="15-Miles video carousel">
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="emZoF0r4_aE" data-title="Documentary: Coastal Aerials"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Coastal Aerials Documentary"><img src="https://img.youtube.com/vi/emZoF0r4_aE/hqdefault.jpg" alt="Coastal Aerials Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="ztm412kovcE" data-title="Music Video: Live Performance"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Live Performance Music Video"><img src="https://img.youtube.com/vi/ztm412kovcE/hqdefault.jpg" alt="Live Performance Music Video Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="zCWmwOvZsME" data-title="Aerial Shots: Cityscape"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Cityscape Aerial Shots"><img src="https://img.youtube.com/vi/zCWmwOvZsME/hqdefault.jpg" alt="Cityscape Aerial Shots Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="2b7pnUNBKUk" data-title="Documentary: Wildlife Exploration"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Wildlife Exploration Documentary"><img src="https://img.youtube.com/vi/2b7pnUNBKUk/hqdefault.jpg" alt="Wildlife Exploration Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="SsRKK9sX44E" data-title="Music Video: Lyric Video"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Lyric Video"><img src="https://img.youtube.com/vi/SsRKK9sX44E/hqdefault.jpg" alt="Lyric Video Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="7wZCpOZHN9U" data-title="Aerial Shots: Mountain Range"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Mountain Range Aerial Shots"><img src="https://img.youtube.com/vi/7wZCpOZHN9U/hqdefault.jpg" alt="Mountain Range Aerial Shots Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="d9pYOkbD5LY" data-title="Documentary: Cultural Heritage"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Cultural Heritage Documentary"><img src="https://img.youtube.com/vi/d9pYOkbD5LY/hqdefault.jpg" alt="Cultural Heritage Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="muq234HFGhg" data-title="Music Video: Concert Highlight"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Concert Highlight Music Video"><img src="https://img.youtube.com/vi/muq234HFGhg/hqdefault.jpg" alt="Concert Highlight Music Video Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="wOBGl1jBrj4" data-title="Aerial Shots: Coastal Drone"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Coastal Drone Aerial Shots"><img src="https://img.youtube.com/vi/wOBGl1jBrj4/hqdefault.jpg" alt="Coastal Drone Aerial Shots Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="sNHWR5WrXWs" data-title="Documentary: Urban Life"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Urban Life Documentary"><img src="https://img.youtube.com/vi/sNHWR5WrXWs/hqdefault.jpg" alt="Urban Life Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="rCqvzA48n1A" data-title="Music Video: Studio Session"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Studio Session Music Video"><img src="https://img.youtube.com/vi/rCqvzA48n1A/hqdefault.jpg" alt="Studio Session Music Video Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="9VKEH79AwyY" data-title="Aerial Shots: Forest Canopy"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Forest Canopy Aerial Shots"><img src="https://img.youtube.com/vi/9VKEH79AwyY/hqdefault.jpg" alt="Forest Canopy Aerial Shots Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="iYb2zYPgSEc" data-title="Documentary: Historical Sites"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Historical Sites Documentary"><img src="https://img.youtube.com/vi/iYb2zYPgSEc/hqdefault.jpg" alt="Historical Sites Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="OHNttaL_XsY" data-title="Music Video: Acoustic Performance"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Acoustic Performance Music Video"><img src="https://img.youtube.com/vi/OHNttaL_XsY/hqdefault.jpg" alt="Acoustic Performance Music Video Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="JI-_NriqYZY" data-title="Aerial Shots: River Valley"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play River Valley Aerial Shots"><img src="https://img.youtube.com/vi/JI-_NriqYZY/hqdefault.jpg" alt="River Valley Aerial Shots Thumbnail" class="w-full" loading="lazy"></div></div>
+                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="EX70bY-Nw2Y" data-title="Documentary: Community Stories"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Community Stories Documentary"><img src="https://img.youtube.com/vi/EX70bY-Nw2Y/hqdefault.jpg" alt="Community Stories Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
+                            </div>
+                            <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Previous videos"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                            <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Next videos"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                        <div class="bg-white p-4 rounded-lg max-w-3xl w-full mx-4 sm:mx-0 max-h-[90vh] overflow-auto">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 id="modalTitle" class="text-xl font-bold text-gray-800"></h3>
+                                <button class="close-modal-btn text-gray-600 hover:text-gray-800 text-2xl font-semibold rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200 transition-colors focus:outline-none" aria-label="Close video modal">×</button>
+                            </div>
+                            <iframe id="modalIframe" class="w-full h-64 sm:h-80 md:h-96 rounded-lg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="15-Miles Video player"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="education" class="section bg-white">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
+                <i class="fas fa-graduation-cap mr-3 text-blue-600"></i>Education
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-xl font-bold flex items-start text-blue-700">
+                        <i class="fas fa-university mr-3 mt-1 text-blue-600"></i>
+                        Masters in Information Technology
+                    </h3>
+                    <p class="text-gray-600 mt-2 ml-7 font-medium">Jahangirnagar University</p>
+                    <p class="text-gray-600 mt-3 ml-7 font-semibold text-sm">Focus Areas:</p>
+                    <ul class="list-disc ml-12 text-gray-700 text-xs mt-1 space-y-1">
+                        <li>AI & Machine Learning, Data Science</li>
+                        <li>Cloud, Mobile Computing, IOT, Wireless Network</li>
+                        <li>Software Testing & Quality Assurance</li>
+                    </ul>
+                    <div class="mt-4 ml-7 flex flex-wrap gap-2 text-sm">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">3.69/4.00 (Current)</span>
+                        <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">2025 (Expected)</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-xl font-bold flex items-start text-blue-700">
+                        <i class="fas fa-university mr-3 mt-1 text-blue-600"></i>
+                        BSc in Computer Science & Engineering
+                    </h3>
+                    <p class="text-gray-600 mt-2 ml-7 font-medium">North South University</p>
+                    <p class="text-gray-600 mt-3 ml-7 font-semibold text-sm">Key Coursework:</p>
+                    <ul class="list-disc ml-12 text-gray-700 text-xs mt-1 space-y-1">
+                        <li>Database Systems, Software Engineering</li>
+                        <li>Algorithms, Operating Systems Design</li>
+                        <li>Computer Architecture, Embedded Systems</li>
+                    </ul>
+                    <div class="mt-4 ml-7 flex flex-wrap gap-2 text-sm">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">CGPA: 2.63/4.00</span>
+                        <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">2023</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between">
-                    <div>
-                        <h3 class="text-lg font-bold flex items-center text-gray-800">
-                            <i class="fas fa-shield-alt mr-3 text-blue-600"></i>
-                            Introduction to Cybersecurity
-                        </h3>
-                        <p class="text-gray-600 ml-8 text-sm mt-1">Networking Academy | Dec 19, 2024 | 6 Hours</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold flex items-center text-blue-700">
+                        <i class="fas fa-school mr-3 text-blue-600"></i>HSC (Science)
+                    </h3>
+                    <p class="text-gray-600 mt-1 ml-7 font-medium">Government Bangla College</p>
+                    <div class="mt-3 ml-7 flex flex-wrap gap-2 text-sm">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">GPA: 3.83/5.00</span>
+                        <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">2018</span>
                     </div>
                 </div>
-                <div class="mt-3 ml-8">
-                    <p class="text-gray-700 mb-3">
-                        Gained foundational knowledge of cybersecurity concepts, threat analysis, and digital security essentials.
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold flex items-center text-blue-700">
+                        <i class="fas fa-school mr-3 text-blue-600"></i>SSC (Science)
+                    </h3>
+                    <p class="text-gray-600 mt-1 ml-7 font-medium">Dhanmondi Govt Boyz High School</p>
+                    <div class="mt-3 ml-7 flex flex-wrap gap-2 text-sm">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">GPA: 5.00/5.00</span>
+                        <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">2016</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section bg-gray-100">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
+                <i class="fas fa-microscope mr-3 text-blue-600"></i>Research and Publications
+            </h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Med-Tech: Online doctor consultation with Optical Character Recognition (OCR)</h3>
+                    <p class="text-gray-600 mb-2 text-sm">
+                        <span class="font-semibold">Authors:</span> Md. Ismail Hossain, Sabab Ishraq, Md. Fazlay Rabbi Nabid
                     </p>
-                    <a href="https://www.credly.com/badges/943974f9-9838-4978-837b-37c3d1113021/public_url" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition inline-block shadow-md">
-                        <i class="fas fa-certificate mr-2"></i>View Certificate
-                    </a>
+                    <p class="mb-3 text-gray-600 text-sm">
+                        <span class="font-semibold">Supervisor:</span> Dr. Shohana Rahman Deeba (Associate Professor)
+                    </p>
+                    <p class="text-xs text-gray-500 italic">
+                        DEPARTMENT OF ELECTRICAL AND COMPUTER ENGINEERING, NORTH SOUTH UNIVERSITY
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Brain Tumor Classification using Efficient-Net and Grad-Cam</h3>
+                    <p class="text-gray-600 mb-2 text-sm">
+                        <span class="font-semibold">Authors:</span> Md. Ismail Hossain, MD. Kawser Islam, Yeaser Shams
+                    </p>
+                    <p class="mb-3 text-gray-600 text-sm">
+                        <span class="font-semibold">Supervisor:</span> Dr. Mohammad Monirujjaman Khan (Associate Professor)
+                    </p>
+                    <p class="text-xs text-gray-500 italic">
+                        DEPARTMENT OF ELECTRICAL AND COMPUTER ENGINEERING, NORTH SOUTH UNIVERSITY
+                    </p>
                 </div>
             </div>
+        </div>
+    </section>
+    <section class="section bg-white">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
+                <i class="fas fa-running mr-3 text-blue-600"></i>Extra-Curricular Activities
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold flex items-center mb-3 text-gray-800">
+                        <i class="fas fa-chalkboard mr-3 text-blue-600"></i>Facilitated Training Sessions
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-4 text-sm">
+                        Conducted a three-day training program on **"Management of E-Learning"** at a government educational institution, enhancing educators' proficiency in digital teaching methodologies.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1P6q826ApUesOYAlUoxmQ4nlk0gh48crB/view?usp=sharing" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-xs font-medium shadow-md" target="_blank">View Documentation</a>
+                </div>
 
-            <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between">
-                    <div>
-                        <h3 class="text-lg font-bold flex items-center text-gray-800">
-                            <i class="fas fa-laptop-code mr-3 text-blue-600"></i>
-                            Computer Operation Level-3
-                        </h3>
-                        <p class="text-gray-600 ml-8 text-sm mt-1">National Skills Development Authority (NSDA) | Feb 24, 2025</p>
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold flex items-center mb-3 text-gray-800">
+                        <i class="fas fa-film mr-3 text-blue-600"></i>Documentary and Video Production
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-4 text-sm">
+                        Produced a documentary titled **"Institute of Marine Technology, Chadpur"** and a live musical performance video for the renowned Bangladeshi band **Aftermath**.
+                    </p>
+                    <div class="mt-4 flex flex-col space-y-3 text-xs font-medium">
+                        <a href="https://youtu.be/-Do0eJRvRZA?si=Bqn5U1ANjmn_5dAB" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md" target="_blank">Documentary: IMT, Chandpur</a>
                     </div>
                 </div>
-                <div class="mt-3 ml-8">
-                    <a href="https://www.skillsportal.gov.bd/#/rpl/certificate-view?rplCandidateId=AGyeV7SZi8IDV9obk%2FZsbQ%3D%3D" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition inline-block shadow-md">
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold flex items-center mb-3 text-gray-800">
+                        <i class="fas fa-paper-plane mr-3 text-blue-600"></i>Aerial Drone Survey
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed text-sm">
+                        Executed an aerial drone survey for a reputable civil firm, supporting various government projects and promoting the integration of advanced technology in civil engineering practices.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold flex items-center mb-3 text-gray-800">
+                        <i class="fas fa-network-wired mr-3 text-blue-600"></i>Internet Network Infrastructure Project
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed mb-4 text-sm">
+                        Designed and implemented a comprehensive internet network infrastructure for a computer laboratory at **Dhaka Technical Teachers Training Institute (DTTTI)**.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1ZdytCkYh4Mr8OCLNv8LBRq2j9rpgwyC9/view?usp=sharing" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-xs font-medium shadow-md" target="_blank">View Documentation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section bg-gray-100">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
+                <i class="fas fa-certificate mr-3 text-blue-600"></i>Certifications and Training
+            </h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold flex items-center text-gray-800">
+                        <i class="fas fa-shield-alt mr-3 text-blue-600"></i>Introduction to Cybersecurity
+                    </h3>
+                    <p class="text-gray-600 ml-8 text-sm mt-1 mb-3">Networking Academy | Dec 19, 2024 | 6 Hours</p>
+                    <a href="https://www.credly.com/badges/943974f9-9838-4978-837b-37c3d1113021/public_url" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-medium hover:bg-blue-700 transition inline-block shadow-md ml-8">
                         <i class="fas fa-certificate mr-2"></i>View Certificate
                     </a>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section id="contact-form" class="py-16 section bg-gray-50">
-  <div class="container mx-auto max-w-2xl px-4">
-    <h2 class="text-3xl font-bold mb-10 text-center text-gray-800 fade-in">
-      <i class="fas fa-envelope-open-text mr-2 text-blue-600"></i>Send Me a Message
-    </h2>
-    
-    <form 
-      action="https://formspree.io/f/mrbkyqdd" 
-      method="POST"
-      class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-600 fade-in"
-    >
-      <div class="mb-6">
-        <label for="name" class="block text-gray-700 font-semibold mb-2">
-          <i class="fas fa-user mr-2 text-blue-600"></i>Your Name
-        </label>
-        <input 
-          type="text" 
-          id="name" 
-          name="name" 
-          required
-          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-          placeholder="John Doe"
-          aria-required="true"
-        >
-      </div>
-
-      <div class="mb-6">
-        <label for="email" class="block text-gray-700 font-semibold mb-2">
-          <i class="fas fa-at mr-2 text-blue-600"></i>Your Email
-        </label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          required
-          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-          placeholder="your@email.com"
-          aria-required="true"
-        >
-      </div>
-
-      <div class="mb-8">
-        <label for="message" class="block text-gray-700 font-semibold mb-2">
-          <i class="fas fa-comment-dots mr-2 text-blue-600"></i>Your Message
-        </label>
-        <textarea 
-          id="message" 
-          name="message" 
-          rows="6"
-          required
-          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-          placeholder="Hello! I'd like to discuss a project..."
-          aria-required="true"
-        ></textarea>
-      </div>
-
-      <div class="text-center">
-        <button 
-          type="submit"
-          class="px-8 py-3 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-colors duration-200 w-full md:w-fit shadow-lg hover:shadow-xl disabled:bg-blue-400"
-        >
-          <i class="fas fa-paper-plane mr-2"></i>Send Message
-        </button>
-      </div>
-
-      <div id="form-status" role="status" aria-live="polite" class="hidden mt-6 p-4 rounded-lg font-medium text-center transition-all duration-300"></div>
-    </form>
-  </div>
-</section>
-
-
-<section id="contact" class="section py-16 bg-blue-600 text-white">
-    <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-8 fade-in">
-            <i class="fas fa-share-alt mr-3"></i>Connect with Me
-        </h2>
-        <div class="max-w-md mx-auto">
-            <div class="mb-6 space-y-3 font-light fade-in">
-                <div class="flex items-center justify-center">
-                    <i class="fas fa-envelope mr-3 text-blue-200"></i>
-                    <a href="mailto:ismailhossain013@gmail.com" class="hover:underline text-lg font-medium">ismailhossain013@gmail.com</a>
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold flex items-center text-gray-800">
+                        <i class="fas fa-laptop-code mr-3 text-blue-600"></i>Computer Operation Level-3
+                    </h3>
+                    <p class="text-gray-600 ml-8 text-sm mt-1 mb-3">National Skills Development Authority (NSDA) | Feb 24, 2025</p>
+                    <a href="https://www.skillsportal.gov.bd/#/rpl/certificate-view?rplCandidateId=AGyeV7SZi8IDV9obk%2FZsbQ%3D%3D" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-medium hover:bg-blue-700 transition inline-block shadow-md ml-8">
+                        <i class="fas fa-certificate mr-2"></i>View Certificate
+                    </a>
                 </div>
-                <div class="flex items-center justify-center">
-                    <i class="fas fa-phone-alt mr-3 text-blue-200"></i>
-                    <span class="text-lg font-medium">+88-01866304933</span>
-                </div>
-                <div class="flex items-center justify-center">
-                    <i class="fas fa-map-marker-alt mr-3 text-blue-200"></i>
-                    <span class="text-lg font-medium">Dhaka, Bangladesh</span>
-                </div>
-            </div>
-            <div class="flex justify-center space-x-6 mb-8 fade-in">
-                <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="text-white hover:text-blue-200 text-3xl transition-colors" aria-label="LinkedIn Profile">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/smile-plzz" target="_blank" class="text-white hover:text-blue-200 text-3xl transition-colors" aria-label="GitHub Profile">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.facebook.com/optimisticyetpessimist/" target="_blank" class="text-white hover:text-blue-200 text-3xl transition-colors" aria-label="Facebook Profile">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://x.com/smile_plzzz_" target="_blank" class="text-white hover:text-blue-200 text-3xl transition-colors" aria-label="X (Twitter) Profile">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
-                <a href="https://www.youtube.com/@ismailhossain1019" target="_blank" class="text-white hover:text-blue-200 text-3xl transition-colors" aria-label="YouTube Channel">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-            <p class="text-xl font-medium fade-in">
-                Let's connect to build something innovative!
-            </p>
-        </div>
-    </div>
-</section>
-
-<footer class="bg-blue-800 text-white py-6 text-center">
-    <div class="container mx-auto">
-        <p class="text-sm fade-in">© 2025 Md. Ismail Hossain. Crafted with passion and code.</p>
-    </div>
-</footer>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // --- General UX / Navigation Script ---
-        
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuToggle.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.toggle('hidden');
-            menuToggle.setAttribute('aria-expanded', !isHidden);
-        });
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                // Only prevent default if it's a local anchor link, not a full hash link that might be handled elsewhere
-                if (targetId.length > 1) { 
-                    e.preventDefault();
-                    mobileMenu.classList.add('hidden');
-                    
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        // Offset by 80px for the fixed header
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-
-        // Fade-in animation using Intersection Observer
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Stop observing once visible
-                }
-            });
-        }, { 
-            rootMargin: '0px', 
-            threshold: 0.1 
-        });
-
-        fadeElements.forEach(el => observer.observe(el));
-
-        // Add subtle shadow to navbar on scroll
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                nav.classList.add('shadow-xl');
-            } else {
-                nav.classList.remove('shadow-xl');
-            }
-        });
-
-        // --- Video Carousel & Modal Script (Refined) ---
-
-        /**
-         * Sets up the functionality for a video carousel and modal for a specific project.
-         * @param {string} projectId - The data-project attribute value ('nmfm' or '15miles').
-         * @param {string} modalId - The ID of the modal container.
-         * @param {string} iframeId - The ID of the modal's iframe.
-         * @param {string} titleId - The ID of the modal's title element.
-         */
-        function setupProject(projectId, modalId, iframeId, titleId) {
-            const projectSection = document.querySelector(`[data-project="${projectId}"]`).closest('.bg-white');
-            if (!projectSection) return;
-
-            const modal = document.getElementById(modalId);
-            const iframe = document.getElementById(iframeId);
-            const modalTitle = document.getElementById(titleId);
-            const closeButton = modal.querySelector('.close-modal-btn');
-            const carousel = projectSection.querySelector('.video-carousel');
-            const filterButtons = projectSection.querySelectorAll('.filter-btn');
-            const videoContainers = projectSection.querySelectorAll('.video-container');
-            const prevButton = projectSection.querySelector('.carousel-prev');
-            const nextButton = projectSection.querySelector('.carousel-next');
-
-            let lastFocusedElement = null;
-            const scrollStep = 256 + 16; // w-64 (256px) + gap-4 (16px)
-
-            // A11y: Focus Trap Function
-            function trapFocus(element) {
-                const focusableElements = element.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
-                if (focusableElements.length === 0) return;
                 
-                const first = focusableElements[0];
-                const last = focusableElements[focusableElements.length - 1];
+                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                    <h3 class="text-lg font-bold flex items-center text-gray-800">
+                        <i class="fas fa-language mr-3 text-blue-600"></i>English (Upper-Intermediate – B2 Level)
+                    </h3>
+                    <p class="text-gray-600 ml-8 text-sm mt-1">British Council Bangladesh – Senior Young Learners Program | May, 2016</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact-form" class="py-16 section bg-gray-50">
+        <div class="container mx-auto max-w-2xl px-4">
+            <h2 class="text-3xl font-bold mb-10 text-center text-gray-800 section-title fade-in">
+                <i class="fas fa-envelope-open-text mr-2 text-blue-600"></i>Send Me a Message
+            </h2>
+            
+            <form 
+                action="https://formspree.io/f/mrbkyqdd" 
+                method="POST"
+                class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-600 fade-in"
+            >
+                <div class="mb-6">
+                    <label for="name" class="block text-gray-700 font-semibold mb-2"><i class="fas fa-user mr-2 text-blue-600"></i>Your Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="John Doe" aria-required="true">
+                </div>
 
-                element.addEventListener('keydown', function handleKey(e) {
-                    if (e.key === 'Escape') {
-                        closeModal();
-                        e.stopPropagation();
-                        return;
-                    }
-                    if (e.key === 'Tab') {
-                        if (e.shiftKey) { // Shift + Tab
-                            if (document.activeElement === first) {
-                                last.focus();
-                                e.preventDefault();
-                            }
-                        } else { // Tab
-                            if (document.activeElement === last) {
-                                first.focus();
-                                e.preventDefault();
-                            }
+                <div class="mb-6">
+                    <label for="email" class="block text-gray-700 font-semibold mb-2"><i class="fas fa-at mr-2 text-blue-600"></i>Your Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="your@email.com" aria-required="true">
+                </div>
+
+                <div class="mb-8">
+                    <label for="message" class="block text-gray-700 font-semibold mb-2"><i class="fas fa-comment-dots mr-2 text-blue-600"></i>Your Message</label>
+                    <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Hello! I'd like to discuss a project..." aria-required="true"></textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-colors duration-200 w-full md:w-fit shadow-lg hover:shadow-xl disabled:bg-blue-400">
+                        <i class="fas fa-paper-plane mr-2"></i>Send Message
+                    </button>
+                </div>
+
+                <div id="form-status" role="status" aria-live="polite" class="hidden mt-6 p-4 rounded-lg font-medium text-center transition-all duration-300"></div>
+            </form>
+        </div>
+    </section>
+    <section id="contact" class="section py-16 bg-blue-600 text-white">
+        <div class="container mx-auto text-center max-w-5xl">
+            <h2 class="text-3xl font-bold mb-8 fade-in">
+                <i class="fas fa-share-alt mr-3"></i>Connect with Me
+            </h2>
+            <div class="max-w-md mx-auto">
+                <div class="mb-8 space-y-3 font-medium fade-in">
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-envelope mr-3 text-blue-200 text-xl"></i>
+                        <a href="mailto:ismailhossain013@gmail.com" class="hover:underline text-lg">ismailhossain013@gmail.com</a>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-phone-alt mr-3 text-blue-200 text-xl"></i>
+                        <span class="text-lg">+88-01866304933</span>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-map-marker-alt mr-3 text-blue-200 text-xl"></i>
+                        <span class="text-lg">Dhaka, Bangladesh</span>
+                    </div>
+                </div>
+                <div class="flex justify-center space-x-6 mb-8 fade-in">
+                    <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="text-white hover:text-blue-200 text-3xl transition-colors" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/smile-plzz" target="_blank" class="text-white hover:text-blue-200 text-3xl transition-colors" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                    <a href="https://www.youtube.com/@ismailhossain1019" target="_blank" class="text-white hover:text-blue-200 text-3xl transition-colors" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/optimisticyetpessimist/" target="_blank" class="text-white hover:text-blue-200 text-3xl transition-colors" aria-label="Facebook Profile"><i class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/smile_plzzz_" target="_blank" class="text-white hover:text-blue-200 text-3xl transition-colors" aria-label="X (Twitter) Profile"><i class="fab fa-x-twitter"></i></a>
+                </div>
+                <p class="text-xl font-medium fade-in">
+                    Let's connect to build something innovative!
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-blue-800 text-white py-6 text-center">
+        <div class="container mx-auto">
+            <p class="text-sm fade-in">© 2025 Md. Ismail Hossain. Crafted with passion and code.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // --- General UX / Navigation Script ---
+            
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                menuToggle.setAttribute('aria-expanded', !isHidden);
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId.length > 1) { 
+                        e.preventDefault();
+                        mobileMenu.classList.add('hidden');
+                        
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            // Offset by 80px for the fixed header
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
                         }
                     }
-                }, {once: true}); // Use {once: true} and re-add in openModal if desired, or handle removal on close
-                first.focus();
-            }
-            
-            function openModal(videoId, title, triggerElement) {
-                lastFocusedElement = triggerElement || document.activeElement;
-                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
-                modalTitle.textContent = title;
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                // Ensure the modal is visible before trapping focus
-                setTimeout(() => trapFocus(modal), 50);
-            }
-
-            function closeModal() {
-                // Stop the video playback and remove source
-                iframe.src = ''; 
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                
-                // Return focus to the element that opened the modal
-                if (lastFocusedElement) {
-                    lastFocusedElement.focus();
-                    lastFocusedElement = null;
-                }
-            }
-            
-            // Event Listeners for Modal
-            if (closeButton) closeButton.addEventListener('click', closeModal);
-            if (modal) modal.addEventListener('click', (e) => {
-                // Close when clicking outside the modal content (but not on the content itself)
-                if (e.target === modal) closeModal();
-            });
-            
-            // Event Listeners for Thumbnails (Open Modal)
-            projectSection.querySelectorAll('.thumbnail').forEach(thumbnail => {
-                thumbnail.addEventListener('click', (e) => {
-                    const container = thumbnail.closest('.video-container');
-                    openModal(container.dataset.videoId, container.dataset.title, e.currentTarget);
                 });
-                thumbnail.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
+            });
+
+            // Fade-in animation using Intersection Observer
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                rootMargin: '0px', 
+                threshold: 0.1 
+            });
+
+            fadeElements.forEach(el => observer.observe(el));
+
+            // Add subtle shadow to sticky navbar on scroll
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    nav.classList.add('shadow-xl');
+                } else {
+                    nav.classList.remove('shadow-xl');
+                }
+            });
+
+            // --- Video Carousel & Modal Script (Refined) ---
+
+            /**
+             * Sets up the functionality for a video carousel and modal for a specific project.
+             * @param {string} projectId - The data-project attribute value ('nmfm' or '15miles').
+             * @param {string} modalId - The ID of the modal container.
+             * @param {string} iframeId - The ID of the modal's iframe.
+             * @param {string} titleId - The ID of the modal's title element.
+             */
+            function setupProject(projectId, modalId, iframeId, titleId) {
+                const projectSection = document.querySelector(`[data-project="${projectId}"]`);
+                if (!projectSection) return;
+
+                const modal = document.getElementById(modalId);
+                const iframe = document.getElementById(iframeId);
+                const modalTitle = document.getElementById(titleId);
+                const closeButton = modal.querySelector('.close-modal-btn');
+                const carousel = projectSection.querySelector('.video-carousel');
+                const filterButtons = projectSection.querySelectorAll('.filter-btn');
+                const videoContainers = projectSection.querySelectorAll('.video-container');
+                const prevButton = projectSection.querySelector('.carousel-prev');
+                const nextButton = projectSection.querySelector('.carousel-next');
+
+                let lastFocusedElement = null;
+                const scrollStep = 256 + 16; // w-64 (256px) + gap-4 (16px)
+
+                // A11y: Focus Trap Function
+                function trapFocus(element) {
+                    const focusableElements = element.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+                    if (focusableElements.length === 0) return;
+                    
+                    const first = focusableElements[0];
+                    const last = focusableElements[focusableElements.length - 1];
+
+                    // Set up event listener for keydown (Tab and Escape)
+                    const keydownHandler = function(e) {
+                        if (e.key === 'Escape') {
+                            closeModal();
+                            e.stopPropagation();
+                            element.removeEventListener('keydown', keydownHandler); // Remove itself
+                            return;
+                        }
+                        if (e.key === 'Tab') {
+                            if (e.shiftKey) { // Shift + Tab
+                                if (document.activeElement === first) {
+                                    last.focus();
+                                    e.preventDefault();
+                                }
+                            } else { // Tab
+                                if (document.activeElement === last) {
+                                    first.focus();
+                                    e.preventDefault();
+                                }
+                            }
+                        }
+                    };
+                    
+                    element.addEventListener('keydown', keydownHandler);
+                    first.focus(); // Focus on the first element
+                }
+                
+                function openModal(videoId, title, triggerElement) {
+                    lastFocusedElement = triggerElement || document.activeElement;
+                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
+                    modalTitle.textContent = title;
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    setTimeout(() => trapFocus(modal), 50);
+                }
+
+                function closeModal() {
+                    iframe.src = ''; 
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    if (lastFocusedElement) {
+                        lastFocusedElement.focus();
+                        lastFocusedElement = null;
+                    }
+                }
+                
+                // Event Listeners for Modal
+                if (closeButton) closeButton.addEventListener('click', closeModal);
+                if (modal) modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModal();
+                });
+                
+                // Event Listeners for Thumbnails (Open Modal)
+                projectSection.querySelectorAll('.thumbnail').forEach(thumbnail => {
+                    thumbnail.addEventListener('click', (e) => {
                         const container = thumbnail.closest('.video-container');
                         openModal(container.dataset.videoId, container.dataset.title, e.currentTarget);
-                    }
-                });
-            });
-
-            // Event Listeners for Filters
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterButtons.forEach(b => {
-                        b.classList.replace('bg-blue-600', 'bg-gray-200');
-                        b.classList.replace('text-white', 'text-gray-800');
                     });
-                    btn.classList.replace('bg-gray-200', 'bg-blue-600');
-                    btn.classList.replace('text-gray-800', 'text-white');
-                    
-                    const category = btn.dataset.category;
-                    let firstVisibleContainer = null;
+                    thumbnail.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            const container = thumbnail.closest('.video-container');
+                            openModal(container.dataset.videoId, container.dataset.title, e.currentTarget);
+                        }
+                    });
+                });
 
-                    videoContainers.forEach(video => {
-                        const isVisible = (category === 'all' || video.dataset.category === category);
-                        // Use class for hidden/visible
-                        if (isVisible) {
-                            video.classList.remove('hidden');
-                            video.style.display = 'block'; // Restore display property for flex context
-                            if (!firstVisibleContainer) {
-                                firstVisibleContainer = video;
+                // Event Listeners for Filters
+                filterButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        filterButtons.forEach(b => {
+                            b.classList.replace('bg-blue-600', 'bg-gray-200');
+                            b.classList.replace('text-white', 'text-gray-800');
+                        });
+                        btn.classList.replace('bg-gray-200', 'bg-blue-600');
+                        btn.classList.replace('text-gray-800', 'text-white');
+                        
+                        const category = btn.dataset.category;
+                        let firstVisibleContainer = null;
+
+                        videoContainers.forEach(video => {
+                            const isVisible = (category === 'all' || video.dataset.category === category);
+                            if (isVisible) {
+                                video.classList.remove('hidden');
+                                video.style.display = 'block'; 
+                                if (!firstVisibleContainer) {
+                                    firstVisibleContainer = video;
+                                }
+                            } else {
+                                video.classList.add('hidden');
+                                video.style.display = 'none'; 
                             }
-                        } else {
-                            video.classList.add('hidden');
-                            video.style.display = 'none'; // Ensure no layout space is taken
+                        });
+
+                        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                        if (firstVisibleContainer) {
+                            const firstThumbnail = firstVisibleContainer.querySelector('.thumbnail');
+                            if (firstThumbnail) {
+                                setTimeout(() => firstThumbnail.focus(), 300); 
+                            }
                         }
                     });
-
-                    // Scroll to the beginning of the filtered view
-                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                    
-                    // A11y: Set focus to the first visible element after filter
-                    if (firstVisibleContainer) {
-                        const firstThumbnail = firstVisibleContainer.querySelector('.thumbnail');
-                        if (firstThumbnail) {
-                            // Delay focus slightly to ensure smooth scroll finishes
-                            setTimeout(() => firstThumbnail.focus(), 300); 
-                        }
-                    }
                 });
-            });
-            
-            // Set initial filter state
-            filterButtons[0].click(); // Simulate click on 'All' button on load
-
-
-            // Event Listeners for Carousel Navigation
-            if (prevButton && nextButton && carousel) {
-                prevButton.addEventListener('click', () => {
-                    carousel.scrollBy({ left: -scrollStep, behavior: 'smooth' });
-                });
-                nextButton.addEventListener('click', () => {
-                    carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
-                });
-            }
-            
-            // Add a single global escape listener for the current modal
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                     closeModal();
-                     e.stopPropagation(); // Prevent other escape listeners from firing
+                
+                // Set initial filter state
+                if (filterButtons.length > 0) {
+                    filterButtons[0].click(); 
                 }
-            });
-        }
 
-        // Setup NMFM Project
-        setupProject('nmfm', 'nmfm-video-modal', 'nmfm-modal-iframe', 'nmfm-modal-title');
-
-        // Setup 15-Miles Project
-        setupProject('15miles', 'videoModal', 'modalIframe', 'modalTitle');
-        
-        // --- Contact Form Submission Handler ---
-        const form = document.querySelector('#contact-form form');
-        const formStatus = document.getElementById('form-status');
-        
-        form.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const submitBtn = form.querySelector('button[type="submit"]');
-          const originalBtnContent = submitBtn.innerHTML;
-          
-          // Show loading state
-          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
-          submitBtn.disabled = true;
-          formStatus.classList.add('hidden'); // Hide previous status
-
-          
-          try {
-            const response = await fetch(form.action, {
-              method: 'POST',
-              body: new FormData(form),
-              headers: { 'Accept': 'application/json' }
-            });
-            
-            formStatus.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
-
-            if (response.ok) {
-              // Success message
-              formStatus.classList.add('bg-green-100', 'text-green-700');
-              formStatus.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Message sent successfully! I\'ll get back to you soon.';
-              form.reset();
-            } else {
-                // Attempt to read error message if available
-                let errorText = 'Oops! Something went wrong.';
-                try {
-                    const data = await response.json();
-                    if (data.error) {
-                         errorText = data.error;
-                    } else if (data.errors && data.errors.length > 0) {
-                         errorText = data.errors[0].message;
-                    }
-                } catch(jsonError) {
-                    // ignore JSON parsing error, use generic message
+                // Event Listeners for Carousel Navigation
+                if (prevButton && nextButton && carousel) {
+                    prevButton.addEventListener('click', () => {
+                        carousel.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+                    });
+                    nextButton.addEventListener('click', () => {
+                        carousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+                    });
                 }
-                throw new Error(errorText);
             }
-          } catch (error) {
-            // Error message
-            formStatus.classList.add('bg-red-100', 'text-red-700');
-            formStatus.innerHTML = `<i class="fas fa-exclamation-circle mr-2"></i> ${error.message || 'Oops! Something went wrong. Please try again later.'}`;
-          } finally {
-            // Reset button state
-            submitBtn.innerHTML = originalBtnContent;
-            submitBtn.disabled = false;
-          }
+
+            // Setup NMFM Project
+            setupProject('nmfm', 'nmfm-video-modal', 'nmfm-modal-iframe', 'nmfm-modal-title');
+
+            // Setup 15-Miles Project
+            setupProject('15miles', 'videoModal', 'modalIframe', 'modalTitle');
+            
+            // --- Contact Form Submission Handler ---
+            const form = document.querySelector('#contact-form form');
+            const formStatus = document.getElementById('form-status');
+            
+            form.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              const submitBtn = form.querySelector('button[type="submit"]');
+              const originalBtnContent = submitBtn.innerHTML;
+              
+              submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+              submitBtn.disabled = true;
+              formStatus.classList.add('hidden'); 
+
+              try {
+                const response = await fetch(form.action, {
+                  method: 'POST',
+                  body: new FormData(form),
+                  headers: { 'Accept': 'application/json' }
+                });
+                
+                formStatus.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
+
+                if (response.ok) {
+                  formStatus.classList.add('bg-green-100', 'text-green-700');
+                  formStatus.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Message sent successfully! I\'ll get back to you soon.';
+                  form.reset();
+                } else {
+                    let errorText = 'Oops! Something went wrong.';
+                    try {
+                        const data = await response.json();
+                        errorText = data.error || (data.errors && data.errors.length > 0 ? data.errors[0].message : errorText);
+                    } catch(jsonError) {}
+                    throw new Error(errorText);
+                }
+              } catch (error) {
+                formStatus.classList.add('bg-red-100', 'text-red-700');
+                formStatus.innerHTML = `<i class="fas fa-exclamation-circle mr-2"></i> ${error.message || 'Oops! Something went wrong. Please try again later.'}`;
+              } finally {
+                submitBtn.innerHTML = originalBtnContent;
+                submitBtn.disabled = false;
+              }
+            });
         });
-    });
-</script>
-</body>
+    </script>
+    </body>
 </html>
