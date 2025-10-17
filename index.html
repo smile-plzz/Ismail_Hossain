@@ -18,14 +18,13 @@
             scroll-behavior: smooth;
         }
         .section { 
-            padding: 5rem 1.5rem; /* Reduced horizontal padding for better mobile fit */
+            padding: 5rem 1.5rem;
             transition: all 0.5s ease;
         }
         
         /* MODERN CARD EFFECT */
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* Subtle border for visual depth */
             border: 1px solid rgba(229, 231, 235, 0.8); /* gray-200 */
         }
         .card-hover:hover {
@@ -79,7 +78,7 @@
             transform: translateY(0);
         }
 
-        /* Video Carousel Specific Styles (Ensuring better responsiveness) */
+        /* Video Carousel Specific Styles */
         .video-carousel {
             scroll-snap-type: x mandatory;
             scrollbar-width: none;
@@ -208,7 +207,7 @@
                         <h3 class="text-xl font-semibold text-gray-800">Programming</h3>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm">
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> JAVA (Strong)</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> <span class="font-medium">JAVA (Strong)</span></li>
                         <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> JavaScript (Web/CRM)</li>
                         <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> C++ / C</li>
                         <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Python (Basic)</li>
@@ -222,8 +221,8 @@
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm">
                         <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> HTML5 / CSS3</li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Tailwind CSS</li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Shopify Liquid</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> <span class="font-medium">Tailwind CSS</span></li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> <span class="font-medium">Shopify Liquid</span></li>
                         <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> React JS (Familiar)</li>
                     </ul>
                 </div>
@@ -234,8 +233,8 @@
                         <h3 class="text-xl font-semibold text-gray-800">Data & Tools</h3>
                     </div>
                     <ul class="space-y-2 text-gray-600 text-sm">
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> MySQL / SQL</li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Git / GitHub</li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> <span class="font-medium">MySQL / SQL</span></li>
+                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> <span class="font-medium">Git / GitHub</span></li>
                         <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Linux/Windows/MacOS</li>
                         <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> CRM Strategy & Analysis</li>
                     </ul>
@@ -310,10 +309,10 @@
                     <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
                         <i class="fas fa-compass mr-2"></i> TechPath Finder
                     </h3>
-                    <p class="text-gray-700 mb-3">
-                        Discover your best career path in tech with an **interactive questionnaire**, **personalized recommendations**, and **beginner-friendly resources**.
+                    <p class="text-gray-700 mb-3 text-sm">
+                        Discover your best career path in tech with an <span class="font-semibold">interactive questionnaire</span>, <span class="font-semibold">personalized recommendations</span>, and <span class="font-semibold">beginner-friendly resources</span>.
                     </p>
-                    <a href="https://techpath-finder.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                    <a href="https://techpath-finder.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
                         <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
                     </a>
                 </div>
@@ -322,10 +321,10 @@
                     <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
                         <i class="fas fa-newspaper mr-2"></i> News App
                     </h3>
-                    <p class="text-gray-700 mb-3">
-                        A **real-time news reader** with **auto-refreshing headlines**, **category filters**, and a **clean, distraction-free UI**.
+                    <p class="text-gray-700 mb-3 text-sm">
+                        A <span class="font-semibold">real-time news reader</span> with <span class="font-semibold">auto-refreshing headlines</span>, <span class="font-semibold">category filters</span>, and a <span class="font-semibold">clean, distraction-free UI</span>.
                     </p>
-                    <a href="https://news-iota-lilac.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                    <a href="https://news-iota-lilac.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
                         <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
                     </a>
                 </div>
@@ -334,10 +333,10 @@
                     <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
                         <i class="fas fa-map-marked-alt mr-2"></i> Real-Time Event Finder
                     </h3>
-                    <p class="text-gray-700 mb-3">
-                        Search worldwide events by **location and interest**. Uses **geolocation** + **real-time APIs** to keep you updated.
+                    <p class="text-gray-700 mb-3 text-sm">
+                        Search worldwide events by <span class="font-semibold">location and interest</span>. Uses <span class="font-semibold">geolocation</span> + <span class="font-semibold">real-time APIs</span> to keep you updated.
                     </p>
-                    <a href="https://smile-plzz.github.io/real-time-event-finder/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                    <a href="https://smile-plzz.github.io/real-time-event-finder/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
                         <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
                     </a>
                 </div>
@@ -346,10 +345,10 @@
                     <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
                         <i class="fas fa-clock mr-2"></i> BalanceFlow
                     </h3>
-                    <p class="text-gray-700 mb-3">
-                        A **dynamic productivity timer** built for **work-break cycles** — perfect for **remote workers, students, and gym-goers**.
+                    <p class="text-gray-700 mb-3 text-sm">
+                        A <span class="font-semibold">dynamic productivity timer</span> built for <span class="font-semibold">work-break cycles</span> — perfect for <span class="font-semibold">remote workers, students, and gym-goers</span>.
                     </p>
-                    <a href="https://smile-plzz.github.io/BalanceFLow/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                    <a href="https://smile-plzz.github.io/BalanceFLow/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
                         <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
                     </a>
                 </div>
@@ -358,10 +357,10 @@
                     <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
                         <i class="fas fa-satellite-dish mr-2"></i> Astronomy Dashboard
                     </h3>
-                    <p class="text-gray-700 mb-3">
-                        Explore **NASA’s Astronomy Picture of the Day** with explanations + extra space facts. A **cosmic experience** for enthusiasts.
+                    <p class="text-gray-700 mb-3 text-sm">
+                        Explore <span class="font-semibold">NASA’s Astronomy Picture of the Day</span> with explanations + extra space facts. A <span class="font-semibold">cosmic experience</span> for enthusiasts.
                     </p>
-                    <a href="https://smile-plzz.github.io/AstronomyDashboard/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                    <a href="https://smile-plzz.github.io/AstronomyDashboard/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
                         <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
                     </a>
                 </div>
@@ -370,34 +369,34 @@
                     <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
                         <i class="fas fa-film mr-2"></i> Mood-Based Movie Recommender
                     </h3>
-                    <p class="text-gray-700 mb-3">
-                        Get **handpicked movie suggestions** based on your mood. Blends **genres + emotions** for a perfect recommendation.
+                    <p class="text-gray-700 mb-3 text-sm">
+                        Get <span class="font-semibold">handpicked movie suggestions</span> based on your mood. Blends <span class="font-semibold">genres + emotions</span> for a perfect recommendation.
                     </p>
-                    <a href="https://smile-plzz.github.io/MovieRecommendationBasedOnMood/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                    <a href="https://smile-plzz.github.io/MovieRecommendationBasedOnMood/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
                         <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
                     </a>
                 </div>
                 
                 <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600 md:col-span-2">
                     <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
-                        <i class="fas fa-ticket-alt mr-2"></i> Now Showing & The Daily Doggo
+                        <i class="fas fa-ticket-alt mr-2"></i> Collaborative Projects
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <p class="text-gray-700 mb-2 font-medium">Now Showing:</p>
-                            <p class="text-gray-700 mb-3">
-                                Real-time **Now Playing movies** from TMDB API. Features **posters, ratings, release dates**, and **in-app streaming previews**.
+                            <p class="text-gray-700 mb-2 font-semibold">Now Showing:</p>
+                            <p class="text-gray-700 mb-3 text-sm">
+                                Real-time <span class="font-semibold">Now Playing movies</span> from TMDB API. Features posters, ratings, release dates, and <span class="font-semibold">in-app streaming previews</span>.
                             </p>
-                            <a href="https://now-showing-mu.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                            <a href="https://now-showing-mu.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
                                 <i class="fas fa-external-link-alt mr-1"></i> Visit Now Showing
                             </a>
                         </div>
                         <div>
-                            <p class="text-gray-700 mb-2 font-medium">The Daily Doggo:</p>
-                            <p class="text-gray-700 mb-3">
-                                Fetch something delightful on every click. Features adorable critter images, cats, dogs, foxes, Pokémon art, random meals, plus text overlays, favorites, and sharing capabilities.
+                            <p class="text-gray-700 mb-2 font-semibold">The Daily Doggo:</p>
+                            <p class="text-gray-700 mb-3 text-sm">
+                                Fetch something delightful on every click. Features <span class="font-semibold">adorable critter images</span> (dogs, cats, foxes) plus text overlays, favorites, and sharing capabilities.
                             </p>
-                            <a href="https://the-daily-doggo.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors shadow-md">
+                            <a href="https://the-daily-doggo.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
                                 <i class="fas fa-external-link-alt mr-1"></i> Visit Daily Doggo
                             </a>
                         </div>
@@ -422,7 +421,7 @@
                         <span class="font-bold">Senior Capstone</span> | React JS, SQL, OpenCV, PyTesseract, TensorFlow
                     </p>
                     <p class="mb-4 text-gray-700 leading-relaxed text-sm">
-                        A web-based platform offering seamless online doctor consultations, integrated with **Optical Character Recognition (OCR)** to digitize and organize medical documents. Med-Tech ensures accurate medical history tracking for improved diagnosis and personalized treatment.
+                        A web-based platform offering seamless online doctor consultations, integrated with <span class="font-semibold">Optical Character Recognition (OCR)</span> to digitize and organize medical documents. Med-Tech ensures accurate medical history tracking.
                     </p>
                 </div>
 
@@ -435,7 +434,7 @@
                         <span class="font-bold">Junior Capstone</span> | HTML, CSS, AJAX, JavaScript
                     </p>
                     <p class="mb-4 text-gray-700 leading-relaxed text-sm">
-                        Designed a full-stack e-commerce platform with inventory tracking, sales analytics and payment processing system. Developed the e-commerce website using HTML, CSS ensuring better responsiveness with **AJAX**.
+                        Designed a full-stack e-commerce platform with inventory tracking, sales analytics and payment processing system. Developed the e-commerce website using HTML, CSS ensuring better responsiveness with <span class="font-semibold">AJAX</span>.
                     </p>
                 </div>
                 
@@ -448,7 +447,7 @@
                         <span class="font-bold">Academic Course</span> | Java, JavaFX, GUI Development
                     </p>
                     <p class="mb-4 text-gray-700 leading-relaxed text-sm">
-                        Created a system to streamline hotel operations, including bookings and billing. Developed the application using **Java**, incorporating GUI development with **JavaFX** for an interactive user interface.
+                        Created a system to streamline hotel operations. Developed the application using <span class="font-semibold">Java</span>, incorporating GUI development with <span class="font-semibold">JavaFX</span> for an interactive user interface.
                     </p>
                 </div>
 
@@ -461,7 +460,7 @@
                         <span class="font-bold">Academic Course</span> | C Language, Database Management
                     </p>
                     <p class="mb-4 text-gray-700 leading-relaxed text-sm">
-                        Developed a database for managing client and employee information in a banking environment. Implemented the system using **C language** for robust database operations and management.
+                        Developed a database for managing client and employee information in a banking environment. Implemented the system using <span class="font-semibold">C language</span> for robust database operations and management.
                     </p>
                 </div>
             </div>
@@ -490,9 +489,9 @@
                     </div>
                     <div class="mt-4 ml-8">
                         <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
-                            <li>Spearhead strategic **CRM** initiatives to drive personalized growth and maximize ROI for Shopify merchants. </li>
-                             <li>Act as a **technical-strategic consultant**, translating business needs into actionable technical requirements for custom **JavaScript/Liquid** implementations.</li>
-                             <li>Apply **data-driven analysis** to interpret sales funnel metrics, optimize audience segmentation, and refine campaign targeting. </li>
+                            <li>Spearhead strategic <span class="font-semibold">CRM</span> initiatives to drive personalized growth and maximize ROI for Shopify merchants. </li>
+                             <li>Act as a <span class="font-semibold">technical-strategic consultant</span>, translating business needs into actionable technical requirements for custom <span class="font-semibold">JavaScript/Liquid</span> implementations.</li>
+                             <li>Apply <span class="font-semibold">data-driven analysis</span> to interpret sales funnel metrics, optimize audience segmentation, and refine campaign targeting. </li>
                         </ul>
                     </div>
                 </div>
@@ -514,7 +513,7 @@
                     </div>
                     <div class="mt-4 ml-8">
                         <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
-                            <li>Oversaw software design and development processes to ensure high-quality outputs.</li>
+                            <li>Oversaw <span class="font-semibold">software design and development</span> processes to ensure high-quality outputs.</li>
                             <li>Advised clients on the maintenance and optimization of software systems, enhancing overall performance and user experience.</li>
                         </ul>
                     </div>
@@ -568,7 +567,7 @@
                     </div>
                     <div class="mt-4 ml-8">
                         <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
-                            <li>Launched an initiative dedicated to fostering a respectful and robust music culture.</li>
+                            <li>Launched an initiative dedicated to fostering a <span class="font-semibold">respectful and robust music culture</span>.</li>
                             <li>Managed projects including the music video premiere for "Ojanay" by Velvet Wings and the release of "Othocho" by Fantasy Realm.</li>
                         </ul>
                     </div>
@@ -628,7 +627,7 @@
                     <div class="mt-4 ml-8">
                         <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
                             <li>Established a video production firm specializing in documentaries, promotional content, and music videos.</li>
-                            <li>Renowned for exceptional aerial shots and drone footage, supporting various government and private sector projects.</li>
+                            <li>Renowned for <span class="font-semibold">exceptional aerial shots and drone footage</span>, supporting various government and private sector projects.</li>
                         </ul>
                     </div>
                     
@@ -653,19 +652,7 @@
                                 <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="ztm412kovcE" data-title="Music Video: Live Performance"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Live Performance Music Video"><img src="https://img.youtube.com/vi/ztm412kovcE/hqdefault.jpg" alt="Live Performance Music Video Thumbnail" class="w-full" loading="lazy"></div></div>
                                 <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="zCWmwOvZsME" data-title="Aerial Shots: Cityscape"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Cityscape Aerial Shots"><img src="https://img.youtube.com/vi/zCWmwOvZsME/hqdefault.jpg" alt="Cityscape Aerial Shots Thumbnail" class="w-full" loading="lazy"></div></div>
                                 <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="2b7pnUNBKUk" data-title="Documentary: Wildlife Exploration"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Wildlife Exploration Documentary"><img src="https://img.youtube.com/vi/2b7pnUNBKUk/hqdefault.jpg" alt="Wildlife Exploration Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="SsRKK9sX44E" data-title="Music Video: Lyric Video"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Lyric Video"><img src="https://img.youtube.com/vi/SsRKK9sX44E/hqdefault.jpg" alt="Lyric Video Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="7wZCpOZHN9U" data-title="Aerial Shots: Mountain Range"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Mountain Range Aerial Shots"><img src="https://img.youtube.com/vi/7wZCpOZHN9U/hqdefault.jpg" alt="Mountain Range Aerial Shots Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="d9pYOkbD5LY" data-title="Documentary: Cultural Heritage"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Cultural Heritage Documentary"><img src="https://img.youtube.com/vi/d9pYOkbD5LY/hqdefault.jpg" alt="Cultural Heritage Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="muq234HFGhg" data-title="Music Video: Concert Highlight"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Concert Highlight Music Video"><img src="https://img.youtube.com/vi/muq234HFGhg/hqdefault.jpg" alt="Concert Highlight Music Video Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="wOBGl1jBrj4" data-title="Aerial Shots: Coastal Drone"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Coastal Drone Aerial Shots"><img src="https://img.youtube.com/vi/wOBGl1jBrj4/hqdefault.jpg" alt="Coastal Drone Aerial Shots Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="sNHWR5WrXWs" data-title="Documentary: Urban Life"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Urban Life Documentary"><img src="https://img.youtube.com/vi/sNHWR5WrXWs/hqdefault.jpg" alt="Urban Life Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="rCqvzA48n1A" data-title="Music Video: Studio Session"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Studio Session Music Video"><img src="https://img.youtube.com/vi/rCqvzA48n1A/hqdefault.jpg" alt="Studio Session Music Video Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="9VKEH79AwyY" data-title="Aerial Shots: Forest Canopy"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Forest Canopy Aerial Shots"><img src="https://img.youtube.com/vi/9VKEH79AwyY/hqdefault.jpg" alt="Forest Canopy Aerial Shots Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="iYb2zYPgSEc" data-title="Documentary: Historical Sites"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Historical Sites Documentary"><img src="https://img.youtube.com/vi/iYb2zYPgSEc/hqdefault.jpg" alt="Historical Sites Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="OHNttaL_XsY" data-title="Music Video: Acoustic Performance"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Acoustic Performance Music Video"><img src="https://img.youtube.com/vi/OHNttaL_XsY/hqdefault.jpg" alt="Acoustic Performance Music Video Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="JI-_NriqYZY" data-title="Aerial Shots: River Valley"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play River Valley Aerial Shots"><img src="https://img.youtube.com/vi/JI-_NriqYZY/hqdefault.jpg" alt="River Valley Aerial Shots Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="EX70bY-Nw2Y" data-title="Documentary: Community Stories"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Community Stories Documentary"><img src="https://img.youtube.com/vi/EX70bY-Nw2Y/hqdefault.jpg" alt="Community Stories Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
-                            </div>
+                                </div>
                             <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Previous videos"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                             <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Next videos"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                         </div>
@@ -797,7 +784,7 @@
                         <i class="fas fa-chalkboard mr-3 text-blue-600"></i>Facilitated Training Sessions
                     </h3>
                     <p class="text-gray-700 leading-relaxed mb-4 text-sm">
-                        Conducted a three-day training program on **"Management of E-Learning"** at a government educational institution, enhancing educators' proficiency in digital teaching methodologies.
+                        Conducted a three-day training program on <span class="font-semibold">"Management of E-Learning"</span> at a government educational institution, enhancing educators' proficiency in digital teaching methodologies.
                     </p>
                     <a href="https://drive.google.com/file/d/1P6q826ApUesOYAlUoxmQ4nlk0gh48crB/view?usp=sharing" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-xs font-medium shadow-md" target="_blank">View Documentation</a>
                 </div>
@@ -807,7 +794,7 @@
                         <i class="fas fa-film mr-3 text-blue-600"></i>Documentary and Video Production
                     </h3>
                     <p class="text-gray-700 leading-relaxed mb-4 text-sm">
-                        Produced a documentary titled **"Institute of Marine Technology, Chadpur"** and a live musical performance video for the renowned Bangladeshi band **Aftermath**.
+                        Produced a documentary titled <span class="font-semibold">"Institute of Marine Technology, Chadpur"</span> and a live musical performance video for the renowned Bangladeshi band <span class="font-semibold">Aftermath</span>.
                     </p>
                     <div class="mt-4 flex flex-col space-y-3 text-xs font-medium">
                         <a href="https://youtu.be/-Do0eJRvRZA?si=Bqn5U1ANjmn_5dAB" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md" target="_blank">Documentary: IMT, Chandpur</a>
@@ -819,7 +806,7 @@
                         <i class="fas fa-paper-plane mr-3 text-blue-600"></i>Aerial Drone Survey
                     </h3>
                     <p class="text-gray-700 leading-relaxed text-sm">
-                        Executed an aerial drone survey for a reputable civil firm, supporting various government projects and promoting the integration of advanced technology in civil engineering practices.
+                        Executed an <span class="font-semibold">aerial drone survey</span> for a reputable civil firm, supporting various government projects and promoting the integration of advanced technology in civil engineering practices.
                     </p>
                 </div>
 
@@ -828,7 +815,7 @@
                         <i class="fas fa-network-wired mr-3 text-blue-600"></i>Internet Network Infrastructure Project
                     </h3>
                     <p class="text-gray-700 leading-relaxed mb-4 text-sm">
-                        Designed and implemented a comprehensive internet network infrastructure for a computer laboratory at **Dhaka Technical Teachers Training Institute (DTTTI)**.
+                        Designed and implemented a comprehensive <span class="font-semibold">internet network infrastructure</span> for a computer laboratory at Dhaka Technical Teachers Training Institute (DTTTI).
                     </p>
                     <a href="https://drive.google.com/file/d/1ZdytCkYh4Mr8OCLNv8LBRq2j9rpgwyC9/view?usp=sharing" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-xs font-medium shadow-md" target="_blank">View Documentation</a>
                 </div>
@@ -969,7 +956,7 @@
                         const targetElement = document.querySelector(targetId);
                         
                         if (targetElement) {
-                            // Offset by 80px for the fixed header
+                            // Offset by 80px for the sticky header
                             window.scrollTo({
                                 top: targetElement.offsetTop - 80,
                                 behavior: 'smooth'
@@ -1005,7 +992,7 @@
                 }
             });
 
-            // --- Video Carousel & Modal Script (Refined) ---
+            // --- Video Carousel & Modal Script ---
 
             /**
              * Sets up the functionality for a video carousel and modal for a specific project.
@@ -1039,12 +1026,11 @@
                     const first = focusableElements[0];
                     const last = focusableElements[focusableElements.length - 1];
 
-                    // Set up event listener for keydown (Tab and Escape)
                     const keydownHandler = function(e) {
                         if (e.key === 'Escape') {
                             closeModal();
                             e.stopPropagation();
-                            element.removeEventListener('keydown', keydownHandler); // Remove itself
+                            element.removeEventListener('keydown', keydownHandler);
                             return;
                         }
                         if (e.key === 'Tab') {
@@ -1063,7 +1049,7 @@
                     };
                     
                     element.addEventListener('keydown', keydownHandler);
-                    first.focus(); // Focus on the first element
+                    first.focus();
                 }
                 
                 function openModal(videoId, title, triggerElement) {
