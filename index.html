@@ -11,11 +11,37 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        /* General Styles */
+        /* COLOR VARIABLES (Light Mode Default for Fallback) */
+        :root {
+            --color-bg-body: #f9fafb; /* gray-50 */
+            --color-bg-section: #ffffff;
+            --color-bg-card: #f9fafb; /* gray-50 */
+            --color-text-primary: #1f2937; /* gray-800 */
+            --color-text-secondary: #4b5563; /* gray-600 */
+            --color-accent-blue: #3b82f6; /* blue-600 */
+            --color-border: #e5e7eb; /* gray-200 */
+        }
+        
+        /* DARK MODE VARIABLES (Applied when 'dark' class is present on HTML) */
+        .dark {
+            --color-bg-body: #0f172a; /* slate-900 */
+            --color-bg-section: #1e293b; /* slate-800 */
+            --color-bg-card: #334155; /* slate-700 */
+            --color-text-primary: #f9fafb; /* gray-50 (white) */
+            --color-text-secondary: #9ca3af; /* gray-400 */
+            --color-accent-blue: #60a5fa; /* blue-400 */
+            --color-border: #475569; /* slate-600 */
+        }
+        
+        /* General & Base Styles */
         body { 
             font-family: 'Poppins', sans-serif; 
             scroll-behavior: smooth;
+            background-color: var(--color-bg-body);
+            color: var(--color-text-primary);
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
         .section { 
             padding: 5rem 1.5rem;
@@ -24,12 +50,22 @@
         
         /* MODERN CARD EFFECT */
         .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(229, 231, 235, 0.8); /* gray-200 */
+            background-color: var(--color-bg-card);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+            border: 1px solid var(--color-border);
+            /* Minimalist Notion-style shadow in light mode */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); 
+        }
+        .dark .card-hover {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Subtle shadow in dark mode */
         }
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1), 0 0 0 4px rgba(59, 130, 246, 0.15); 
+            transform: translateY(-3px);
+            /* Subtle blue glow on hover */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 0 0 2px var(--color-accent-blue);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 0 0 2px var(--color-accent-blue);
         }
         
         /* Section Title Underline */
@@ -45,7 +81,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background-color: #3b82f6; /* blue-600 */
+            background-color: var(--color-accent-blue);
             border-radius: 2px;
         }
 
@@ -60,12 +96,13 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background-color: #3b82f6; 
+            background-color: var(--color-accent-blue);
             transition: width 0.3s ease;
         }
         .nav-link:hover::after, .nav-link.active::after {
             width: 100%;
         }
+        .dark .nav-link { color: var(--color-text-primary); } /* Ensure light text in dark nav */
 
         /* Animation Styles */
         .fade-in { 
@@ -78,16 +115,17 @@
             transform: translateY(0);
         }
 
-        /* Video Carousel Specific Styles */
-        .video-carousel {
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+        /* Hero Background - Subdued in dark mode */
+        #about {
+            background-image: linear-gradient(to bottom right, #3b82f6, #4f46e5);
+            transition: background-image 0.5s ease;
         }
-        .video-carousel::-webkit-scrollbar {
-            display: none;
+        .dark #about {
+             /* A more subtle gradient for dark theme */
+            background-image: linear-gradient(to bottom right, #1e3a8a, #3730a3); 
         }
 
+        /* Responsive Fixes */
         @media (max-width: 768px) {
             .section {
                 padding: 3rem 1rem;
@@ -98,45 +136,53 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <nav class="sticky top-0 w-full bg-white shadow-lg z-50 transition-shadow duration-300">
+    <nav class="sticky top-0 w-full bg-white shadow-lg z-50 transition-colors duration-500">
         <div class="container mx-auto max-w-7xl px-4 md:px-6 py-4 flex justify-between items-center">
-            <a href="#about" class="text-xl font-bold flex items-center text-gray-900">
+            <a href="#about" class="text-xl font-bold flex items-center text-gray-900 transition-colors duration-500">
                 <i class="fas fa-terminal mr-2 text-blue-600"></i> Ismail Hossain
             </a>
-            <div class="hidden md:flex space-x-6 lg:space-x-8 text-sm font-medium">
-                <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">About</a>
-                <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600">Skills</a>
-                <a href="#projects-live" class="nav-link text-gray-700 hover:text-blue-600">Live Projects</a>
-                <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600">Academic Projects</a>
-                <a href="#experience" class="nav-link text-gray-700 hover:text-blue-600">Work</a>
-                <a href="#venture" class="nav-link text-gray-700 hover:text-blue-600">Entrepreneurial</a>
-                <a href="#education" class="nav-link text-gray-700 hover:text-blue-600">Education</a>
-                <a href="#contact-form" class="nav-link text-gray-700 hover:text-blue-600">Contact</a>
-                <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="text-blue-600 border border-blue-600 px-3 py-1 rounded-full hover:bg-blue-600 hover:text-white transition-colors" target="_blank" aria-label="Download Resume">
-                    <i class="fas fa-download mr-1"></i> Resume
-                </a>
+            
+            <div class="flex items-center space-x-4">
+                <div class="hidden md:flex space-x-6 lg:space-x-8 text-sm font-medium">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">About</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600">Skills</a>
+                    <a href="#projects-live" class="nav-link text-gray-700 hover:text-blue-600">Live Projects</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600">Academic Projects</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-blue-600">Work</a>
+                    <a href="#venture" class="nav-link text-gray-700 hover:text-blue-600">Venture</a>
+                    <a href="#education" class="nav-link text-gray-700 hover:text-blue-600">Education</a>
+                    <a href="#contact-form" class="nav-link text-gray-700 hover:text-blue-600">Contact</a>
+                    <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="text-blue-600 border border-blue-600 px-3 py-1 rounded-full text-xs hover:bg-blue-600 hover:text-white transition-colors" target="_blank" aria-label="Download Resume">
+                        <i class="fas fa-download mr-1"></i> Resume
+                    </a>
+                </div>
+                
+                <button id="theme-toggle" class="p-2 rounded-full text-gray-700 hover:bg-gray-100 transition-colors focus:outline-none" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon text-xl" id="theme-icon"></i>
+                </button>
+
+                <button class="md:hidden focus:outline-none p-2" id="menu-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars text-xl text-gray-700"></i>
+                </button>
             </div>
-            <button class="md:hidden focus:outline-none p-2" id="menu-toggle" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars text-xl text-gray-700"></i>
-            </button>
         </div>
-        <div class="md:hidden hidden bg-white w-full px-4 py-2 shadow-inner" id="mobile-menu">
+        <div class="md:hidden hidden bg-white w-full px-4 py-2 shadow-inner transition-colors duration-500" id="mobile-menu">
             <div class="flex flex-col space-y-3 pb-4 font-medium text-base">
-                <a href="#about" class="nav-link hover:text-blue-600 py-1">About</a>
-                <a href="#skills" class="nav-link hover:text-blue-600 py-1">Skills</a>
-                <a href="#projects-live" class="nav-link hover:text-blue-600 py-1">Live Projects</a>
-                <a href="#projects" class="nav-link hover:text-blue-600 py-1">Academic Projects</a>
-                <a href="#experience" class="nav-link hover:text-blue-600 py-1">Work Experience</a>
-                <a href="#venture" class="nav-link hover:text-blue-600 py-1">Entrepreneurial</a>
-                <a href="#education" class="nav-link hover:text-blue-600 py-1">Education</a>
-                <a href="#contact-form" class="nav-link hover:text-blue-600 py-1">Contact</a>
-                <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="text-blue-600 border border-blue-600 mt-2 px-3 py-1 rounded-full text-center hover:bg-blue-600 hover:text-white transition-colors" target="_blank">
+                <a href="#about" class="nav-link hover:text-blue-600 py-1 text-gray-700">About</a>
+                <a href="#skills" class="nav-link hover:text-blue-600 py-1 text-gray-700">Skills</a>
+                <a href="#projects-live" class="nav-link hover:text-blue-600 py-1 text-gray-700">Live Projects</a>
+                <a href="#projects" class="nav-link hover:text-blue-600 py-1 text-gray-700">Academic Projects</a>
+                <a href="#experience" class="nav-link hover:text-blue-600 py-1 text-gray-700">Work Experience</a>
+                <a href="#venture" class="nav-link hover:text-blue-600 py-1 text-gray-700">Entrepreneurial</a>
+                <a href="#education" class="nav-link hover:text-blue-600 py-1 text-gray-700">Education</a>
+                <a href="#contact-form" class="nav-link hover:text-blue-600 py-1 text-gray-700">Contact</a>
+                <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" class="text-blue-600 border border-blue-600 mt-2 px-3 py-1 rounded-full text-center hover:bg-blue-600 hover:text-white transition-colors text-sm" target="_blank">
                     <i class="fas fa-download mr-1"></i> Download Resume
                 </a>
             </div>
         </div>
     </nav>
-    <section id="about" class="pt-24 section bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+    <section id="about" class="pt-24 section text-white">
         <div class="container mx-auto max-w-4xl text-center">
             <div class="max-w-3xl mx-auto">
                 <img 
@@ -150,34 +196,34 @@
                 <p class="text-xl md:text-2xl mb-4 font-light fade-in">
                     <i class="fas fa-laptop-code mr-2"></i>Technology Professional | IT Master's Candidate
                 </p>
-                <p class="text-lg mb-8 max-w-2xl mx-auto fade-in">
+                <p class="text-lg mb-8 max-w-2xl mx-auto fade-in leading-relaxed">
                     Tech-savvy professional with a B.S. in Computer Science & Engineering, pursuing an M.S. in IT. Skilled in data communication, web tech, and info systems, I aim to boost innovation and growth using programming, database, and version control expertise.
                 </p>
                 
                 <div class="flex justify-center space-x-4 flex-wrap gap-y-3 mb-10 fade-in">
-                    <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center shadow-md text-sm font-medium">
+                    <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition flex items-center shadow-md text-sm font-medium">
                         <i class="fab fa-linkedin mr-2"></i> LinkedIn
                     </a>
-                    <a href="https://github.com/smile-plzz" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center shadow-md text-sm font-medium">
+                    <a href="https://github.com/smile-plzz" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition flex items-center shadow-md text-sm font-medium">
                         <i class="fab fa-github mr-2"></i> GitHub
                     </a>
-                    <a href="https://x.com/smile_plzzz_" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-full hover:bg-blue-50 transition flex items-center shadow-md text-sm font-medium">
+                    <a href="https://x.com/smile_plzzz_" target="_blank" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition flex items-center shadow-md text-sm font-medium">
                         <i class="fab fa-x-twitter mr-2"></i> X 
                     </a>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left fade-in">
-                    <div class="bg-white bg-opacity-15 p-4 rounded-lg backdrop-blur-sm shadow-inner flex items-center">
+                    <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm shadow-inner flex items-center">
                         <i class="fas fa-map-marker-alt mr-3 text-blue-200"></i>
-                        <p class="font-medium"> Dhaka, Bangladesh </p>
+                        <p class="font-medium text-sm"> Dhaka, Bangladesh </p>
                     </div>
-                    <div class="bg-white bg-opacity-15 p-4 rounded-lg backdrop-blur-sm shadow-inner flex items-center">
+                    <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm shadow-inner flex items-center">
                         <i class="fas fa-phone-alt mr-3 text-blue-200"></i>
-                        <p class="font-medium">+88-01866304933</p>
+                        <p class="font-medium text-sm">+88-01866304933</p>
                     </div>
-                    <div class="bg-white bg-opacity-15 p-4 rounded-lg backdrop-blur-sm shadow-inner border border-blue-200 border-opacity-30 flex items-center">
+                    <div class="bg-white bg-opacity-10 p-4 rounded-lg backdrop-blur-sm shadow-inner border border-blue-200 border-opacity-30 flex items-center">
                         <i class="fas fa-envelope mr-3 text-blue-200"></i>
-                        <p class="font-medium truncate">ismailhossain013@gmail.com</p>
+                        <p class="font-medium text-sm truncate">ismailhossain013@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -185,101 +231,101 @@
     </section>
     <section class="section bg-white">
         <div class="container mx-auto max-w-4xl">
-            <div class="bg-blue-50 p-6 rounded-xl shadow-xl border-l-4 border-blue-600 fade-in">
-                <h3 class="text-2xl font-bold mb-4 flex items-center text-blue-700">
+            <div class="p-6 rounded-xl shadow-xl border-l-4 border-blue-600 fade-in" style="background-color: var(--color-bg-card);">
+                <h3 class="text-2xl font-bold mb-4 flex items-center" style="color: var(--color-accent-blue);">
                     <i class="fas fa-bullseye mr-3"></i>Career Objective
                 </h3>
-                <p class="text-gray-700 leading-relaxed">
+                <p class="leading-relaxed" style="color: var(--color-text-secondary);">
                     Passionate and adaptable technology professional, armed with a Bachelor's degree in Computer Science & Engineering. Currently pursuing Masters on Information Technology. Dedicated to leveraging expertise in data communication, web technologies, and information systems. My goal is to contribute to a dynamic and innovative team, utilizing programming languages alongside proficiency in database management and version control tools. My continuous pursuit of expanding skills, staying updated on emerging technologies, aims to make a meaningful impact in technology, fostering both business growth and user satisfaction.
                 </p>
             </div>
         </div>
     </section>
-    <section id="skills" class="section bg-gray-100">
+    <section id="skills" class="section">
         <div class="container mx-auto max-w-6xl">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
-                <i class="fas fa-tools mr-3 text-blue-600"></i>Skills & Expertise
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in" style="color: var(--color-text-primary);">
+                <i class="fas fa-tools mr-3" style="color: var(--color-accent-blue);"></i>Skills & Expertise
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in">
-                    <div class="flex items-center mb-4 border-b pb-2 border-blue-100">
-                        <i class="fas fa-code text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Programming</h3>
+                <div class="p-6 rounded-xl card-hover fade-in border-t-2" style="border-top-color: var(--color-accent-blue);">
+                    <div class="flex items-center mb-4 border-b pb-2" style="border-bottom-color: var(--color-border);">
+                        <i class="fas fa-code text-2xl mr-3" style="color: var(--color-accent-blue);"></i>
+                        <h3 class="text-xl font-semibold" style="color: var(--color-text-primary);">Programming</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-600 text-sm">
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> <span class="font-medium">JAVA (Strong)</span></li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> JavaScript (Web/CRM)</li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> C++ / C</li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Python (Basic)</li>
+                    <ul class="space-y-2 text-sm" style="color: var(--color-text-secondary);">
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> <span class="font-medium">JAVA (Strong)</span></li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> JavaScript (Web/CRM)</li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> C++ / C</li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> Python (Basic)</li>
                     </ul>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in">
-                    <div class="flex items-center mb-4 border-b pb-2 border-blue-100">
-                        <i class="fas fa-globe text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Web & Frontend</h3>
+                <div class="p-6 rounded-xl card-hover fade-in border-t-2" style="border-top-color: var(--color-accent-blue);">
+                    <div class="flex items-center mb-4 border-b pb-2" style="border-bottom-color: var(--color-border);">
+                        <i class="fas fa-globe text-2xl mr-3" style="color: var(--color-accent-blue);"></i>
+                        <h3 class="text-xl font-semibold" style="color: var(--color-text-primary);">Web & Frontend</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-600 text-sm">
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> HTML5 / CSS3</li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> <span class="font-medium">Tailwind CSS</span></li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> <span class="font-medium">Shopify Liquid</span></li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> React JS (Familiar)</li>
+                    <ul class="space-y-2 text-sm" style="color: var(--color-text-secondary);">
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> HTML5 / CSS3</li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> <span class="font-medium">Tailwind CSS</span></li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> <span class="font-medium">Shopify Liquid</span></li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> React JS (Familiar)</li>
                     </ul>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in">
-                    <div class="flex items-center mb-4 border-b pb-2 border-blue-100">
-                        <i class="fas fa-server text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Data & Tools</h3>
+                <div class="p-6 rounded-xl card-hover fade-in border-t-2" style="border-top-color: var(--color-accent-blue);">
+                    <div class="flex items-center mb-4 border-b pb-2" style="border-bottom-color: var(--color-border);">
+                        <i class="fas fa-server text-2xl mr-3" style="color: var(--color-accent-blue);"></i>
+                        <h3 class="text-xl font-semibold" style="color: var(--color-text-primary);">Data & Tools</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-600 text-sm">
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> <span class="font-medium">MySQL / SQL</span></li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> <span class="font-medium">Git / GitHub</span></li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Linux/Windows/MacOS</li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> CRM Strategy & Analysis</li>
+                    <ul class="space-y-2 text-sm" style="color: var(--color-text-secondary);">
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> <span class="font-medium">MySQL / SQL</span></li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> <span class="font-medium">Git / GitHub</span></li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> Linux/Windows/MacOS</li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> CRM Strategy & Analysis</li>
                     </ul>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in">
-                    <div class="flex items-center mb-4 border-b pb-2 border-blue-100">
-                        <i class="fas fa-video text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Creative & Office</h3>
+                <div class="p-6 rounded-xl card-hover fade-in border-t-2" style="border-top-color: var(--color-accent-blue);">
+                    <div class="flex items-center mb-4 border-b pb-2" style="border-bottom-color: var(--color-border);">
+                        <i class="fas fa-video text-2xl mr-3" style="color: var(--color-accent-blue);"></i>
+                        <h3 class="text-xl font-semibold" style="color: var(--color-text-primary);">Creative & Office</h3>
                     </div>
-                    <ul class="space-y-2 text-gray-600 text-sm">
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Adobe Premier Pro / Audacity</li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Drone/Aerial Footage</li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Microsoft Office Suite</li>
-                        <li><i class="fas fa-circle text-xs mr-2 text-blue-500"></i> Adobe Suite (Basic)</li>
+                    <ul class="space-y-2 text-sm" style="color: var(--color-text-secondary);">
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> Adobe Premier Pro / Audacity</li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> Drone/Aerial Footage</li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> Microsoft Office Suite</li>
+                        <li><i class="fas fa-circle text-xs mr-2" style="color: var(--color-accent-blue);"></i> Adobe Suite (Basic)</li>
                     </ul>
                 </div>
                 
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in lg:col-span-4">
-                    <div class="flex items-center mb-4 border-b pb-2 border-blue-100">
-                        <i class="fas fa-language text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Language Proficiency</h3>
+                <div class="p-6 rounded-xl card-hover fade-in lg:col-span-4 border-t-2" style="border-top-color: var(--color-accent-blue);">
+                    <div class="flex items-center mb-4 border-b pb-2" style="border-bottom-color: var(--color-border);">
+                        <i class="fas fa-language text-2xl mr-3" style="color: var(--color-accent-blue);"></i>
+                        <h3 class="text-xl font-semibold" style="color: var(--color-text-primary);">Language Proficiency</h3>
                     </div>
                     <div class="overflow-x-auto">
-                        <table class="min-w-full text-left text-gray-600">
+                        <table class="min-w-full text-left" style="color: var(--color-text-secondary);">
                             <thead>
-                                <tr class="border-b">
-                                    <th class="px-4 py-2 font-bold text-gray-700">Language</th>
-                                    <th class="px-4 py-2 font-bold text-gray-700">Reading</th>
-                                    <th class="px-4 py-2 font-bold text-gray-700">Writing</th>
-                                    <th class="px-4 py-2 font-bold text-gray-700">Speaking</th>
+                                <tr class="border-b" style="border-bottom-color: var(--color-border);">
+                                    <th class="px-4 py-2 font-bold" style="color: var(--color-text-primary);">Language</th>
+                                    <th class="px-4 py-2 font-bold" style="color: var(--color-text-primary);">Reading</th>
+                                    <th class="px-4 py-2 font-bold" style="color: var(--color-text-primary);">Writing</th>
+                                    <th class="px-4 py-2 font-bold" style="color: var(--color-text-primary);">Speaking</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr style="border-bottom-color: var(--color-border);">
                                     <td class="px-4 py-2">Bengali</td>
-                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
-                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
-                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
+                                    <td class="px-4 py-2"><span class="text-green-500 font-medium">Full Professional</span></td>
+                                    <td class="px-4 py-2"><span class="text-green-500 font-medium">Full Professional</span></td>
+                                    <td class="px-4 py-2"><span class="text-green-500 font-medium">Full Professional</span></td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2">English</td>
-                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
-                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
-                                    <td class="px-4 py-2"><span class="text-green-600 font-medium">Full Professional</span></td>
+                                    <td class="px-4 py-2"><span class="text-green-500 font-medium">Full Professional</span></td>
+                                    <td class="px-4 py-2"><span class="text-green-500 font-medium">Full Professional</span></td>
+                                    <td class="px-4 py-2"><span class="text-green-500 font-medium">Full Professional</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -288,10 +334,10 @@
             </div>
         </div>
     </section>
-    <section id="projects-live" class="section bg-white">
+    <section id="projects-live" class="section">
         <div class="container mx-auto max-w-6xl">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
-                <i class="fas fa-rocket mr-3 text-blue-600"></i>Live Project Showcase
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in" style="color: var(--color-text-primary);">
+                <i class="fas fa-rocket mr-3" style="color: var(--color-accent-blue);"></i>Live Project Showcase
             </h2>
 
             <div class="flex flex-wrap justify-center gap-4 mb-12 fade-in">
@@ -299,17 +345,17 @@
                 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=smile-plzz&layout=compact&theme=radical" alt="Top Langs" class="rounded-lg shadow-lg max-w-full h-auto">
             </div>
 
-            <p class="text-center text-lg text-gray-700 mb-8 max-w-3xl mx-auto fade-in">
+            <p class="text-center text-lg mb-8 max-w-3xl mx-auto fade-in" style="color: var(--color-text-secondary);">
                 A curated collection of my interactive LIVE projects, demonstrating proficiency in web development, APIs, and responsive design.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
-                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                <div class="p-6 rounded-xl card-hover fade-in border-t-2" style="border-top-color: var(--color-accent-blue);">
+                    <h3 class="text-xl font-bold mb-3 flex items-center" style="color: var(--color-accent-blue);">
                         <i class="fas fa-compass mr-2"></i> TechPath Finder
                     </h3>
-                    <p class="text-gray-700 mb-3 text-sm">
+                    <p class="mb-3 text-sm" style="color: var(--color-text-secondary);">
                         Discover your best career path in tech with an <span class="font-semibold">interactive questionnaire</span>, <span class="font-semibold">personalized recommendations</span>, and <span class="font-semibold">beginner-friendly resources</span>.
                     </p>
                     <a href="https://techpath-finder.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
@@ -317,11 +363,11 @@
                     </a>
                 </div>
 
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
-                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                <div class="p-6 rounded-xl card-hover fade-in border-t-2" style="border-top-color: var(--color-accent-blue);">
+                    <h3 class="text-xl font-bold mb-3 flex items-center" style="color: var(--color-accent-blue);">
                         <i class="fas fa-newspaper mr-2"></i> News App
                     </h3>
-                    <p class="text-gray-700 mb-3 text-sm">
+                    <p class="mb-3 text-sm" style="color: var(--color-text-secondary);">
                         A <span class="font-semibold">real-time news reader</span> with <span class="font-semibold">auto-refreshing headlines</span>, <span class="font-semibold">category filters</span>, and a <span class="font-semibold">clean, distraction-free UI</span>.
                     </p>
                     <a href="https://news-iota-lilac.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
@@ -329,11 +375,11 @@
                     </a>
                 </div>
 
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
-                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                <div class="p-6 rounded-xl card-hover fade-in border-t-2" style="border-top-color: var(--color-accent-blue);">
+                    <h3 class="text-xl font-bold mb-3 flex items-center" style="color: var(--color-accent-blue);">
                         <i class="fas fa-map-marked-alt mr-2"></i> Real-Time Event Finder
                     </h3>
-                    <p class="text-gray-700 mb-3 text-sm">
+                    <p class="mb-3 text-sm" style="color: var(--color-text-secondary);">
                         Search worldwide events by <span class="font-semibold">location and interest</span>. Uses <span class="font-semibold">geolocation</span> + <span class="font-semibold">real-time APIs</span> to keep you updated.
                     </p>
                     <a href="https://smile-plzz.github.io/real-time-event-finder/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
@@ -341,11 +387,11 @@
                     </a>
                 </div>
 
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
-                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                <div class="p-6 rounded-xl card-hover fade-in border-t-2" style="border-top-color: var(--color-accent-blue);">
+                    <h3 class="text-xl font-bold mb-3 flex items-center" style="color: var(--color-accent-blue);">
                         <i class="fas fa-clock mr-2"></i> BalanceFlow
                     </h3>
-                    <p class="text-gray-700 mb-3 text-sm">
+                    <p class="mb-3 text-sm" style="color: var(--color-text-secondary);">
                         A <span class="font-semibold">dynamic productivity timer</span> built for <span class="font-semibold">work-break cycles</span> — perfect for <span class="font-semibold">remote workers, students, and gym-goers</span>.
                     </p>
                     <a href="https://smile-plzz.github.io/BalanceFLow/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
@@ -353,38 +399,14 @@
                     </a>
                 </div>
 
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
-                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
-                        <i class="fas fa-satellite-dish mr-2"></i> Astronomy Dashboard
-                    </h3>
-                    <p class="text-gray-700 mb-3 text-sm">
-                        Explore <span class="font-semibold">NASA’s Astronomy Picture of the Day</span> with explanations + extra space facts. A <span class="font-semibold">cosmic experience</span> for enthusiasts.
-                    </p>
-                    <a href="https://smile-plzz.github.io/AstronomyDashboard/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
-                        <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
-                    </a>
-                </div>
-
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
-                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
-                        <i class="fas fa-film mr-2"></i> Mood-Based Movie Recommender
-                    </h3>
-                    <p class="text-gray-700 mb-3 text-sm">
-                        Get <span class="font-semibold">handpicked movie suggestions</span> based on your mood. Blends <span class="font-semibold">genres + emotions</span> for a perfect recommendation.
-                    </p>
-                    <a href="https://smile-plzz.github.io/MovieRecommendationBasedOnMood/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
-                        <i class="fas fa-external-link-alt mr-1"></i> Visit Live App
-                    </a>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600 md:col-span-2">
-                    <h3 class="text-xl font-bold mb-3 text-blue-700 flex items-center">
+                <div class="p-6 rounded-xl card-hover fade-in md:col-span-2 border-t-2" style="border-top-color: var(--color-accent-blue);">
+                    <h3 class="text-xl font-bold mb-3 flex items-center" style="color: var(--color-accent-blue);">
                         <i class="fas fa-ticket-alt mr-2"></i> Collaborative Projects
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <p class="text-gray-700 mb-2 font-semibold">Now Showing:</p>
-                            <p class="text-gray-700 mb-3 text-sm">
+                            <p class="mb-2 font-semibold" style="color: var(--color-text-primary);">Now Showing:</p>
+                            <p class="mb-3 text-sm" style="color: var(--color-text-secondary);">
                                 Real-time <span class="font-semibold">Now Playing movies</span> from TMDB API. Features posters, ratings, release dates, and <span class="font-semibold">in-app streaming previews</span>.
                             </p>
                             <a href="https://now-showing-mu.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
@@ -392,8 +414,8 @@
                             </a>
                         </div>
                         <div>
-                            <p class="text-gray-700 mb-2 font-semibold">The Daily Doggo:</p>
-                            <p class="text-gray-700 mb-3 text-sm">
+                            <p class="mb-2 font-semibold" style="color: var(--color-text-primary);">The Daily Doggo:</p>
+                            <p class="mb-3 text-sm" style="color: var(--color-text-secondary);">
                                 Fetch something delightful on every click. Features <span class="font-semibold">adorable critter images</span> (dogs, cats, foxes) plus text overlays, favorites, and sharing capabilities.
                             </p>
                             <a href="https://the-daily-doggo.vercel.app/" target="_blank" class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-md">
@@ -406,167 +428,95 @@
             </div>
         </div>
     </section>
-    <section id="projects" class="section bg-gray-100">
+    <section id="projects" class="section">
         <div class="container mx-auto max-w-6xl">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
-                <i class="fas fa-flask mr-3 text-blue-600"></i>Academic Projects
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in" style="color: var(--color-text-primary);">
+                <i class="fas fa-flask mr-3" style="color: var(--color-accent-blue);"></i>Academic Projects
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
+                <div class="p-6 rounded-xl card-hover fade-in border-l-4" style="border-left-color: var(--color-accent-blue);">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-medkit text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-bold text-gray-800">Healthcare System with OCR</h3>
+                        <i class="fas fa-medkit text-2xl mr-3" style="color: var(--color-accent-blue);"></i>
+                        <h3 class="text-xl font-bold" style="color: var(--color-text-primary);">Healthcare System with OCR</h3>
                     </div>
-                    <p class="text-gray-600 mb-3 text-sm font-medium">
-                        <span class="font-bold">Senior Capstone</span> | React JS, SQL, OpenCV, PyTesseract, TensorFlow
+                    <p class="mb-3 text-sm font-medium" style="color: var(--color-text-secondary);">
+                        <span class="font-bold" style="color: var(--color-text-primary);">Senior Capstone</span> | React JS, SQL, OpenCV, PyTesseract, TensorFlow
                     </p>
-                    <p class="mb-4 text-gray-700 leading-relaxed text-sm">
+                    <p class="mb-4 leading-relaxed text-sm" style="color: var(--color-text-secondary);">
                         A web-based platform offering seamless online doctor consultations, integrated with <span class="font-semibold">Optical Character Recognition (OCR)</span> to digitize and organize medical documents. Med-Tech ensures accurate medical history tracking.
                     </p>
                 </div>
 
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
+                <div class="p-6 rounded-xl card-hover fade-in border-l-4" style="border-left-color: var(--color-accent-blue);">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-shopping-cart text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-bold text-gray-800">Online Arts & Crafts Shop</h3>
+                        <i class="fas fa-shopping-cart text-2xl mr-3" style="color: var(--color-accent-blue);"></i>
+                        <h3 class="text-xl font-bold" style="color: var(--color-text-primary);">Online Arts & Crafts Shop</h3>
                     </div>
-                    <p class="text-gray-600 mb-3 text-sm font-medium">
-                        <span class="font-bold">Junior Capstone</span> | HTML, CSS, AJAX, JavaScript
+                    <p class="mb-3 text-sm font-medium" style="color: var(--color-text-secondary);">
+                        <span class="font-bold" style="color: var(--color-text-primary);">Junior Capstone</span> | HTML, CSS, AJAX, JavaScript
                     </p>
-                    <p class="mb-4 text-gray-700 leading-relaxed text-sm">
+                    <p class="mb-4 leading-relaxed text-sm" style="color: var(--color-text-secondary);">
                         Designed a full-stack e-commerce platform with inventory tracking, sales analytics and payment processing system. Developed the e-commerce website using HTML, CSS ensuring better responsiveness with <span class="font-semibold">AJAX</span>.
-                    </p>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-hotel text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-bold text-gray-800">Hotel Management System</h3>
-                    </div>
-                    <p class="text-gray-600 mb-3 text-sm font-medium">
-                        <span class="font-bold">Academic Course</span> | Java, JavaFX, GUI Development
-                    </p>
-                    <p class="mb-4 text-gray-700 leading-relaxed text-sm">
-                        Created a system to streamline hotel operations. Developed the application using <span class="font-semibold">Java</span>, incorporating GUI development with <span class="font-semibold">JavaFX</span> for an interactive user interface.
-                    </p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-t-4 border-blue-600">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-piggy-bank text-2xl mr-3 text-blue-600"></i>
-                        <h3 class="text-xl font-bold text-gray-800">Bank Database System</h3>
-                    </div>
-                    <p class="text-gray-600 mb-3 text-sm font-medium">
-                        <span class="font-bold">Academic Course</span> | C Language, Database Management
-                    </p>
-                    <p class="mb-4 text-gray-700 leading-relaxed text-sm">
-                        Developed a database for managing client and employee information in a banking environment. Implemented the system using <span class="font-semibold">C language</span> for robust database operations and management.
                     </p>
                 </div>
             </div>
         </div>
     </section>
-    <section id="experience" class="section bg-white">
+    <section id="experience" class="section">
         <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
-                <i class="fas fa-briefcase mr-3 text-blue-600"></i>Work Experience
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in" style="color: var(--color-text-primary);">
+                <i class="fas fa-briefcase mr-3" style="color: var(--color-accent-blue);"></i>Work Experience
             </h2>
             <div class="space-y-8">
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
+                <div class="p-6 rounded-xl card-hover fade-in border-l-4" style="border-left-color: var(--color-accent-blue);">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between">
                         <div>
-                            <h3 class="text-xl font-bold flex items-center text-blue-700">
-                                <i class="fas fa-headset mr-3 text-blue-600"></i>
+                            <h3 class="text-xl font-bold flex items-center" style="color: var(--color-accent-blue);">
+                                <i class="fas fa-headset mr-3" style="color: var(--color-accent-blue);"></i>
                               Executive – Customer Relationship Management
                             </h3>
-                            <p class="text-gray-600 mt-1 ml-8 text-lg font-medium">DevsNest (Dynamatic)</p>
+                            <p class="mt-1 ml-8 text-lg font-medium" style="color: var(--color-text-primary);">DevsNest (Dynamatic)</p>
                         </div>
                         <div class="mt-3 md:mt-0 flex-shrink-0">
-                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
+                            <span class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-medium">
                                 <i class="far fa-calendar-alt mr-1"></i> April, 2025 - Present
                             </span>
                         </div>
                     </div>
                     <div class="mt-4 ml-8">
-                        <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                        <ul class="list-disc pl-5 space-y-2 text-sm" style="color: var(--color-text-secondary);">
                             <li>Spearhead strategic <span class="font-semibold">CRM</span> initiatives to drive personalized growth and maximize ROI for Shopify merchants. </li>
                              <li>Act as a <span class="font-semibold">technical-strategic consultant</span>, translating business needs into actionable technical requirements for custom <span class="font-semibold">JavaScript/Liquid</span> implementations.</li>
                              <li>Apply <span class="font-semibold">data-driven analysis</span> to interpret sales funnel metrics, optimize audience segmentation, and refine campaign targeting. </li>
                         </ul>
                     </div>
                 </div>
-
-                 <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold flex items-center text-blue-700">
-                                <i class="fas fa-user-tie mr-3 text-blue-600"></i>
-                                Consultant
-                            </h3>
-                            <p class="text-gray-600 mt-1 ml-8 text-lg font-medium">Dhaka IT</p>
-                        </div>
-                        <div class="mt-3 md:mt-0 flex-shrink-0">
-                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="far fa-calendar-alt mr-1"></i> 2018 - 2019
-                            </span>
-                        </div>
-                    </div>
-                    <div class="mt-4 ml-8">
-                        <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
-                            <li>Oversaw <span class="font-semibold">software design and development</span> processes to ensure high-quality outputs.</li>
-                            <li>Advised clients on the maintenance and optimization of software systems, enhancing overall performance and user experience.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold flex items-center text-blue-700">
-                                <i class="fas fa-chalkboard-teacher mr-3 text-blue-600"></i>
-                                Guest Instructor - Department of Web-Designing
-                            </h3>
-                            <p class="text-gray-600 mt-1 ml-8 text-lg font-medium">Bangladesh KOREA Technical Training Center</p>
-                        </div>
-                        <div class="mt-3 md:mt-0 flex-shrink-0">
-                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
-                                <i class="far fa-calendar-alt mr-1"></i> 2017 - 2018
-                            </span>
-                        </div>
-                    </div>
-                    <div class="mt-4 ml-8">
-                        <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
-                            <li>Instructed students on designing fully functional websites (front-end and back-end database management).</li>
-                            <li>Equipped students with comprehensive web development skills for vocational training.</li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
-    <section id="venture" class="section bg-gray-100">
+    <section id="venture" class="section">
         <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
-                <i class="fas fa-handshake mr-3 text-blue-600"></i>Entrepreneurial Ventures
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in" style="color: var(--color-text-primary);">
+                <i class="fas fa-handshake mr-3" style="color: var(--color-accent-blue);"></i>Entrepreneurial Ventures
             </h2>
             <div class="space-y-8">
-                 <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600 group" id="nmfm-section">
+                 <div class="p-6 rounded-xl card-hover fade-in border-l-4 group" id="nmfm-section" style="border-left-color: var(--color-accent-blue);">
                     <div class="flex flex-col md:flex-row md:items-start md:justify-between">
                         <div>
-                            <h3 class="text-xl font-bold flex items-center text-blue-700">
+                            <h3 class="text-xl font-bold flex items-center" style="color: var(--color-accent-blue);">
                                 <i class="fas fa-music mr-3" aria-hidden="true"></i>
                                 NO MORE FREE MUSIC (Co-Founder)
                             </h3>
-                            <p class="text-gray-600 mt-1 ml-8 text-lg font-medium">Music Culture Initiative</p>
+                            <p class="mt-1 ml-8 text-lg font-medium" style="color: var(--color-text-primary);">Music Culture Initiative</p>
                         </div>
                         <div class="mt-3 md:mt-0 flex-shrink-0">
-                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap">
+                            <span class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap">
                                 <i class="far fa-calendar-alt mr-1" aria-hidden="true"></i> 2021 - 2022
                             </span>
                         </div>
                     </div>
                     <div class="mt-4 ml-8">
-                        <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                        <ul class="list-disc pl-5 space-y-2 text-sm" style="color: var(--color-text-secondary);">
                             <li>Launched an initiative dedicated to fostering a <span class="font-semibold">respectful and robust music culture</span>.</li>
                             <li>Managed projects including the music video premiere for "Ojanay" by Velvet Wings and the release of "Othocho" by Fantasy Realm.</li>
                         </ul>
@@ -577,13 +527,13 @@
                             <div class="relative rounded-lg overflow-hidden aspect-video shadow-xl">
                                 <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZOoEIAQi_70?autoplay=0&mute=1&enablejsapi=1" title="NMFM Featured Music Video: Signature Work" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                             </div>
-                            <p class="text-gray-700 mt-3 text-sm font-medium">Featured: Signature Work</p>
+                            <p class="mt-3 text-sm font-medium" style="color: var(--color-text-secondary);">Featured: Signature Work</p>
                         </div>
                         
                         <div class="flex flex-wrap gap-2 mb-4 justify-center">
                             <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="all" aria-label="Show all videos">All</button>
-                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="music" aria-label="Show music videos">Music Videos</button>
-                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="event" aria-label="Show event highlights">Event Highlights</button>
+                            <button class="filter-btn bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="music" aria-label="Show music videos">Music Videos</button>
+                            <button class="filter-btn bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="event" aria-label="Show event highlights">Event Highlights</button>
                         </div>
                         
                         <div class="relative">
@@ -599,288 +549,156 @@
                     </div>
                     
                     <div id="nmfm-video-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50" role="dialog" aria-labelledby="nmfm-modal-title" aria-modal="true">
-                        <div class="bg-white p-4 rounded-lg max-w-3xl w-full mx-4 sm:mx-0">
+                        <div class="p-4 rounded-lg max-w-3xl w-full mx-4 sm:mx-0" style="background-color: var(--color-bg-body);">
                             <div class="flex justify-between items-center mb-4">
-                                <h3 id="nmfm-modal-title" class="text-xl font-bold text-gray-800"></h3>
-                                <button class="close-modal-btn text-gray-600 hover:text-gray-800 text-2xl font-semibold rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200 transition-colors focus:outline-none" aria-label="Close video modal">×</button>
+                                <h3 id="nmfm-modal-title" class="text-xl font-bold" style="color: var(--color-text-primary);"></h3>
+                                <button class="close-modal-btn text-gray-600 hover:text-gray-800 dark:hover:text-gray-300 text-2xl font-semibold rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none" aria-label="Close video modal">×</button>
                             </div>
                             <iframe id="nmfm-modal-iframe" class="w-full h-64 sm:h-80 md:h-96 rounded-lg" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="NMFM Video player"></iframe>
                         </div>
                     </div>
                 </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600 group">
-                    <div class="flex flex-col md:flex-row md:items-start md:justify-between">
-                        <div>
-                            <h3 class="text-xl font-bold flex items-center text-blue-700">
-                                <i class="fas fa-drone mr-3" aria-hidden="true"></i>
-                                15-Miles (Founder)
-                            </h3>
-                            <p class="text-gray-600 mt-1 ml-8 text-lg font-medium">Video Production Firm</p>
-                        </div>
-                        <div class="mt-3 md:mt-0 flex-shrink-0">
-                            <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap">
-                                <i class="far fa-calendar-alt mr-1" aria-hidden="true"></i> 2021 - 2023
-                            </span>
-                        </div>
-                    </div>
-                    <div class="mt-4 ml-8">
-                        <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
-                            <li>Established a video production firm specializing in documentaries, promotional content, and music videos.</li>
-                            <li>Renowned for <span class="font-semibold">exceptional aerial shots and drone footage</span>, supporting various government and private sector projects.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="mt-6 video-section" data-project="15miles">
-                        <div class="hero-video mb-6 text-center">
-                            <div class="relative rounded-lg overflow-hidden shadow-xl aspect-video">
-                                <iframe class="w-full h-full" src="https://www.youtube.com/embed/-Do0eJRvRZA?autoplay=0&mute=1&enablejsapi=1" title="15-Miles Featured Documentary: Signature Work" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-                            </div>
-                            <p class="text-gray-700 mt-3 text-sm font-medium">Featured: Documentary Signature Work</p>
-                        </div>
-                        
-                        <div class="flex flex-wrap gap-2 mb-4 justify-center">
-                            <button class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="all" aria-label="Show all 15-Miles videos">All</button>
-                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="documentary" aria-label="Show documentary videos">Documentaries</button>
-                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="music" aria-label="Show music videos">Music Videos</button>
-                            <button class="filter-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm font-medium transition-colors" data-category="aerial" aria-label="Show aerial shot videos">Aerial Shots</button>
-                        </div>
-                        
-                        <div class="relative">
-                            <div class="video-carousel flex overflow-x-auto gap-4 pb-4 scroll-smooth snap-x snap-mandatory" tabindex="0" aria-label="15-Miles video carousel">
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="emZoF0r4_aE" data-title="Documentary: Coastal Aerials"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Coastal Aerials Documentary"><img src="https://img.youtube.com/vi/emZoF0r4_aE/hqdefault.jpg" alt="Coastal Aerials Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="music" data-video-id="ztm412kovcE" data-title="Music Video: Live Performance"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Live Performance Music Video"><img src="https://img.youtube.com/vi/ztm412kovcE/hqdefault.jpg" alt="Live Performance Music Video Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="aerial" data-video-id="zCWmwOvZsME" data-title="Aerial Shots: Cityscape"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Cityscape Aerial Shots"><img src="https://img.youtube.com/vi/zCWmwOvZsME/hqdefault.jpg" alt="Cityscape Aerial Shots Thumbnail" class="w-full" loading="lazy"></div></div>
-                                <div class="video-container flex-shrink-0 w-64 snap-start" data-category="documentary" data-video-id="2b7pnUNBKUk" data-title="Documentary: Wildlife Exploration"><div class="thumbnail cursor-pointer rounded-lg overflow-hidden" role="button" tabindex="0" aria-label="Play Wildlife Exploration Documentary"><img src="https://img.youtube.com/vi/2b7pnUNBKUk/hqdefault.jpg" alt="Wildlife Exploration Documentary Thumbnail" class="w-full" loading="lazy"></div></div>
-                                </div>
-                            <button class="carousel-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Previous videos"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                            <button class="carousel-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 z-10" aria-label="Next videos"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
-                        </div>
-                    </div>
-                    
-                    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-                        <div class="bg-white p-4 rounded-lg max-w-3xl w-full mx-4 sm:mx-0 max-h-[90vh] overflow-auto">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 id="modalTitle" class="text-xl font-bold text-gray-800"></h3>
-                                <button class="close-modal-btn text-gray-600 hover:text-gray-800 text-2xl font-semibold rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-200 transition-colors focus:outline-none" aria-label="Close video modal">×</button>
-                            </div>
-                            <iframe id="modalIframe" class="w-full h-64 sm:h-80 md:h-96 rounded-lg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="15-Miles Video player"></iframe>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
-    <section id="education" class="section bg-white">
+    <section id="education" class="section">
         <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
-                <i class="fas fa-graduation-cap mr-3 text-blue-600"></i>Education
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in" style="color: var(--color-text-primary);">
+                <i class="fas fa-graduation-cap mr-3" style="color: var(--color-accent-blue);"></i>Education
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-xl font-bold flex items-start text-blue-700">
-                        <i class="fas fa-university mr-3 mt-1 text-blue-600"></i>
+                <div class="p-6 rounded-xl card-hover fade-in border-l-4" style="border-left-color: var(--color-accent-blue);">
+                    <h3 class="text-xl font-bold flex items-start" style="color: var(--color-accent-blue);">
+                        <i class="fas fa-university mr-3 mt-1" style="color: var(--color-accent-blue);"></i>
                         Masters in Information Technology
                     </h3>
-                    <p class="text-gray-600 mt-2 ml-7 font-medium">Jahangirnagar University</p>
-                    <p class="text-gray-600 mt-3 ml-7 font-semibold text-sm">Focus Areas:</p>
-                    <ul class="list-disc ml-12 text-gray-700 text-xs mt-1 space-y-1">
+                    <p class="mt-2 ml-7 font-medium" style="color: var(--color-text-primary);">Jahangirnagar University</p>
+                    <p class="mt-3 ml-7 font-semibold text-sm" style="color: var(--color-text-primary);">Focus Areas:</p>
+                    <ul class="list-disc ml-12 text-xs mt-1 space-y-1" style="color: var(--color-text-secondary);">
                         <li>AI & Machine Learning, Data Science</li>
                         <li>Cloud, Mobile Computing, IOT, Wireless Network</li>
                         <li>Software Testing & Quality Assurance</li>
                     </ul>
                     <div class="mt-4 ml-7 flex flex-wrap gap-2 text-sm">
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">3.69/4.00 (Current)</span>
-                        <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">2025 (Expected)</span>
+                        <span class="bg-blue-100 dark:bg-blue-700 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full font-semibold">3.69/4.00 (Current)</span>
+                        <span class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full font-medium">2025 (Expected)</span>
                     </div>
                 </div>
 
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-xl font-bold flex items-start text-blue-700">
-                        <i class="fas fa-university mr-3 mt-1 text-blue-600"></i>
+                <div class="p-6 rounded-xl card-hover fade-in border-l-4" style="border-left-color: var(--color-accent-blue);">
+                    <h3 class="text-xl font-bold flex items-start" style="color: var(--color-accent-blue);">
+                        <i class="fas fa-university mr-3 mt-1" style="color: var(--color-accent-blue);"></i>
                         BSc in Computer Science & Engineering
                     </h3>
-                    <p class="text-gray-600 mt-2 ml-7 font-medium">North South University</p>
-                    <p class="text-gray-600 mt-3 ml-7 font-semibold text-sm">Key Coursework:</p>
-                    <ul class="list-disc ml-12 text-gray-700 text-xs mt-1 space-y-1">
+                    <p class="mt-2 ml-7 font-medium" style="color: var(--color-text-primary);">North South University</p>
+                    <p class="mt-3 ml-7 font-semibold text-sm" style="color: var(--color-text-primary);">Key Coursework:</p>
+                    <ul class="list-disc ml-12 text-xs mt-1 space-y-1" style="color: var(--color-text-secondary);">
                         <li>Database Systems, Software Engineering</li>
                         <li>Algorithms, Operating Systems Design</li>
                         <li>Computer Architecture, Embedded Systems</li>
                     </ul>
                     <div class="mt-4 ml-7 flex flex-wrap gap-2 text-sm">
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">CGPA: 2.63/4.00</span>
-                        <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">2023</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-lg font-bold flex items-center text-blue-700">
-                        <i class="fas fa-school mr-3 text-blue-600"></i>HSC (Science)
-                    </h3>
-                    <p class="text-gray-600 mt-1 ml-7 font-medium">Government Bangla College</p>
-                    <div class="mt-3 ml-7 flex flex-wrap gap-2 text-sm">
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">GPA: 3.83/5.00</span>
-                        <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">2018</span>
-                    </div>
-                </div>
-
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-lg font-bold flex items-center text-blue-700">
-                        <i class="fas fa-school mr-3 text-blue-600"></i>SSC (Science)
-                    </h3>
-                    <p class="text-gray-600 mt-1 ml-7 font-medium">Dhanmondi Govt Boyz High School</p>
-                    <div class="mt-3 ml-7 flex flex-wrap gap-2 text-sm">
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">GPA: 5.00/5.00</span>
-                        <span class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full font-medium">2016</span>
+                        <span class="bg-blue-100 dark:bg-blue-700 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full font-semibold">CGPA: 2.63/4.00</span>
+                        <span class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full font-medium">2023</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="section bg-gray-100">
+    <section class="section">
         <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
-                <i class="fas fa-microscope mr-3 text-blue-600"></i>Research and Publications
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in" style="color: var(--color-text-primary);">
+                <i class="fas fa-microscope mr-3" style="color: var(--color-accent-blue);"></i>Research and Publications
             </h2>
             <div class="space-y-6">
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Med-Tech: Online doctor consultation with Optical Character Recognition (OCR)</h3>
-                    <p class="text-gray-600 mb-2 text-sm">
-                        <span class="font-semibold">Authors:</span> Md. Ismail Hossain, Sabab Ishraq, Md. Fazlay Rabbi Nabid
+                <div class="p-6 rounded-xl card-hover fade-in border-l-4" style="border-left-color: var(--color-accent-blue);">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--color-text-primary);">Med-Tech: Online doctor consultation with Optical Character Recognition (OCR)</h3>
+                    <p class="mb-2 text-sm" style="color: var(--color-text-secondary);">
+                        <span class="font-semibold" style="color: var(--color-text-primary);">Authors:</span> Md. Ismail Hossain, Sabab Ishraq, Md. Fazlay Rabbi Nabid
                     </p>
-                    <p class="mb-3 text-gray-600 text-sm">
-                        <span class="font-semibold">Supervisor:</span> Dr. Shohana Rahman Deeba (Associate Professor)
+                    <p class="mb-3 text-sm" style="color: var(--color-text-secondary);">
+                        <span class="font-semibold" style="color: var(--color-text-primary);">Supervisor:</span> Dr. Shohana Rahman Deeba (Associate Professor)
                     </p>
-                    <p class="text-xs text-gray-500 italic">
-                        DEPARTMENT OF ELECTRICAL AND COMPUTER ENGINEERING, NORTH SOUTH UNIVERSITY
-                    </p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-xl font-bold mb-2 text-gray-800">Brain Tumor Classification using Efficient-Net and Grad-Cam</h3>
-                    <p class="text-gray-600 mb-2 text-sm">
-                        <span class="font-semibold">Authors:</span> Md. Ismail Hossain, MD. Kawser Islam, Yeaser Shams
-                    </p>
-                    <p class="mb-3 text-gray-600 text-sm">
-                        <span class="font-semibold">Supervisor:</span> Dr. Mohammad Monirujjaman Khan (Associate Professor)
-                    </p>
-                    <p class="text-xs text-gray-500 italic">
+                    <p class="text-xs italic" style="color: var(--color-text-secondary);">
                         DEPARTMENT OF ELECTRICAL AND COMPUTER ENGINEERING, NORTH SOUTH UNIVERSITY
                     </p>
                 </div>
             </div>
         </div>
     </section>
-    <section class="section bg-white">
+    <section class="section">
         <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
-                <i class="fas fa-running mr-3 text-blue-600"></i>Extra-Curricular Activities
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in" style="color: var(--color-text-primary);">
+                <i class="fas fa-running mr-3" style="color: var(--color-accent-blue);"></i>Extra-Curricular Activities
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-lg font-bold flex items-center mb-3 text-gray-800">
-                        <i class="fas fa-chalkboard mr-3 text-blue-600"></i>Facilitated Training Sessions
+                <div class="p-6 rounded-xl card-hover fade-in border-l-4" style="border-left-color: var(--color-accent-blue);">
+                    <h3 class="text-lg font-bold flex items-center mb-3" style="color: var(--color-text-primary);">
+                        <i class="fas fa-chalkboard mr-3 text-xl" style="color: var(--color-accent-blue);"></i>Facilitated Training Sessions
                     </h3>
-                    <p class="text-gray-700 leading-relaxed mb-4 text-sm">
+                    <p class="leading-relaxed mb-4 text-sm" style="color: var(--color-text-secondary);">
                         Conducted a three-day training program on <span class="font-semibold">"Management of E-Learning"</span> at a government educational institution, enhancing educators' proficiency in digital teaching methodologies.
                     </p>
                     <a href="https://drive.google.com/file/d/1P6q826ApUesOYAlUoxmQ4nlk0gh48crB/view?usp=sharing" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-xs font-medium shadow-md" target="_blank">View Documentation</a>
                 </div>
 
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-lg font-bold flex items-center mb-3 text-gray-800">
-                        <i class="fas fa-film mr-3 text-blue-600"></i>Documentary and Video Production
+                <div class="p-6 rounded-xl card-hover fade-in border-l-4" style="border-left-color: var(--color-accent-blue);">
+                    <h3 class="text-lg font-bold flex items-center mb-3" style="color: var(--color-text-primary);">
+                        <i class="fas fa-film mr-3 text-xl" style="color: var(--color-accent-blue);"></i>Documentary and Video Production
                     </h3>
-                    <p class="text-gray-700 leading-relaxed mb-4 text-sm">
+                    <p class="leading-relaxed mb-4 text-sm" style="color: var(--color-text-secondary);">
                         Produced a documentary titled <span class="font-semibold">"Institute of Marine Technology, Chadpur"</span> and a live musical performance video for the renowned Bangladeshi band <span class="font-semibold">Aftermath</span>.
                     </p>
                     <div class="mt-4 flex flex-col space-y-3 text-xs font-medium">
                         <a href="https://youtu.be/-Do0eJRvRZA?si=Bqn5U1ANjmn_5dAB" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md" target="_blank">Documentary: IMT, Chandpur</a>
                     </div>
                 </div>
-                
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-lg font-bold flex items-center mb-3 text-gray-800">
-                        <i class="fas fa-paper-plane mr-3 text-blue-600"></i>Aerial Drone Survey
-                    </h3>
-                    <p class="text-gray-700 leading-relaxed text-sm">
-                        Executed an <span class="font-semibold">aerial drone survey</span> for a reputable civil firm, supporting various government projects and promoting the integration of advanced technology in civil engineering practices.
-                    </p>
-                </div>
-
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-lg font-bold flex items-center mb-3 text-gray-800">
-                        <i class="fas fa-network-wired mr-3 text-blue-600"></i>Internet Network Infrastructure Project
-                    </h3>
-                    <p class="text-gray-700 leading-relaxed mb-4 text-sm">
-                        Designed and implemented a comprehensive <span class="font-semibold">internet network infrastructure</span> for a computer laboratory at Dhaka Technical Teachers Training Institute (DTTTI).
-                    </p>
-                    <a href="https://drive.google.com/file/d/1ZdytCkYh4Mr8OCLNv8LBRq2j9rpgwyC9/view?usp=sharing" class="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-xs font-medium shadow-md" target="_blank">View Documentation</a>
-                </div>
             </div>
         </div>
     </section>
-    <section class="section bg-gray-100">
+    <section class="section">
         <div class="container mx-auto max-w-5xl">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in">
-                <i class="fas fa-certificate mr-3 text-blue-600"></i>Certifications and Training
+            <h2 class="text-3xl font-bold mb-12 text-center section-title fade-in" style="color: var(--color-text-primary);">
+                <i class="fas fa-certificate mr-3" style="color: var(--color-accent-blue);"></i>Certifications and Training
             </h2>
             <div class="space-y-6">
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-lg font-bold flex items-center text-gray-800">
-                        <i class="fas fa-shield-alt mr-3 text-blue-600"></i>Introduction to Cybersecurity
+                <div class="p-6 rounded-xl card-hover fade-in border-l-4" style="border-left-color: var(--color-accent-blue);">
+                    <h3 class="text-lg font-bold flex items-center" style="color: var(--color-text-primary);">
+                        <i class="fas fa-shield-alt mr-3" style="color: var(--color-accent-blue);"></i>Introduction to Cybersecurity
                     </h3>
-                    <p class="text-gray-600 ml-8 text-sm mt-1 mb-3">Networking Academy | Dec 19, 2024 | 6 Hours</p>
+                    <p class="ml-8 text-sm mt-1 mb-3" style="color: var(--color-text-secondary);">Networking Academy | Dec 19, 2024 | 6 Hours</p>
                     <a href="https://www.credly.com/badges/943974f9-9838-4978-837b-37c3d1113021/public_url" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-medium hover:bg-blue-700 transition inline-block shadow-md ml-8">
                         <i class="fas fa-certificate mr-2"></i>View Certificate
                     </a>
                 </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-lg font-bold flex items-center text-gray-800">
-                        <i class="fas fa-laptop-code mr-3 text-blue-600"></i>Computer Operation Level-3
-                    </h3>
-                    <p class="text-gray-600 ml-8 text-sm mt-1 mb-3">National Skills Development Authority (NSDA) | Feb 24, 2025</p>
-                    <a href="https://www.skillsportal.gov.bd/#/rpl/certificate-view?rplCandidateId=AGyeV7SZi8IDV9obk%2FZsbQ%3D%3D" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-full text-xs font-medium hover:bg-blue-700 transition inline-block shadow-md ml-8">
-                        <i class="fas fa-certificate mr-2"></i>View Certificate
-                    </a>
-                </div>
-                
-                <div class="bg-white p-6 rounded-xl shadow-lg card-hover fade-in border-l-4 border-blue-600">
-                    <h3 class="text-lg font-bold flex items-center text-gray-800">
-                        <i class="fas fa-language mr-3 text-blue-600"></i>English (Upper-Intermediate – B2 Level)
-                    </h3>
-                    <p class="text-gray-600 ml-8 text-sm mt-1">British Council Bangladesh – Senior Young Learners Program | May, 2016</p>
-                </div>
             </div>
         </div>
     </section>
-    <section id="contact-form" class="py-16 section bg-gray-50">
+    <section id="contact-form" class="py-16 section">
         <div class="container mx-auto max-w-2xl px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center text-gray-800 section-title fade-in">
-                <i class="fas fa-envelope-open-text mr-2 text-blue-600"></i>Send Me a Message
+            <h2 class="text-3xl font-bold mb-10 text-center section-title fade-in" style="color: var(--color-text-primary);">
+                <i class="fas fa-envelope-open-text mr-2" style="color: var(--color-accent-blue);"></i>Send Me a Message
             </h2>
             
             <form 
                 action="https://formspree.io/f/mrbkyqdd" 
                 method="POST"
-                class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-blue-600 fade-in"
+                class="p-8 rounded-xl shadow-lg border-t-4 fade-in"
+                style="background-color: var(--color-bg-card); border-top-color: var(--color-accent-blue);"
             >
                 <div class="mb-6">
-                    <label for="name" class="block text-gray-700 font-semibold mb-2"><i class="fas fa-user mr-2 text-blue-600"></i>Your Name</label>
-                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="John Doe" aria-required="true">
+                    <label for="name" class="block font-semibold mb-2" style="color: var(--color-text-primary);"><i class="fas fa-user mr-2" style="color: var(--color-accent-blue);"></i>Your Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors dark:bg-gray-700 dark:border-gray-600" style="border-color: var(--color-border); background-color: var(--color-bg-body);" placeholder="John Doe" aria-required="true">
                 </div>
 
                 <div class="mb-6">
-                    <label for="email" class="block text-gray-700 font-semibold mb-2"><i class="fas fa-at mr-2 text-blue-600"></i>Your Email</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="your@email.com" aria-required="true">
+                    <label for="email" class="block font-semibold mb-2" style="color: var(--color-text-primary);"><i class="fas fa-at mr-2" style="color: var(--color-accent-blue);"></i>Your Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors dark:bg-gray-700 dark:border-gray-600" style="border-color: var(--color-border); background-color: var(--color-bg-body);" placeholder="your@email.com" aria-required="true">
                 </div>
 
                 <div class="mb-8">
-                    <label for="message" class="block text-gray-700 font-semibold mb-2"><i class="fas fa-comment-dots mr-2 text-blue-600"></i>Your Message</label>
-                    <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Hello! I'd like to discuss a project..." aria-required="true"></textarea>
+                    <label for="message" class="block font-semibold mb-2" style="color: var(--color-text-primary);"><i class="fas fa-comment-dots mr-2" style="color: var(--color-accent-blue);"></i>Your Message</label>
+                    <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors dark:bg-gray-700 dark:border-gray-600" style="border-color: var(--color-border); background-color: var(--color-bg-body);" placeholder="Hello! I'd like to discuss a project..." aria-required="true"></textarea>
                 </div>
 
                 <div class="text-center">
@@ -908,10 +726,6 @@
                         <i class="fas fa-phone-alt mr-3 text-blue-200 text-xl"></i>
                         <span class="text-lg">+88-01866304933</span>
                     </div>
-                    <div class="flex items-center justify-center">
-                        <i class="fas fa-map-marker-alt mr-3 text-blue-200 text-xl"></i>
-                        <span class="text-lg">Dhaka, Bangladesh</span>
-                    </div>
                 </div>
                 <div class="flex justify-center space-x-6 mb-8 fade-in">
                     <a href="https://www.linkedin.com/in/ind-ismail-hossain-2938541b1/" target="_blank" class="text-white hover:text-blue-200 text-3xl transition-colors" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
@@ -934,6 +748,52 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             
+            // --- Theme Toggle Logic (Default: Dark) ---
+            const html = document.documentElement;
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+
+            // 1. Function to apply the theme
+            function setTheme(isDark) {
+                if (isDark) {
+                    html.classList.add('dark');
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                    // Update navigation colors for dark mode immediately
+                    document.querySelector('nav').style.backgroundColor = 'var(--color-bg-section)';
+                    document.querySelector('nav').style.color = 'var(--color-text-primary)';
+                } else {
+                    html.classList.remove('dark');
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                    // Update navigation colors for light mode
+                    document.querySelector('nav').style.backgroundColor = '#ffffff';
+                    document.querySelector('nav').style.color = '#1f2937';
+                }
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+
+            // 2. Initial check: Default to dark, unless user previously chose light
+            const savedTheme = localStorage.getItem('theme');
+            let initialThemeDark = true; 
+            
+            // If theme is explicitly saved as 'light', use light mode
+            if (savedTheme === 'light') {
+                initialThemeDark = false;
+            } else if (savedTheme === 'dark') {
+                initialThemeDark = true;
+            } else {
+                // If no saved theme, check system preference (defaulting to dark if no preference)
+                initialThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+            
+            setTheme(initialThemeDark);
+            
+            // 3. Toggle button listener
+            themeToggle.addEventListener('click', () => {
+                const isDark = html.classList.contains('dark');
+                setTheme(!isDark);
+            });
+
+
             // --- General UX / Navigation Script ---
             
             // Mobile menu toggle
@@ -982,7 +842,7 @@
 
             fadeElements.forEach(el => observer.observe(el));
 
-            // Add subtle shadow to sticky navbar on scroll
+            // Add subtle shadow to sticky navbar on scroll (Dark Mode adjusted)
             const nav = document.querySelector('nav');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 10) {
@@ -1016,7 +876,7 @@
                 const nextButton = projectSection.querySelector('.carousel-next');
 
                 let lastFocusedElement = null;
-                const scrollStep = 256 + 16; // w-64 (256px) + gap-4 (16px)
+                const scrollStep = 256 + 16; 
 
                 // A11y: Focus Trap Function
                 function trapFocus(element) {
@@ -1034,12 +894,12 @@
                             return;
                         }
                         if (e.key === 'Tab') {
-                            if (e.shiftKey) { // Shift + Tab
+                            if (e.shiftKey) { 
                                 if (document.activeElement === first) {
                                     last.focus();
                                     e.preventDefault();
                                 }
-                            } else { // Tab
+                            } else { 
                                 if (document.activeElement === last) {
                                     first.focus();
                                     e.preventDefault();
@@ -1098,9 +958,11 @@
                         filterButtons.forEach(b => {
                             b.classList.replace('bg-blue-600', 'bg-gray-200');
                             b.classList.replace('text-white', 'text-gray-800');
+                            b.classList.add('dark:bg-gray-700', 'dark:text-gray-300');
                         });
                         btn.classList.replace('bg-gray-200', 'bg-blue-600');
                         btn.classList.replace('text-gray-800', 'text-white');
+                        btn.classList.remove('dark:bg-gray-700', 'dark:text-gray-300');
                         
                         const category = btn.dataset.category;
                         let firstVisibleContainer = null;
@@ -1147,9 +1009,6 @@
 
             // Setup NMFM Project
             setupProject('nmfm', 'nmfm-video-modal', 'nmfm-modal-iframe', 'nmfm-modal-title');
-
-            // Setup 15-Miles Project
-            setupProject('15miles', 'videoModal', 'modalIframe', 'modalTitle');
             
             // --- Contact Form Submission Handler ---
             const form = document.querySelector('#contact-form form');
