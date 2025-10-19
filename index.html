@@ -1277,115 +1277,171 @@ html, body {
   </style>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const modal = document.getElementById('video-modal');
-      const iframe = document.getElementById('video-modal-iframe');
-      const modalTitle = document.getElementById('video-modal-title');
-      const closeBtn = modal.querySelector('.close-modal-btn');
-      let lastFocused = null;
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('video-modal');
+    const iframe = document.getElementById('video-modal-iframe');
+    const modalTitle = document.getElementById('video-modal-title');
+    const closeBtn = modal.querySelector('.close-modal-btn');
+    let lastFocused = null;
 
-      // Accessible focus trap
-      function trapFocus(container) {
-        const focusables = container.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        if (!focusables.length) return;
-        const first = focusables[0];
-        const last = focusables[focusables.length - 1];
-        function onKeydown(e) {
-          if (e.key === 'Escape') { closeModal(); return; }
-          if (e.key !== 'Tab') return;
-          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    // =======================================================
+    // 1. MODAL LOGIC (Shared)
+    // =======================================================
+
+    // Accessible focus trap function
+    function trapFocus(container) {
+      const focusables = container.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      
+      function onKeydown(e) {
+        if (e.key === 'Escape') { closeModal(); return; }
+        if (e.key !== 'Tab') return;
+        
+        if (e.shiftKey && document.activeElement === first) { 
+          e.preventDefault(); 
+          last.focus(); 
+        } else if (!e.shiftKey && document.activeElement === last) { 
+          e.preventDefault(); 
+          first.focus(); 
         }
-        container.addEventListener('keydown', onKeydown);
-        first.focus();
-        // Clean up on close
-        container._removeTrap = () => container.removeEventListener('keydown', onKeydown);
+      }
+      
+      container.addEventListener('keydown', onKeydown);
+      first.focus();
+      container._removeTrap = () => container.removeEventListener('keydown', onKeydown);
+    }
+
+    function openModal(videoId, title) {
+      lastFocused = document.activeElement;
+      // Use no-cookie embed for better privacy and compliance
+      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
+      modalTitle.textContent = title || 'Video Player';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      // Timeout ensures the modal is visible before we try to focus inside it
+      setTimeout(() => trapFocus(modal), 10);
+      document.body.style.overflow = 'hidden'; // Prevent scrolling background
+    }
+
+    function closeModal() {
+      // Stop the video before closing the modal (YouTube API call)
+      iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      iframe.src = '';
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      if (typeof modal._removeTrap === 'function') modal._removeTrap();
+      if (lastFocused) { lastFocused.focus(); lastFocused = null; }
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { 
+      // Close when clicking outside the inner content
+      if (e.target === modal) closeModal(); 
+    });
+    
+    // Escape key listener is already covered by the focus trap, 
+    // but keep a general one for robustness if trap fails
+    document.addEventListener('keydown', (e) => { 
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); 
+    });
+
+
+    // =======================================================
+    // 2. GALLERY INITIALIZATION (Per-Gallery Reusability)
+    // =======================================================
+
+    function initializeGallery(galleryRoot) {
+      const carousel = galleryRoot.querySelector('.video-carousel');
+      const prevBtn = galleryRoot.querySelector('.carousel-prev');
+      const nextBtn = galleryRoot.querySelector('.carousel-next');
+      const filterBtns = galleryRoot.querySelectorAll('.filter-btn');
+
+      // Helper function to calculate scroll distance
+      function getScrollStep() {
+        const firstCard = carousel?.querySelector('.video-card[style*="display: block"]');
+        if (!firstCard) return 280; // Fallback
+        const rect = firstCard.getBoundingClientRect();
+        // Width + 16px (gap-4 in Tailwind)
+        return Math.round(rect.width + 16);
       }
 
-      function openModal(videoId, title) {
-        lastFocused = document.activeElement;
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
-        modalTitle.textContent = title || '';
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        setTimeout(() => trapFocus(modal), 10);
-      }
+      // Open modal from any thumbnail
+      galleryRoot.addEventListener('click', (e) => {
+        const thumb = e.target.closest('.thumbnail');
+        if (!thumb) return;
+        const card = thumb.closest('.video-card');
+        openModal(card.dataset.videoId, card.dataset.title);
+      });
 
-      function closeModal() {
-        iframe.src = '';
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        if (typeof modal._removeTrap === 'function') modal._removeTrap();
-        if (lastFocused) { lastFocused.focus(); lastFocused = null; }
-      }
-
-      closeBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
-
-      // Delegate interactions for every gallery
-      document.querySelectorAll('[data-gallery]').forEach((galleryRoot) => {
-        const carousel = galleryRoot.querySelector('.video-carousel');
-        const prevBtn = galleryRoot.querySelector('.carousel-prev');
-        const nextBtn = galleryRoot.querySelector('.carousel-next');
-        const filterBtns = galleryRoot.querySelectorAll('.filter-btn');
-
-        // Open modal from any thumbnail
-        galleryRoot.addEventListener('click', (e) => {
-          const thumb = e.target.closest('.thumbnail');
-          if (!thumb) return;
-          const card = thumb.closest('.video-card');
-          openModal(card.dataset.videoId, card.dataset.title);
-        });
-
-        // Keyboard open via Enter/Space (buttons handle this natively)
-
-        // Filters (toggle aria-pressed & classes)
-        filterBtns.forEach((btn) => {
-          btn.addEventListener('click', () => {
-            const cat = btn.dataset.category;
-            filterBtns.forEach(b => {
-              const active = b === btn;
-              b.setAttribute('aria-pressed', active ? 'true' : 'false');
-              b.classList.toggle('bg-blue-600', active);
-              b.classList.toggle('text-white', active);
-              b.classList.toggle('bg-gray-200', !active);
-              b.classList.toggle('text-gray-800', !active);
-            });
-            galleryRoot.querySelectorAll('.video-card').forEach((card) => {
-              const show = (cat === 'all' || card.dataset.category === cat);
-              card.style.display = show ? 'block' : 'none';
-            });
-            carousel?.scrollTo({ left: 0, behavior: 'smooth' });
+      // Filter Logic
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const cat = btn.dataset.category;
+          
+          // Update button styles and aria-pressed state
+          filterBtns.forEach(b => {
+            const active = b === btn;
+            b.setAttribute('aria-pressed', active);
+            b.classList.toggle('bg-blue-600', active);
+            b.classList.toggle('text-white', active);
+            b.classList.toggle('bg-gray-200', !active);
+            b.classList.toggle('text-gray-800', !active);
           });
-        });
+          
+          // Filter video cards
+          const allCards = galleryRoot.querySelectorAll('.video-card');
+          allCards.forEach((card) => {
+            const show = (cat === 'all' || card.dataset.category === cat);
+            // Use opacity for smoother transition if CSS supported, but 'block'/'none' is safest
+            card.style.display = show ? 'block' : 'none'; 
+            card.setAttribute('tabindex', show ? '0' : '-1'); // Enhance accessibility
+          });
 
-        // Carousel navigation (arrow buttons + keyboard)
-        function getScrollStep() {
-          const firstCard = carousel?.querySelector('.video-card');
-          if (!firstCard) return 280; // fallback ~256 + gap
-          const rect = firstCard.getBoundingClientRect();
-          // include gap by adding 16px default if available
-          return Math.round(rect.width + 16);
-        }
-
-        prevBtn?.addEventListener('click', () => {
-          carousel.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
-        });
-        nextBtn?.addEventListener('click', () => {
-          carousel.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
-        });
-
-        // Keyboard left/right while carousel focused
-        carousel?.addEventListener('keydown', (e) => {
-          if (e.key === 'ArrowLeft') { e.preventDefault(); carousel.scrollBy({ left: -getScrollStep(), behavior: 'smooth' }); }
-          if (e.key === 'ArrowRight') { e.preventDefault(); carousel.scrollBy({ left: getScrollStep(), behavior: 'smooth' }); }
-          if (e.key === 'Home') { e.preventDefault(); carousel.scrollTo({ left: 0, behavior: 'smooth' }); }
-          if (e.key === 'End') { e.preventDefault(); carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' }); }
+          // Reset carousel scroll position to the start
+          carousel?.scrollTo({ left: 0, behavior: 'smooth' });
         });
       });
-    });
-  </script>
+
+      // Carousel Navigation
+      prevBtn?.addEventListener('click', () => {
+        carousel.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+      });
+      nextBtn?.addEventListener('click', () => {
+        carousel.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+      });
+
+      // Keyboard support on carousel container
+      carousel?.addEventListener('keydown', (e) => {
+        const keyMap = {
+          'ArrowLeft': -getScrollStep(),
+          'ArrowRight': getScrollStep(),
+        };
+
+        if (keyMap[e.key] !== undefined) {
+          e.preventDefault();
+          carousel.scrollBy({ left: keyMap[e.key], behavior: 'smooth' });
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' });
+        }
+      });
+      
+      // Initial state: Set all cards to tabindex 0 for keyboard navigation
+      galleryRoot.querySelectorAll('.video-card').forEach(card => card.setAttribute('tabindex', '0'));
+    }
+
+    // Initialize all galleries on the page
+    document.querySelectorAll('[data-gallery]').forEach(initializeGallery);
+  });
+</script>
 </section>
         
     <!-- Extra-Curricular Activities -->
