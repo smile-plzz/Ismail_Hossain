@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Md. Ismail Hossain - Technology Professional ">
+    <meta name="author" content="Md. Ismail Hossain">
+    <title>Md. Ismail Hossain | Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        notion: {
+                            bg: '#ffffff',
+                            text: '#37352f',
+                            gray: '#f1f1ef',
+                            gray_text: '#787774',
+                            blue: '#e3e2e0',
+                            border: '#e9e9e7',
+                            hover: '#f5f5f5',
+                            tag_gray: '#e3e2e050',
+                            tag_brown: '#eee0da50',
+                            tag_orange: '#fadec950',
+                            tag_yellow: '#fdecc850',
+                            tag_green: '#dbeddb50',
+                            tag_blue: '#d3e5ef50',
+                            tag_purple: '#e8deee50',
+                            tag_pink: '#f5e0e950',
+                            tag_red: '#ffe2dd50',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #ffffff; color: #37352f; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d3d1cb; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #aeaca6; }
+        
+        /* Notion Components */
+        .callout {
+            background-color: #f1f1ef;
+            border-radius: 4px;
+            padding: 16px;
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        /* Toggle Styling */
+        details > summary {
+            list-style: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-radius: 4px;
+            padding: 6px 8px;
+            margin: 4px 0;
+            font-weight: 500;
+            color: #37352f;
+            display: flex;
+            align-items: center;
+        }
+        details > summary:hover { background-color: #f1f1ef; }
+        details > summary::-webkit-details-marker { display: none; }
+        details > summary::before {
+            content: '▶';
+            font-size: 0.7em;
+            margin-right: 8px;
+            color: #9b9a97;
+            transition: transform 0.2s;
+        }
+        details[open] > summary::before { transform: rotate(90deg); }
+        
+        /* Video Carousel */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0 6px;
+            font-size: 13px;
+            line-height: 20px;
+            border-radius: 3px;
+            white-space: nowrap;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#cce9ff]">
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-notion-border px-4 py-3 text-sm">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2 text-notion-text font-medium truncate">
+                <i class="fas fa-cube text-gray-400"></i>
+                <span class="text-gray-400">/</span>
+                <span>Portfolio</span>
+            </div>
+            <div class="flex gap-4 text-notion-gray_text">
+                <a href="#projects" class="hover:text-black transition">Projects</a>
+                <a href="#experience" class="hover:text-black transition">Experience</a>
+                <a href="#contact-area" class="hover:text-black transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="h-48 md:h-64 w-full bg-cover bg-center" style="background-image: url('                                 ');"></div>
+
+    <main class="max-w-4xl mx-auto px-6 pb-24 relative">
+        
+        <div class="relative -mt-16 mb-8">
+            <img src="https://lh3.googleusercontent.com/a/ACg8ocIfs7HKKDQbErYShrnxcTdDFOvbiUn1oX2gyXeU5yRnqEKxOsR1Yg=s288-c-no" alt="Profile" class="w-32 h-32 rounded-full border-4 border-white shadow-sm object-cover bg-white">
+            
+            <div class="mt-6">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Md. Ismail Hossain</h1>
+                <div class="flex flex-wrap gap-x-6 gap-y-2 text-notion-gray_text mb-4 text-sm md:text-base">
+                    <span class="flex items-center gap-2"><i class="fas fa-graduation-cap"></i> Technology Professional | Master's in IT</span>
+                    <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
+                </div>
+                
+                <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600 mb-6 border-l-2 border-notion-border pl-4">
+                    <a href="mailto:ismailhossain013@gmail.com" class="hover:underline hover:text-blue-600"><i class="fas fa-envelope mr-1"></i> ismailhossain013@gmail.com</a>
+                    <span><i class="fas fa-phone-alt mr-1"></i> +88-01866304933</span>
+                </div>
+
+                <div class="flex flex-wrap gap-2 text-sm">
+                    <a href="https://drive.google.com/uc?export=download&id=10DYxm2KywDcI5lNRqU670Pt_64k5S_df" target="_blank" class="px-3 py-1 bg-white border border-notion-border rounded hover:bg-notion-gray transition flex items-center gap-2">
+                        <i class="fas fa-file-pdf text-red-500"></i> Download Resume
+                    </a>
+                    <a href="https://www.linkedin.com/in/md-ismail-hossain-2938541b1/" target="_blank" class="px-3 py-1 bg-white border border-notion-border rounded hover:bg-notion-gray transition flex items-center gap-2">
+                        <i class="fab fa-linkedin text-blue-600"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/smile-plzz" target="_blank" class="px-3 py-1 bg-white border border-notion-border rounded hover:bg-notion-gray transition flex items-center gap-2">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.facebook.com/optimisticyetpessimist/" target="_blank" class="px-3 py-1 bg-white border border-notion-border rounded hover:bg-notion-gray transition flex items-center gap-2">
+                        <i class="fab fa-facebook text-blue-700"></i> Facebook
+                    </a>
+                    <a href="https://x.com/smile_plzzz_" target="_blank" class="px-3 py-1 bg-white border border-notion-border rounded hover:bg-notion-gray transition flex items-center gap-2">
+                        <i class="fab fa-x-twitter"></i> X
+                    </a>
+                    <a href="https://www.youtube.com/@ismailhossain1019" target="_blank" class="px-3 py-1 bg-white border border-notion-border rounded hover:bg-notion-gray transition flex items-center gap-2">
+                        <i class="fab fa-youtube text-red-600"></i> YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-notion-border mb-8">
+
+        <section class="mb-10">
+            <h2 class="text-xl font-semibold mb-4 border-b border-notion-border pb-2">Objective</h2>
+            <div class="callout">
+                <div class="text-2xl">🎯</div>
+                <div class="text-sm md:text-base leading-relaxed text-gray-800">
+                    <p class="mb-2"><strong>Passionate and adaptable technology professional</strong>, armed with a B.S. in Computer Science & Engineering and currently pursuing an M.S. in Information Technology. Dedicated to leveraging expertise in data communication, web technologies, and information systems.</p>
+                    <p>My goal is to contribute to a dynamic and innovative team, utilizing programming languages alongside proficiency in database management and version control tools. I aim to foster business growth and user satisfaction through continuous learning.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10" id="skills">
+            <h2 class="text-xl font-semibold mb-4 border-b border-notion-border pb-2">Skills & Expertise</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <div class="mb-4">
+                        <h3 class="text-xs font-bold text-notion-gray_text uppercase mb-2">Programming Languages</h3>
+                        <div class="flex flex-wrap">
+                            <span class="tag bg-notion-tag_orange text-gray-800">Java</span>
+                            <span class="tag bg-notion-tag_blue text-gray-800">Python (Basic)</span>
+                            <span class="tag bg-notion-tag_purple text-gray-800">C++</span>
+                            <span class="tag bg-notion-tag_gray text-gray-800">C</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="text-xs font-bold text-notion-gray_text uppercase mb-2">Database & Version Control</h3>
+                        <div class="flex flex-wrap">
+                            <span class="tag bg-notion-tag_yellow text-gray-800">MySQL</span>
+                            <span class="tag bg-notion-tag_gray text-gray-800">GitHub</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="mb-4">
+                        <h3 class="text-xs font-bold text-notion-gray_text uppercase mb-2">Operating Systems</h3>
+                        <div class="flex flex-wrap">
+                            <span class="tag bg-notion-tag_blue text-gray-800">Windows</span>
+                            <span class="tag bg-notion-tag_red text-gray-800">Linux (Ubuntu, Zorin, Fedora, Arch)</span>
+                            <span class="tag bg-notion-tag_gray text-gray-800">MacOS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h3 class="text-xs font-bold text-notion-gray_text uppercase mb-2">Software Expertise</h3>
+                        <div class="flex flex-wrap">
+                            <span class="tag bg-notion-tag_green text-gray-800">Adobe Premier Pro</span>
+                            <span class="tag bg-notion-tag_green text-gray-800">Adobe Lightroom</span>
+                            <span class="tag bg-notion-tag_green text-gray-800">Adobe Audacity</span>
+                            <span class="tag bg-notion-tag_gray text-gray-800">MS Office</span>
+                            <span class="tag bg-notion-tag_gray text-gray-800">Photoshop (Basic)</span>
+                            <span class="tag bg-notion-tag_gray text-gray-800">After Effects (Basic)</span>
+                            <span class="tag bg-notion-tag_gray text-gray-800">Illustrator (Basic)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <details class="group mt-2">
+                <summary class="text-sm text-gray-600">Language Proficiency</summary>
+                <div class="mt-2 pl-6">
+                    <table class="w-full text-sm text-left border-collapse">
+                        <thead class="bg-gray-50 text-gray-500">
+                            <tr>
+                                <th class="p-2 font-medium">Language</th>
+                                <th class="p-2 font-medium">Reading</th>
+                                <th class="p-2 font-medium">Writing</th>
+                                <th class="p-2 font-medium">Speaking</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100">
+                                <td class="p-2">Bengali</td>
+                                <td class="p-2 text-green-700">● Full Professional</td>
+                                <td class="p-2 text-green-700">● Full Professional</td>
+                                <td class="p-2 text-green-700">● Full Professional</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2">English</td>
+                                <td class="p-2 text-green-700">● Full Professional</td>
+                                <td class="p-2 text-green-700">● Full Professional</td>
+                                <td class="p-2 text-green-700">● Full Professional</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+        </section>
+
+        <section class="mb-10" id="education">
+            <h2 class="text-xl font-semibold mb-4 border-b border-notion-border pb-2">Education</h2>
+            <div class="space-y-4">
+                
+                <div class="border border-notion-border rounded p-4">
+                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                        <div>
+                            <h3 class="font-semibold text-lg">Masters in Information Technology</h3>
+                            <div class="text-sm text-gray-600">Jahangirnagar University</div>
+                        </div>
+                        <div class="text-right mt-1 md:mt-0">
+                            <span class="block text-sm font-medium">2025 (Expected)</span>
+                            <span class="block text-xs text-blue-600 font-medium">CGPA: 3.69/4.00</span>
+                        </div>
+                    </div>
+                    <details>
+                        <summary class="text-xs text-gray-500">Focus Areas & Coursework</summary>
+                        <ul class="list-disc pl-8 mt-2 text-sm text-gray-700 space-y-1 grid grid-cols-1 md:grid-cols-2">
+                            <li>Cloud and Mobile Computing</li>
+                            <li>Artificial Intelligence & Neural Network</li>
+                            <li>IOT and Fog Computing</li>
+                            <li>Data Science</li>
+                            <li>Software Testing & QA</li>
+                            <li>Mobile App Development</li>
+                            <li>Wireless Network</li>
+                            <li>Data Mining & Knowledge Discovery</li>
+                            <li>Machine Learning</li>
+                            <li>HCI</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="border border-notion-border rounded p-4">
+                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                        <div>
+                            <h3 class="font-semibold text-lg">BSc in Computer Science & Engineering</h3>
+                            <div class="text-sm text-gray-600">North South University</div>
+                        </div>
+                        <div class="text-right mt-1 md:mt-0">
+                            <span class="block text-sm font-medium">2023</span>
+                            <span class="block text-xs text-blue-600 font-medium">CGPA: 2.63/4.00 (79-80% Marks)</span>
+                        </div>
+                    </div>
+                    <details>
+                        <summary class="text-xs text-gray-500">Focus Areas & Coursework</summary>
+                        <ul class="list-disc pl-8 mt-2 text-sm text-gray-700 space-y-1">
+                            <li>Database Systems</li>
+                            <li>Design and Analysis of Algorithms</li>
+                            <li>Digital Logic Design</li>
+                            <li>Operating Systems Design</li>
+                            <li>Software Engineering</li>
+                            <li>Computer Organization and Architecture</li>
+                            <li>Microprocessor Interfacing and Embedded System</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <details>
+                    <summary class="text-sm font-medium">Secondary & Higher Secondary Education</summary>
+                    <div class="mt-2 pl-4 space-y-3 border-l-2 border-notion-border ml-2">
+                        <div>
+                            <div class="font-medium text-sm">Higher Secondary School Certificate (Science)</div>
+                            <div class="text-xs text-gray-500">Government Bangla College | 2018 | <span class="text-blue-600">GPA: 3.83/5.00</span></div>
+                        </div>
+                        <div>
+                            <div class="font-medium text-sm">Secondary School Certificate (Science)</div>
+                            <div class="text-xs text-gray-500">Dhanmondi Govt Boyz High School | 2016 | <span class="text-blue-600">GPA: 5.00/5.00</span></div>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section class="mb-10" id="projects">
+            <h2 class="text-xl font-semibold mb-6 border-b border-notion-border pb-2 flex items-center justify-between">
+                <span>Live Project Showcase</span>
+                <span class="text-xs font-normal bg-gray-100 px-2 py-1 rounded text-gray-500">8 Items</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <a href="https://techpath-finder.vercel.app/" target="_blank" class="block border border-notion-border rounded-lg hover:bg-notion-gray transition p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="font-semibold text-gray-900 flex items-center gap-2"><span class="text-lg">🚀</span> TechPath Finder</div>
+                        <i class="fas fa-external-link-alt text-xs text-gray-400"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Interactive career path questionnaire with personalized recommendations.</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="tag bg-notion-tag_blue">Career Path</span>
+                        <span class="tag bg-notion-tag_blue">Vercel</span>
+                    </div>
+                </a>
+
+                <a href="https://news-iota-lilac.vercel.app/" target="_blank" class="block border border-notion-border rounded-lg hover:bg-notion-gray transition p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="font-semibold text-gray-900 flex items-center gap-2"><span class="text-lg">📰</span> News App</div>
+                        <i class="fas fa-external-link-alt text-xs text-gray-400"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Real-time news reader with auto-refreshing headlines and filters.</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="tag bg-notion-tag_red">Real-time API</span>
+                        <span class="tag bg-notion-tag_red">UI/UX</span>
+                    </div>
+                </a>
+
+                <a href="https://smile-plzz.github.io/real-time-event-finder/" target="_blank" class="block border border-notion-border rounded-lg hover:bg-notion-gray transition p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="font-semibold text-gray-900 flex items-center gap-2"><span class="text-lg">📍</span> Real-Time Event Finder</div>
+                        <i class="fas fa-external-link-alt text-xs text-gray-400"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Search worldwide events by location using geolocation APIs.</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="tag bg-notion-tag_green">Geolocation</span>
+                        <span class="tag bg-notion-tag_green">API</span>
+                    </div>
+                </a>
+
+                <a href="https://smile-plzz.github.io/BalanceFLow/" target="_blank" class="block border border-notion-border rounded-lg hover:bg-notion-gray transition p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="font-semibold text-gray-900 flex items-center gap-2"><span class="text-lg">🧘‍♂️</span> BalanceFlow</div>
+                        <i class="fas fa-external-link-alt text-xs text-gray-400"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Dynamic productivity timer built for work-break cycles.</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="tag bg-notion-tag_orange">Productivity</span>
+                        <span class="tag bg-notion-tag_orange">Front-End</span>
+                    </div>
+                </a>
+
+                <a href="https://smile-plzz.github.io/AstronomyDashboard/" target="_blank" class="block border border-notion-border rounded-lg hover:bg-notion-gray transition p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="font-semibold text-gray-900 flex items-center gap-2"><span class="text-lg">🔭</span> Astronomy Dashboard</div>
+                        <i class="fas fa-external-link-alt text-xs text-gray-400"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Explore NASA’s Astronomy Picture of the Day with explanations.</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="tag bg-notion-tag_purple">NASA API</span>
+                        <span class="tag bg-notion-tag_purple">Data Viz</span>
+                    </div>
+                </a>
+
+                <a href="https://smile-plzz.github.io/MovieRecommendationBasedOnMood/" target="_blank" class="block border border-notion-border rounded-lg hover:bg-notion-gray transition p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="font-semibold text-gray-900 flex items-center gap-2"><span class="text-lg">🎭</span> Mood Movie Recommender</div>
+                        <i class="fas fa-external-link-alt text-xs text-gray-400"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Get handpicked movie suggestions based on your mood using TMDB.</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="tag bg-notion-tag_purple">Recommendation</span>
+                        <span class="tag bg-notion-tag_purple">API</span>
+                    </div>
+                </a>
+
+                <a href="https://nowshowing-dusky.vercel.app/" target="_blank" class="block border border-notion-border rounded-lg hover:bg-notion-gray transition p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="font-semibold text-gray-900 flex items-center gap-2"><span class="text-lg">🍿</span> Now Showing</div>
+                        <i class="fas fa-external-link-alt text-xs text-gray-400"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Real-time Now Playing movies with posters, ratings, and previews.</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="tag bg-notion-tag_red">TMDB API</span>
+                        <span class="tag bg-notion-tag_red">Showcase</span>
+                    </div>
+                </a>
+
+                <a href="https://the-daily-doggo.vercel.app/" target="_blank" class="block border border-notion-border rounded-lg hover:bg-notion-gray transition p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="font-semibold text-gray-900 flex items-center gap-2"><span class="text-lg">🐶</span> The Daily Doggo</div>
+                        <i class="fas fa-external-link-alt text-xs text-gray-400"></i>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Adorable critter images with favorites and sharing capabilities.</p>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="tag bg-notion-tag_pink">Random Image API</span>
+                        <span class="tag bg-notion-tag_pink">Favorites</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="mb-10">
+             <details>
+                <summary class="font-semibold text-lg">Academic Projects</summary>
+                <div class="mt-4 pl-4 border-l-2 border-notion-border space-y-6">
+                    <div>
+                        <h4 class="font-medium text-gray-900 flex items-center gap-2">
+                            Healthcare System with OCR 
+                            <span class="text-xs bg-gray-100 border border-gray-200 px-1.5 rounded">Senior Capstone</span>
+                            <span class="text-xs text-gray-500 font-normal">| Group</span>
+                        </h4>
+                        <p class="text-sm text-gray-600 mt-1">Platform offering online doctor consultations and OCR to digitize medical documents for history tracking.</p>
+                        <div class="mt-1 flex gap-1 flex-wrap">
+                            <span class="tag bg-notion-tag_blue">React JS</span>
+                            <span class="tag bg-notion-tag_blue">SQL</span>
+                            <span class="tag bg-notion-tag_blue">OpenCV</span>
+                            <span class="tag bg-notion-tag_blue">TensorFlow</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-900 flex items-center gap-2">
+                            Online Arts & Crafts Shop
+                            <span class="text-xs bg-gray-100 border border-gray-200 px-1.5 rounded">Junior Capstone</span>
+                            <span class="text-xs text-gray-500 font-normal">| Individual</span>
+                        </h4>
+                        <p class="text-sm text-gray-600 mt-1">Full-stack e-commerce platform with inventory tracking and sales analytics.</p>
+                        <div class="mt-1 flex gap-1 flex-wrap">
+                            <span class="tag bg-notion-tag_orange">HTML</span>
+                            <span class="tag bg-notion-tag_orange">CSS</span>
+                            <span class="tag bg-notion-tag_orange">AJAX</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-900">Hotel Management System <span class="text-xs text-gray-500 font-normal">| Java, JavaFX</span></h4>
+                        <p class="text-sm text-gray-600 mt-1">System to streamline hotel operations including bookings and billing with GUI.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-900">Bank Database System <span class="text-xs text-gray-500 font-normal">| C Language</span></h4>
+                        <p class="text-sm text-gray-600 mt-1">Database for managing client and employee information in a banking environment.</p>
+                    </div>
+                </div>
+             </details>
+        </section>
+
+        <section class="mb-10" id="experience">
+            <h2 class="text-xl font-semibold mb-6 border-b border-notion-border pb-2">Work Experience</h2>
+            
+            <div class="space-y-10">
+                <div class="flex gap-4">
+                    <div class="hidden md:block w-32 flex-shrink-0 text-sm text-gray-400 text-right pt-1">
+                        Apr 2025 - Present
+                    </div>
+                    <div class="border-l border-gray-200 pl-6 pb-2 relative w-full">
+                        <div class="absolute -left-1.5 top-2 w-3 h-3 bg-gray-200 rounded-full border-2 border-white"></div>
+                        <div class="md:hidden text-xs text-gray-400 mb-1">Apr 2025 - Present</div>
+                        
+                        <h3 class="font-semibold text-lg text-gray-900">Executive – Customer Relationship Management</h3>
+                        <div class="text-sm text-gray-600 mb-3 font-medium">DevsNest</div>
+                        
+                        <ul class="list-disc ml-4 text-sm text-gray-700 space-y-2">
+                            <li>Spearhead strategic CRM initiatives to drive personalized growth and maximize ROI for Shopify merchants using Dynamatic’s eCommerce personalization platform.</li>
+                            <li>Leverage Dynamatic’s customizable cart and upsell system to transform standard shopping carts into high-conversion sales engines.</li>
+                            <li>Act as a technical-strategic consultant, translating business needs into actionable technical requirements for custom JavaScript/Liquid implementations.</li>
+                            <li>Collaborate closely with development teams to ensure seamless integration and performance reliability.</li>
+                            <li>Apply data-driven analysis to interpret sales funnel metrics, optimize audience segmentation, and refine campaign targeting.</li>
+                            <li>Lead merchant onboarding and enablement, ensuring smooth adoption of features.</li>
+                        </ul>
+                        <div class="mt-3 flex gap-2">
+                            <a href="https://devsnest.net/" target="_blank" class="text-xs bg-gray-100 px-2 py-1 rounded hover:bg-gray-200">DevsNest Website</a>
+                            <a href="https://dynamaticapp.com/" target="_blank" class="text-xs bg-gray-100 px-2 py-1 rounded hover:bg-gray-200">Dynamatic</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="hidden md:block w-32 flex-shrink-0 text-sm text-gray-400 text-right pt-1">
+                        2018 - 2019
+                    </div>
+                    <div class="border-l border-gray-200 pl-6 pb-2 relative w-full">
+                        <div class="absolute -left-1.5 top-2 w-3 h-3 bg-gray-200 rounded-full border-2 border-white"></div>
+                        <div class="md:hidden text-xs text-gray-400 mb-1">2018 - 2019</div>
+                        
+                        <h3 class="font-semibold text-lg text-gray-900">Consultant</h3>
+                        <div class="text-sm text-gray-600 mb-3 font-medium">Dhaka IT</div>
+                        
+                        <ul class="list-disc ml-4 text-sm text-gray-700 space-y-2">
+                            <li>Oversaw software design and development processes to ensure high-quality outputs.</li>
+                            <li>Advised clients on the maintenance and optimization of software systems, enhancing overall performance and user experience.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                 <div class="flex gap-4">
+                    <div class="hidden md:block w-32 flex-shrink-0 text-sm text-gray-400 text-right pt-1">
+                        2017 - 2018
+                    </div>
+                    <div class="border-l border-gray-200 pl-6 pb-2 relative w-full">
+                        <div class="absolute -left-1.5 top-2 w-3 h-3 bg-gray-200 rounded-full border-2 border-white"></div>
+                        <div class="md:hidden text-xs text-gray-400 mb-1">2017 - 2018</div>
+                        
+                        <h3 class="font-semibold text-lg text-gray-900">Guest Instructor (Web Designing)</h3>
+                        <div class="text-sm text-gray-600 mb-3 font-medium">Bangladesh KOREA Technical Training Center</div>
+                        
+                        <ul class="list-disc ml-4 text-sm text-gray-700 space-y-2">
+                            <li>Instructed students on designing fully functional websites, encompassing both aesthetic and usability aspects.</li>
+                            <li>Provided training in front-end development and back-end database management.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-xl font-semibold mb-6 border-b border-notion-border pb-2">Ventures & Productions</h2>
+            
+            <article class="bg-gray-50 rounded-lg p-6 mb-8 border border-gray-100 shadow-sm" data-gallery="nmfm">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-lg flex items-center gap-2">
+                        <i class="fas fa-music text-red-500"></i> NO MORE FREE MUSIC <span class="text-sm font-normal text-gray-500">(Co-Founder)</span>
+                    </h3>
+                    <span class="text-xs bg-white border border-gray-200 px-2 py-1 rounded">2021-2022</span>
+                </div>
+                <div class="text-sm text-gray-600 mb-4 space-y-1">
+                    <p>Co-founded an initiative dedicated to building a respectful and sustainable music culture.</p>
+                    <ul class="list-disc pl-5">
+                        <li>Organized "NMFM Unplugged 1" featuring live performances.</li>
+                        <li>Managed creative projects including music videos for <em>Velvet Wings</em> and <em>Fantasy Realm</em>.</li>
+                    </ul>
+                </div>
+                
+                <div class="relative">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Gallery</div>
+                        <div class="flex gap-2">
+                            <button class="carousel-prev text-gray-400 hover:text-gray-800 transition"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-next text-gray-400 hover:text-gray-800 transition"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="video-carousel flex overflow-x-auto gap-4 pb-2 no-scrollbar scroll-smooth snap-x snap-mandatory">
+                        <div class="video-card flex-shrink-0 w-60 snap-start" data-video-id="hNCHZ_7bI2Q" data-title="Music Video: Performance">
+                            <button class="thumbnail w-full rounded overflow-hidden hover:opacity-90 transition border border-gray-200">
+                                <img src="https://img.youtube.com/vi/hNCHZ_7bI2Q/hqdefault.jpg" class="w-full object-cover aspect-video" alt="Thumb">
+                            </button>
+                        </div>
+                        <div class="video-card flex-shrink-0 w-60 snap-start" data-video-id="3SPRwvR0i_o" data-title="Event: Unplugged">
+                            <button class="thumbnail w-full rounded overflow-hidden hover:opacity-90 transition border border-gray-200">
+                                <img src="https://img.youtube.com/vi/3SPRwvR0i_o/hqdefault.jpg" class="w-full object-cover aspect-video" alt="Thumb">
+                            </button>
+                        </div>
+                        <div class="video-card flex-shrink-0 w-60 snap-start" data-video-id="be25ub6dnsQ" data-title="Studio Recording">
+                            <button class="thumbnail w-full rounded overflow-hidden hover:opacity-90 transition border border-gray-200">
+                                <img src="https://img.youtube.com/vi/be25ub6dnsQ/hqdefault.jpg" class="w-full object-cover aspect-video" alt="Thumb">
+                            </button>
+                        </div>
+                         <div class="video-card flex-shrink-0 w-60 snap-start" data-video-id="HytEmVoZoao" data-title="Live Show">
+                            <button class="thumbnail w-full rounded overflow-hidden hover:opacity-90 transition border border-gray-200">
+                                <img src="https://img.youtube.com/vi/HytEmVoZoao/hqdefault.jpg" class="w-full object-cover aspect-video" alt="Thumb">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="bg-gray-50 rounded-lg p-6 border border-gray-100 shadow-sm" data-gallery="15miles">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-lg flex items-center gap-2">
+                        <i class="fas fa-video text-blue-500"></i> 15-Miles <span class="text-sm font-normal text-gray-500">(Founder)</span>
+                    </h3>
+                    <span class="text-xs bg-white border border-gray-200 px-2 py-1 rounded">2021-2023</span>
+                </div>
+                <div class="text-sm text-gray-600 mb-4 space-y-1">
+                    <p>Founded a video production company specializing in documentaries and aerial cinematography.</p>
+                    <ul class="list-disc pl-5">
+                        <li>Delivered end-to-end productions including live music videos and aerial survey projects.</li>
+                    </ul>
+                </div>
+                
+                 <div class="relative">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-xs font-bold text-gray-400 uppercase tracking-widest">Gallery</div>
+                        <div class="flex gap-2">
+                            <button class="carousel-prev text-gray-400 hover:text-gray-800 transition"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-next text-gray-400 hover:text-gray-800 transition"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="video-carousel flex overflow-x-auto gap-4 pb-2 no-scrollbar scroll-smooth snap-x snap-mandatory">
+                        <div class="video-card flex-shrink-0 w-60 snap-start" data-video-id="emZoF0r4_aE" data-title="Coastal Aerials">
+                            <button class="thumbnail w-full rounded overflow-hidden hover:opacity-90 transition border border-gray-200">
+                                <img src="https://img.youtube.com/vi/emZoF0r4_aE/hqdefault.jpg" class="w-full object-cover aspect-video" alt="Thumb">
+                            </button>
+                        </div>
+                        <div class="video-card flex-shrink-0 w-60 snap-start" data-video-id="ztm412kovcE" data-title="Live Performance">
+                            <button class="thumbnail w-full rounded overflow-hidden hover:opacity-90 transition border border-gray-200">
+                                <img src="https://img.youtube.com/vi/ztm412kovcE/hqdefault.jpg" class="w-full object-cover aspect-video" alt="Thumb">
+                            </button>
+                        </div>
+                        <div class="video-card flex-shrink-0 w-60 snap-start" data-video-id="zCWmwOvZsME" data-title="Cityscape">
+                            <button class="thumbnail w-full rounded overflow-hidden hover:opacity-90 transition border border-gray-200">
+                                <img src="https://img.youtube.com/vi/zCWmwOvZsME/hqdefault.jpg" class="w-full object-cover aspect-video" alt="Thumb">
+                            </button>
+                        </div>
+                         <div class="video-card flex-shrink-0 w-60 snap-start" data-video-id="2b7pnUNBKUk" data-title="Wildlife">
+                            <button class="thumbnail w-full rounded overflow-hidden hover:opacity-90 transition border border-gray-200">
+                                <img src="https://img.youtube.com/vi/2b7pnUNBKUk/hqdefault.jpg" class="w-full object-cover aspect-video" alt="Thumb">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-xl font-semibold mb-4 border-b border-notion-border pb-2">Extra-Curricular</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="callout flex-col !gap-2">
+                    <h4 class="font-semibold text-sm flex items-center gap-2"><i class="fas fa-chalkboard text-blue-500"></i> Facilitated Training Sessions</h4>
+                    <p class="text-xs text-gray-700">Conducted a 3-day training on "Management of E-Learning" at a government institution, enhancing digital teaching methodologies.</p>
+                    <a href="https://drive.google.com/file/d/1P6q826ApUesOYAlUoxmQ4nlk0gh48crB/view?usp=sharing" target="_blank" class="text-xs text-blue-600 underline">View Documentation</a>
+                </div>
+
+                <div class="callout flex-col !gap-2">
+                    <h4 class="font-semibold text-sm flex items-center gap-2"><i class="fas fa-film text-blue-500"></i> Documentary Production</h4>
+                    <p class="text-xs text-gray-700">Produced "Institute of Marine Technology, Chadpur" documentary and live musical performance for band 'Aftermath'.</p>
+                    <div class="flex gap-2">
+                        <a href="https://youtu.be/-Do0eJRvRZA?si=Bqn5U1ANjmn_5dAB" target="_blank" class="text-xs text-blue-600 underline">Watch Doc</a>
+                    </div>
+                </div>
+
+                <div class="callout flex-col !gap-2">
+                    <h4 class="font-semibold text-sm flex items-center gap-2"><i class="fas fa-drone text-blue-500"></i> Aerial Drone Survey</h4>
+                    <p class="text-xs text-gray-700">Executed an aerial drone survey for a civil firm, supporting government projects and tech integration in civil engineering.</p>
+                </div>
+
+                <div class="callout flex-col !gap-2">
+                    <h4 class="font-semibold text-sm flex items-center gap-2"><i class="fas fa-network-wired text-blue-500"></i> Internet Network Infrastructure</h4>
+                    <p class="text-xs text-gray-700">Designed network infrastructure for a computer lab at Dhaka Technical Teachers Training Institute (DTTTI).</p>
+                    <a href="https://drive.google.com/file/d/1ZdytCkYh4Mr8OCLNv8LBRq2j9rpgwyC9/view?usp=sharing" target="_blank" class="text-xs text-blue-600 underline">View Documentation</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-xl font-semibold mb-4 border-b border-notion-border pb-2">Certifications</h2>
+            <div class="space-y-3">
+                <div class="flex items-center justify-between p-3 border border-notion-border rounded hover:bg-gray-50 transition">
+                    <div>
+                        <div class="text-sm font-semibold">Introduction to Cybersecurity</div>
+                        <div class="text-xs text-gray-500">Networking Academy (Cisco) | Dec 2024</div>
+                    </div>
+                    <a href="https://www.credly.com/badges/943974f9-9838-4978-837b-37c3d1113021/public_url" target="_blank" class="text-xs bg-white border px-2 py-1 rounded">View</a>
+                </div>
+                <div class="flex items-center justify-between p-3 border border-notion-border rounded hover:bg-gray-50 transition">
+                    <div>
+                        <div class="text-sm font-semibold">Computer Operation Level-3</div>
+                        <div class="text-xs text-gray-500">National Skills Development Authority (NSDA) | Feb 2025</div>
+                    </div>
+                    <a href="https://www.skillsportal.gov.bd/#/rpl/certificate-view?rplCandidateId=AGyeV7SZi8IDV9obk%2FZsbQ%3D%3D" target="_blank" class="text-xs bg-white border px-2 py-1 rounded">View</a>
+                </div>
+                <div class="flex items-center justify-between p-3 border border-notion-border rounded hover:bg-gray-50 transition">
+                    <div>
+                        <div class="text-sm font-semibold">English (Upper-Intermediate – B2 Level)</div>
+                        <div class="text-xs text-gray-500">British Council Bangladesh | May 2016</div>
+                    </div>
+                    <span class="text-xs text-gray-400">Certified</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <details>
+                <summary class="font-semibold text-lg text-gray-800">Research & Publications</summary>
+                <div class="mt-4 pl-4 space-y-4">
+                    <div class="p-4 bg-gray-50 rounded border border-gray-100">
+                        <h4 class="font-bold text-sm">Med-Tech: Online doctor consultation with OCR</h4>
+                        <p class="text-xs text-gray-500 mt-1">Authors: Md. Ismail Hossain, Sabab Ishraq, Md. Fazlay Rabbi Nabid</p>
+                        <p class="text-xs text-gray-500">Supervisor: Dr. Shohana Rahman Deeba (North South University)</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded border border-gray-100">
+                        <h4 class="font-bold text-sm">Brain Tumor Classification using Efficient-Net and Grad-Cam</h4>
+                        <p class="text-xs text-gray-500 mt-1">Authors: Md. Ismail Hossain, MD. Kawser Islam, Yeaser Shams</p>
+                        <p class="text-xs text-gray-500">Supervisor: Dr. Mohammad Monirujjaman Khan (North South University)</p>
+                    </div>
+                </div>
+            </details>
+        </section>
+        
+        <section id="contact-area" class="mt-16 bg-notion-gray p-8 rounded-lg mb-12">
+            <h2 class="text-2xl font-bold mb-2">Get In Touch</h2>
+            <p class="text-sm text-gray-600 mb-6">Let's connect to build something innovative!</p>
+            
+            <form action="https://formspree.io/f/mrbkyqdd" method="POST" id="contact-form" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Name</label>
+                        <input type="text" name="name" placeholder="John Doe" required class="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Email</label>
+                        <input type="email" name="email" placeholder="your@email.com" required class="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Message</label>
+                    <textarea name="message" rows="4" placeholder="I'd like to discuss..." required class="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm"></textarea>
+                </div>
+                
+                <button type="submit" class="bg-gray-800 text-white px-6 py-2 rounded text-sm font-medium hover:bg-black transition w-full md:w-auto">
+                    Send Message
+                </button>
+                <div id="form-status" class="hidden text-sm text-center mt-2 p-2 rounded"></div>
+            </form>
+        </section>
+
+        <footer class="text-center text-xs text-gray-400 pb-8 border-t border-notion-border pt-8">
+            <p>© 2025 Md. Ismail Hossain. All rights reserved.</p>
+        </footer>
+
+    </main>
+
+    <div id="video-modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[100]" role="dialog">
+        <div class="bg-white p-2 rounded-lg max-w-3xl w-full mx-4 relative">
+            <button class="close-modal-btn absolute -top-8 right-0 text-white hover:text-gray-300 text-2xl font-bold">×</button>
+            <div class="aspect-video w-full bg-black rounded">
+                <iframe id="video-modal-iframe" class="w-full h-full" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div id="video-modal-title" class="p-4 font-medium text-lg bg-white rounded-b-lg"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Video Gallery Logic ---
+            const modal = document.getElementById('video-modal');
+            const iframe = document.getElementById('video-modal-iframe');
+            const modalTitle = document.getElementById('video-modal-title');
+            const closeBtn = document.querySelector('.close-modal-btn');
+
+            function openModal(videoId, title) {
+                // Using no-cookie for privacy
+                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`;
+                modalTitle.textContent = title;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                iframe.src = '';
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+            // Initialize Galleries
+            document.querySelectorAll('[data-gallery]').forEach(gallery => {
+                const carousel = gallery.querySelector('.video-carousel');
+                const prevBtn = gallery.querySelector('.carousel-prev');
+                const nextBtn = gallery.querySelector('.carousel-next');
+
+                // Bind thumbnails
+                gallery.querySelectorAll('.video-card').forEach(card => {
+                    card.addEventListener('click', () => {
+                        openModal(card.dataset.videoId, card.dataset.title);
+                    });
+                });
+
+                // Scroll buttons
+                prevBtn?.addEventListener('click', () => { carousel.scrollBy({ left: -300, behavior: 'smooth' }); });
+                nextBtn?.addEventListener('click', () => { carousel.scrollBy({ left: 300, behavior: 'smooth' }); });
+            });
+
+            // --- Contact Form Logic ---
+            const form = document.getElementById('contact-form');
+            const status = document.getElementById('form-status');
+            
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const originalText = btn.innerText;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                btn.disabled = true;
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    
+                    if (response.ok) {
+                        status.classList.remove('hidden', 'bg-red-100', 'text-red-600');
+                        status.classList.add('bg-green-100', 'text-green-600');
+                        status.innerText = "Message sent successfully! I'll get back to you soon.";
+                        form.reset();
+                    } else {
+                        throw new Error();
+                    }
+                } catch (error) {
+                    status.classList.remove('hidden', 'bg-green-100', 'text-green-600');
+                    status.classList.add('bg-red-100', 'text-red-600');
+                    status.innerText = "Oops! Something went wrong. Please try again.";
+                } finally {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
